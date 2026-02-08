@@ -1,0 +1,5 @@
+{
+  "name": "Brew Coffee",
+  "description": "A premium coffee shop application featuring customer ordering, loyalty rewards, wallet management, and a comprehensive admin dashboard for staff, inventory, and analytics.",
+  "requestFramePermissions": []
+}
