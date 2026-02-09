@@ -186,6 +186,63 @@ CREATE POLICY "Users can create reviews" ON public.reviews
   FOR INSERT WITH CHECK (auth.uid() = user_id);
 
 -- ============================================================================
+-- REVIEW REPLIES
+-- ============================================================================
+CREATE TABLE IF NOT EXISTS public.review_replies (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  review_id UUID REFERENCES public.reviews(id) ON DELETE CASCADE UNIQUE,
+  reply_text TEXT NOT NULL,
+  replied_at TIMESTAMPTZ DEFAULT NOW(),
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE public.review_replies ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Authenticated users can manage review replies" ON public.review_replies
+  FOR ALL USING (auth.role() = 'authenticated');
+
+-- ============================================================================
+-- CAMPAIGNS
+-- ============================================================================
+CREATE TABLE IF NOT EXISTS public.campaigns (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  name TEXT NOT NULL,
+  offer_type TEXT CHECK (offer_type IN ('percent', 'fixed', 'bogo')) NOT NULL,
+  discount_value DECIMAL(10,2) DEFAULT 0,
+  min_purchase DECIMAL(10,2) DEFAULT 0,
+  start_date TIMESTAMPTZ NOT NULL,
+  end_date TIMESTAMPTZ NOT NULL,
+  target_audience TEXT NOT NULL DEFAULT 'all',
+  status TEXT CHECK (status IN ('Draft', 'Active', 'Ended')) DEFAULT 'Draft',
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE public.campaigns ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Authenticated users can manage campaigns" ON public.campaigns
+  FOR ALL USING (auth.role() = 'authenticated');
+
+-- ============================================================================
+-- NOTIFICATIONS
+-- ============================================================================
+CREATE TABLE IF NOT EXISTS public.notifications (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  title TEXT NOT NULL,
+  message TEXT NOT NULL,
+  audience TEXT CHECK (audience IN ('all', 'loyal', 'inactive', 'new')) NOT NULL,
+  delivery TEXT CHECK (delivery IN ('now', 'scheduled')) NOT NULL DEFAULT 'now',
+  status TEXT CHECK (status IN ('Draft', 'Scheduled', 'Sent')) NOT NULL DEFAULT 'Draft',
+  target_count INTEGER DEFAULT 0,
+  scheduled_for TIMESTAMPTZ,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE public.notifications ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Authenticated users can manage notifications" ON public.notifications
+  FOR ALL USING (auth.role() = 'authenticated');
+
+-- ============================================================================
 -- SEED DATA
 -- ============================================================================
 

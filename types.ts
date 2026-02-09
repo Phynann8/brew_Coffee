@@ -95,6 +95,7 @@ export interface CustomerReview {
   product: string;
   timeAgo: string;
   isReplied: boolean;
+  replyText?: string;
 }
 
 // Shopping Cart
@@ -139,6 +140,24 @@ export interface Campaign {
   targetAudience: string;
   status: 'Draft' | 'Active' | 'Ended';
 }
+
+// Notifications
+export type NotificationAudience = 'all' | 'loyal' | 'inactive' | 'new';
+
+export interface NotificationHistoryItem {
+  id: string;
+  title: string;
+  message: string;
+  audience: NotificationAudience;
+  delivery: 'now' | 'scheduled';
+  status: 'Draft' | 'Scheduled' | 'Sent';
+  targetCount: number;
+  scheduledFor?: string;
+  createdAt: string;
+}
+
+// Admin Queue Actions
+export type QueueAction = 'start-brewing' | 'mark-ready' | 'complete-order' | 'cancel-order';
 
 // Staff Performance
 export interface StaffPerformance extends Staff {

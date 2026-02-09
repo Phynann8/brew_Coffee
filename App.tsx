@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Routes, Route, useNavigate, useLocation, Navigate } from 'react-router-dom';
 import { useStore } from './store/useStore';
-import { ScreenName } from './types';
 import { BottomNav } from './components/Shared';
 import { OnboardingScreen, HomeScreen, DetailsScreen, TrackOrderScreen, WalletScreen, InviteScreen } from './screens/CustomerScreens';
 import { AdminDashboard, AdminInventory, AdminStaff } from './screens/AdminScreens';
@@ -13,6 +12,7 @@ import { StoreLocatorScreen, CheckoutScreen, OrderHistoryScreen, RewardsScreen }
 import { LiveQueueScreen, AnalyticsScreen, FeedbackScreen } from './screens/Phase2Screens';
 // Phase 3: Advanced Features
 import { StaffPerformanceScreen, CampaignBuilderScreen, NotificationComposerScreen, MenuManagementScreen } from './screens/Phase3Screens';
+import { CartScreen } from './screens/CartScreen';
 
 const App = () => {
   const { isAdminMode, toggleAdminMode } = useStore();
@@ -28,8 +28,6 @@ const App = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
-
-  const isAdminRoute = location.pathname.startsWith('/admin');
 
   // Sidebar Item
   const SidebarNavItem = ({ path, icon, label }: { path: string; icon: string; label: string }) => {
@@ -83,11 +81,13 @@ const App = () => {
             <div className="flex flex-col gap-2 flex-1">
               <p className="text-xs font-bold text-text-subtle uppercase tracking-wider px-2 mb-2 mt-2">Overview</p>
               <SidebarNavItem path="/admin/dashboard" icon="dashboard" label="Dashboard" />
+              <SidebarNavItem path="/admin/analytics" icon="monitoring" label="Analytics" />
               <SidebarNavItem path="/admin/queue" icon="list_alt" label="Live Queue" />
               <SidebarNavItem path="/admin/inventory" icon="inventory_2" label="Inventory" />
 
               <p className="text-xs font-bold text-text-subtle uppercase tracking-wider px-2 mb-2 mt-6">Management</p>
               <SidebarNavItem path="/admin/staff" icon="group" label="Staff" />
+              <SidebarNavItem path="/admin/performance" icon="trophy" label="Performance" />
               <SidebarNavItem path="/admin/feedback" icon="reviews" label="Feedback" />
               <SidebarNavItem path="/admin/campaign" icon="campaign" label="Campaigns" />
               <SidebarNavItem path="/admin/notification" icon="notifications" label="Notifications" />
@@ -122,21 +122,14 @@ const App = () => {
             <Route path="/orders" element={<OrderHistoryScreen />} />
             <Route path="/rewards" element={<RewardsScreen />} />
 
-            <Route path="/cart" element={
-              <div className="h-screen flex flex-col bg-bg-dark text-cream">
-                <div className="p-4 flex items-center"><button onClick={() => navigate(-1)}><span className="material-symbols-outlined">arrow_back</span></button><h2 className="ml-4 font-bold">Cart</h2></div>
-                <div className="flex-1 flex items-center justify-center flex-col">
-                  <span className="material-symbols-outlined text-6xl text-white/10">shopping_cart</span>
-                  <p className="mt-4 text-text-subtle">Items added...</p>
-                  <button onClick={() => navigate('/checkout')} className="mt-8 bg-primary text-black px-8 py-3 rounded-xl font-bold">Checkout</button>
-                </div>
-              </div>
-            } />
+            <Route path="/cart" element={<CartScreen />} />
 
             {/* Admin Routes */}
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
+            <Route path="/admin/analytics" element={<AnalyticsScreen />} />
             <Route path="/admin/inventory" element={<AdminInventory />} />
             <Route path="/admin/staff" element={<AdminStaff />} />
+            <Route path="/admin/performance" element={<StaffPerformanceScreen />} />
             <Route path="/admin/queue" element={<LiveQueueScreen />} />
             <Route path="/admin/feedback" element={<FeedbackScreen />} />
             <Route path="/admin/campaign" element={<CampaignBuilderScreen />} />

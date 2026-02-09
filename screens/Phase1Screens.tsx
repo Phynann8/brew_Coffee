@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Header, Button } from '../components/Shared';
 import { STORES, PAST_ORDERS, REWARDS, IMAGES } from '../constants';
 import { Store } from '../types';
+import { useStore } from '../store/useStore';
 
 // STORE LOCATOR
 export const StoreLocatorScreen = () => {
@@ -180,15 +181,23 @@ export const StoreLocatorScreen = () => {
 // CHECKOUT / REVIEW ORDER
 export const CheckoutScreen = () => {
     const navigate = useNavigate();
+    const { cart, updateQuantity, removeFromCart, cartTotal, submitCartOrder, adminLoading } = useStore();
     const [tip, setTip] = useState(0);
-    const subtotal = 8.30;
-    const tax = 0.75;
+
+    const subtotal = cartTotal();
+    const tax = subtotal * 0.09;
     const total = subtotal + tax + tip;
 
-    const handlePlaceOrder = () => {
-        // Logic to place order
-        console.log("Order placed!");
-        navigate('/track-order');
+    const handlePlaceOrder = async () => {
+        if (!cart.length) {
+            navigate('/');
+            return;
+        }
+
+        const orderId = await submitCartOrder('Alex');
+        if (orderId) {
+            navigate('/track-order', { state: { orderId } });
+        }
     };
 
     return (
@@ -196,46 +205,37 @@ export const CheckoutScreen = () => {
             <Header title="Review Order" showBack />
 
             <div className="flex-1 overflow-y-auto px-4 py-6 space-y-6">
-                {/* Order Items */}
                 <div className="bg-card-dark rounded-xl p-4 border border-white/5">
                     <h3 className="text-sm font-bold text-text-subtle uppercase tracking-widest mb-4">Your Items</h3>
 
-                    <div className="space-y-4">
-                        <div className="flex gap-4">
-                            <img src={IMAGES.cappuccino} className="w-16 h-16 rounded-lg object-cover" alt="Vanilla Latte" />
-                            <div className="flex-1">
-                                <div className="flex justify-between">
-                                    <h4 className="font-bold text-cream">Vanilla Latte</h4>
-                                    <span className="text-cream font-bold">$4.50</span>
-                                </div>
-                                <p className="text-xs text-text-subtle">Medium • Oat Milk • Extra Shot</p>
-                                <div className="flex items-center gap-3 mt-2">
-                                    <button className="w-6 h-6 rounded bg-white/5 text-cream flex items-center justify-center">-</button>
-                                    <span className="text-cream font-bold">1</span>
-                                    <button className="w-6 h-6 rounded bg-white/5 text-cream flex items-center justify-center">+</button>
-                                </div>
-                            </div>
-                        </div>
+                    {!cart.length && (
+                        <p className="text-sm text-text-subtle">Your cart is empty. Add items before checkout.</p>
+                    )}
 
-                        <div className="flex gap-4">
-                            <img src={IMAGES.croissant} className="w-16 h-16 rounded-lg object-cover" alt="Croissant" />
-                            <div className="flex-1">
-                                <div className="flex justify-between">
-                                    <h4 className="font-bold text-cream">Croissant</h4>
-                                    <span className="text-cream font-bold">$3.80</span>
-                                </div>
-                                <p className="text-xs text-text-subtle">Freshly baked</p>
-                                <div className="flex items-center gap-3 mt-2">
-                                    <button className="w-6 h-6 rounded bg-white/5 text-cream flex items-center justify-center">-</button>
-                                    <span className="text-cream font-bold">1</span>
-                                    <button className="w-6 h-6 rounded bg-white/5 text-cream flex items-center justify-center">+</button>
+                    <div className="space-y-4">
+                        {cart.map((item, index) => (
+                            <div key={`${item.product.id}-${index}`} className="flex gap-4">
+                                <img src={item.product.image} className="w-16 h-16 rounded-lg object-cover" alt={item.product.name} />
+                                <div className="flex-1">
+                                    <div className="flex justify-between">
+                                        <h4 className="font-bold text-cream">{item.product.name}</h4>
+                                        <span className="text-cream font-bold">${(item.product.price * item.quantity).toFixed(2)}</span>
+                                    </div>
+                                    <p className="text-xs text-text-subtle">{item.size} • {item.customizations.join(', ') || 'Standard'}</p>
+                                    <div className="flex items-center justify-between mt-2">
+                                        <div className="flex items-center gap-3">
+                                            <button onClick={() => updateQuantity(index, -1)} className="w-6 h-6 rounded bg-white/5 text-cream flex items-center justify-center">-</button>
+                                            <span className="text-cream font-bold">{item.quantity}</span>
+                                            <button onClick={() => updateQuantity(index, 1)} className="w-6 h-6 rounded bg-white/5 text-cream flex items-center justify-center">+</button>
+                                        </div>
+                                        <button onClick={() => removeFromCart(index)} className="text-xs text-red-400 font-bold">Remove</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
 
-                {/* Tip Selection */}
                 <div className="bg-card-dark rounded-xl p-4 border border-white/5">
                     <h3 className="text-sm font-bold text-text-subtle uppercase tracking-widest mb-4">Add a Tip</h3>
                     <div className="flex gap-3">
@@ -243,10 +243,7 @@ export const CheckoutScreen = () => {
                             <button
                                 key={t}
                                 onClick={() => setTip(t)}
-                                className={`flex-1 py-3 rounded-lg font-bold text-sm ${tip === t
-                                    ? 'bg-primary text-bg-dark'
-                                    : 'bg-white/5 text-cream hover:bg-white/10'
-                                    }`}
+                                className={`flex-1 py-3 rounded-lg font-bold text-sm ${tip === t ? 'bg-primary text-bg-dark' : 'bg-white/5 text-cream hover:bg-white/10'}`}
                             >
                                 {t === 0 ? 'None' : `$${t}`}
                             </button>
@@ -254,20 +251,6 @@ export const CheckoutScreen = () => {
                     </div>
                 </div>
 
-                {/* Promo Code */}
-                <div className="bg-card-dark rounded-xl p-4 border border-white/5">
-                    <div className="flex items-center gap-3">
-                        <span className="material-symbols-outlined text-primary">confirmation_number</span>
-                        <input
-                            type="text"
-                            placeholder="Enter promo code"
-                            className="flex-1 bg-transparent text-cream placeholder:text-text-subtle focus:outline-none"
-                        />
-                        <button className="text-primary font-bold text-sm">Apply</button>
-                    </div>
-                </div>
-
-                {/* Order Summary */}
                 <div className="bg-card-dark rounded-xl p-4 border border-white/5">
                     <h3 className="text-sm font-bold text-text-subtle uppercase tracking-widest mb-4">Summary</h3>
                     <div className="space-y-2 text-sm">
@@ -294,9 +277,10 @@ export const CheckoutScreen = () => {
                 </div>
             </div>
 
-            {/* Place Order Button */}
             <div className="p-4 border-t border-white/5">
-                <Button onClick={handlePlaceOrder}>Place Order • ${total.toFixed(2)}</Button>
+                <Button onClick={handlePlaceOrder} className={!cart.length || adminLoading ? 'opacity-60 pointer-events-none' : ''}>
+                    {adminLoading ? 'Placing Order...' : `Place Order • $${total.toFixed(2)}`}
+                </Button>
             </div>
         </div>
     );
@@ -330,7 +314,7 @@ export const OrderHistoryScreen = () => {
 
                         <div className="space-y-1 mb-4">
                             {order.items.map((item, idx) => (
-                                <p key={idx} className="text-sm text-text-subtle">• {item}</p>
+                                <p key={idx} className="text-sm text-text-subtle">â€¢ {item}</p>
                             ))}
                         </div>
 
@@ -434,3 +418,4 @@ export const RewardsScreen = () => {
         </div>
     );
 };
+
