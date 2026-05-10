@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Live Order Queue</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&amp;family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#f4c025", "background-light": "#f8f8f5", "background-dark": "#221e10", "surface-dark": "#2C241E", "surface-light": "#FFFFFF"}, fontFamily: {display: "Plus Jakarta Sans", body: ["Noto Sans", "sans-serif"]}, borderRadius: {DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px"}}}};</script>
+<style>
+        /* Custom scrollbar hiding for horizontal scroll areas */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto shadow-2xl">
+<!-- Top App Bar -->
+<div class="sticky top-0 z-50 flex items-center bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md p-4 pb-2 justify-between border-b border-stone-200 dark:border-stone-800">
+<div class="text-slate-900 dark:text-white flex size-12 shrink-0 items-center justify-start cursor-pointer">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-xl font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">Live Queue</h2>
+<div class="absolute right-4 top-1/2 -translate-y-1/2 flex items-center justify-end">
+<span class="bg-primary/20 text-primary dark:text-primary px-3 py-1 rounded-full text-xs font-bold leading-normal tracking-[0.015em] shrink-0 border border-primary/20">8 Active</span>
+</div>
+</div>
+<!-- Filter Chips -->
+<div class="sticky top-[69px] z-40 bg-background-light dark:bg-background-dark pt-2 pb-2 pl-4 border-b border-stone-200 dark:border-stone-800">
+<div class="flex gap-3 overflow-x-auto scrollbar-hide pr-4">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-900 dark:bg-white pl-5 pr-5 shadow-sm">
+<span class="text-white dark:text-background-dark text-sm font-bold">All</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-surface-dark border border-stone-200 dark:border-stone-700 pl-5 pr-5">
+<span class="text-slate-700 dark:text-stone-300 text-sm font-medium">New</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-surface-dark border border-stone-200 dark:border-stone-700 pl-5 pr-5">
+<span class="text-slate-700 dark:text-stone-300 text-sm font-medium">Brewing</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-surface-dark border border-stone-200 dark:border-stone-700 pl-5 pr-5">
+<span class="text-slate-700 dark:text-stone-300 text-sm font-medium">Ready</span>
+</button>
+</div>
+</div>
+<!-- Main Content: Order Feed -->
+<div class="flex flex-col gap-4 p-4 pb-24">
+<!-- Card 1: Critical (Red) -->
+<div class="group relative flex flex-col items-stretch justify-start rounded-xl shadow-lg bg-white dark:bg-surface-dark overflow-hidden border-l-[6px] border-red-500">
+<div class="flex flex-row p-4 gap-4">
+<!-- Image -->
+<div class="w-20 h-20 shrink-0 bg-center bg-no-repeat bg-cover rounded-lg bg-stone-100 dark:bg-stone-800" data-alt="Iced latte with oat milk on a table" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC36GIY-HsUU7qcl7rodW0GwV403Fh9oBwkZWtbiPBo1r4AMPYcaFTfJvqkDaiQ7SbNHkyDwkrsrInxTB21jHl_WefIOpK7hHMt0eplMRVxwsQWlIl8hpKsg1jh8mtYNgJNabBPSSbs_PUhH_xqPgSzob_Ms29lAXlxn8yHTuxvL93n6LtEe1pjSEOTXaNYoU6D-nnSVsf_b1yqxYdd54o-szTsWIW5FDWvpw_zSsryZwzwQHzyYqvp23m03o89pPwFp7H2-jVgcvE3");'></div>
+<!-- Content -->
+<div class="flex flex-col flex-1 gap-1">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="text-red-600 dark:text-red-400 text-xs font-bold tracking-wider uppercase mb-0.5">Critical Wait</span>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight">#305 • Sarah J.</h3>
+</div>
+<div class="flex items-center gap-1 text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 px-2 py-1 rounded">
+<span class="material-symbols-outlined text-sm">timer</span>
+<span class="text-sm font-bold font-mono">12:04</span>
+</div>
+</div>
+<div class="mt-2">
+<p class="text-slate-700 dark:text-stone-300 text-sm font-medium mb-2">1x Iced Latte</p>
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center rounded-md bg-stone-100 dark:bg-stone-700/50 px-2 py-1 text-xs font-medium text-stone-600 dark:text-stone-300 ring-1 ring-inset ring-stone-500/10">Oat Milk</span>
+<span class="inline-flex items-center rounded-md bg-stone-100 dark:bg-stone-700/50 px-2 py-1 text-xs font-medium text-stone-600 dark:text-stone-300 ring-1 ring-inset ring-stone-500/10">Vanilla Syrup</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Bar -->
+<div class="p-4 pt-0 mt-1">
+<button class="flex w-full cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-primary hover:bg-orange-600 active:bg-orange-700 text-white text-sm font-bold leading-normal transition-colors shadow-md shadow-orange-900/20">
+                        Mark Ready
+                    </button>
+</div>
+</div>
+<!-- Card 2: Brewing (Orange) -->
+<div class="group relative flex flex-col items-stretch justify-start rounded-xl shadow-md bg-white dark:bg-surface-dark overflow-hidden border-l-[6px] border-primary">
+<div class="flex flex-row p-4 gap-4">
+<!-- Image -->
+<div class="w-20 h-20 shrink-0 bg-center bg-no-repeat bg-cover rounded-lg bg-stone-100 dark:bg-stone-800" data-alt="Barista pouring latte art" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDTb_nK_MQlAGN2XUMx1as6B_CD3WXaKkUD-7__wOdwkfEXAbfEauZaxh-8DKkCyzZX2GXrgakxqhBQMlEPMrywqcmvg6kl0CZFYbJYfxcMg3lpYh8qdJ08lYnxLo3qcjmJ-RndBk1zyaPBqyXYZ-fm6y3s-T1lMBhdTbKbyQ8jtily-mdjYuKVOI55HVajBjv_ZWxmfnKuOmk60tRYLejKYiOHF9NxFao-kF5iFGZK2LqCnDaJoPtGnadGMWP0Okxbga7YeSqk9euG");'></div>
+<!-- Content -->
+<div class="flex flex-col flex-1 gap-1">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="text-primary text-xs font-bold tracking-wider uppercase mb-0.5">Brewing</span>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight">#307 • David L.</h3>
+</div>
+<div class="flex items-center gap-1 text-primary bg-orange-50 dark:bg-orange-900/20 px-2 py-1 rounded">
+<span class="material-symbols-outlined text-sm">timer</span>
+<span class="text-sm font-bold font-mono">04:12</span>
+</div>
+</div>
+<div class="mt-2">
+<p class="text-slate-700 dark:text-stone-300 text-sm font-medium mb-2">2x Cappuccino</p>
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center rounded-md bg-stone-100 dark:bg-stone-700/50 px-2 py-1 text-xs font-medium text-stone-600 dark:text-stone-300 ring-1 ring-inset ring-stone-500/10">Extra Hot</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Bar -->
+<div class="p-4 pt-0 mt-1 flex gap-3">
+<button class="flex-1 cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-400 text-sm font-semibold leading-normal hover:bg-stone-200 dark:hover:bg-stone-700 transition-colors">
+                        Cancel
+                    </button>
+<button class="flex-[2] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-primary hover:bg-orange-600 active:bg-orange-700 text-white text-sm font-bold leading-normal transition-colors shadow-md shadow-orange-900/20">
+                        Mark Ready
+                    </button>
+</div>
+</div>
+<!-- Card 3: New (Green) -->
+<div class="group relative flex flex-col items-stretch justify-start rounded-xl shadow-md bg-white dark:bg-surface-dark overflow-hidden border-l-[6px] border-emerald-500">
+<div class="flex flex-row p-4 gap-4">
+<!-- Image -->
+<div class="w-20 h-20 shrink-0 bg-center bg-no-repeat bg-cover rounded-lg bg-stone-100 dark:bg-stone-800" data-alt="Black americano coffee in cup" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDCTyK4Bk8Kkj-NpQW9Qzx4WXJ7Ui7iA0hCiMu3Jo_avB-NyCpsnrTgBv7nU7Pb1VTqoUo-xTH8KCGx35OPQY01A2RUXMZ87X6GRCymhi2gLSbeZc34_Fp4SpbgwSuL_hISKXAkEUryuVMKmIyho5lcijWcFC_dBy8Om1__J5siR3A285g4MHjZg8aCX9RI4T5pVxxE-oeAH3LFLu6bi7Kn1nFEfH-4X94E3IurmQ3HE_pBvRii9NqbtU6vn8uTgs_QkT1a5ZACuf9w");'></div>
+<!-- Content -->
+<div class="flex flex-col flex-1 gap-1">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="text-emerald-600 dark:text-emerald-500 text-xs font-bold tracking-wider uppercase mb-0.5">New Order</span>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight">#306 • Mike T.</h3>
+</div>
+<div class="flex items-center gap-1 text-emerald-600 dark:text-emerald-500 bg-emerald-50 dark:bg-emerald-900/20 px-2 py-1 rounded">
+<span class="material-symbols-outlined text-sm">timer</span>
+<span class="text-sm font-bold font-mono">00:45</span>
+</div>
+</div>
+<div class="mt-2">
+<p class="text-slate-700 dark:text-stone-300 text-sm font-medium mb-2">1x Americano</p>
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center rounded-md bg-stone-100 dark:bg-stone-700/50 px-2 py-1 text-xs font-medium text-stone-600 dark:text-stone-300 ring-1 ring-inset ring-stone-500/10">Black</span>
+<span class="inline-flex items-center rounded-md bg-stone-100 dark:bg-stone-700/50 px-2 py-1 text-xs font-medium text-stone-600 dark:text-stone-300 ring-1 ring-inset ring-stone-500/10">No Sugar</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Bar -->
+<div class="p-4 pt-0 mt-1">
+<button class="flex w-full cursor-pointer items-center justify-center rounded-lg h-10 px-4 border border-primary text-primary hover:bg-primary/5 active:bg-primary/10 text-sm font-bold leading-normal transition-colors">
+                        Start Brewing
+                    </button>
+</div>
+</div>
+<!-- Card 4: New (Green) - Example with multiple items -->
+<div class="group relative flex flex-col items-stretch justify-start rounded-xl shadow-md bg-white dark:bg-surface-dark overflow-hidden border-l-[6px] border-emerald-500 opacity-60">
+<div class="flex flex-row p-4 gap-4">
+<!-- Image -->
+<div class="w-20 h-20 shrink-0 bg-center bg-no-repeat bg-cover rounded-lg bg-stone-100 dark:bg-stone-800" data-alt="Pour over coffee brewing" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuByPuPTVssgt2IAEjUlZ6rGa64lrueiaGyqJJUSA-UPSAHrCO4BDsH2-RH4Mtw3gUedSUwBNOp43F1ARU_FIKjbIqJo5iCcsVelpXYyV-YwXbWLIlm-TKG7vch55sjN_tmjCoidqpTrNwagH1ENhwVlU0FSRZPMDmDTYgk3ZBgcurdarHbFbtUOU6Vfullm0W0DeG9XhSa4tmJrnIypY4cmJLWfJRDEU2YDhrLzvv35wxzQcDips7p4waLsLFV4dAfo_TgM3z9xh5qo");'></div>
+<!-- Content -->
+<div class="flex flex-col flex-1 gap-1">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="text-emerald-600 dark:text-emerald-500 text-xs font-bold tracking-wider uppercase mb-0.5">New Order</span>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight">#308 • Jenny W.</h3>
+</div>
+<div class="flex items-center gap-1 text-emerald-600 dark:text-emerald-500 bg-emerald-50 dark:bg-emerald-900/20 px-2 py-1 rounded">
+<span class="material-symbols-outlined text-sm">timer</span>
+<span class="text-sm font-bold font-mono">00:12</span>
+</div>
+</div>
+<div class="mt-2">
+<p class="text-slate-700 dark:text-stone-300 text-sm font-medium mb-1">1x Pour Over</p>
+<p class="text-slate-700 dark:text-stone-300 text-sm font-medium mb-2">1x Croissant</p>
+</div>
+</div>
+</div>
+<!-- Action Bar -->
+<div class="p-4 pt-0 mt-1">
+<button class="flex w-full cursor-pointer items-center justify-center rounded-lg h-10 px-4 border border-primary text-primary hover:bg-primary/5 active:bg-primary/10 text-sm font-bold leading-normal transition-colors">
+                        Start Brewing
+                    </button>
+</div>
+</div>
+</div>
+<!-- Floating Action Button -->
+<button class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-slate-900 dark:bg-white text-white dark:text-background-dark shadow-xl hover:scale-105 active:scale-95 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-3xl">pause</span>
+</button>
+<!-- Bottom Spacing -->
+<div class="h-6 w-full"></div>
+</div>
+</body></html>

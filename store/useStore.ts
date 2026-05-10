@@ -13,6 +13,8 @@ import type {
     StaffPerformance,
 } from '../types';
 import * as api from '../lib/api';
+import { supabase } from '../lib/supabase';
+import type { User } from '@supabase/supabase-js';
 
 type CampaignInput = Omit<Campaign, 'id'> & { id?: string };
 
@@ -33,8 +35,7 @@ interface AppState {
     cartTotal: () => number;
     submitCartOrder: (customerName?: string) => Promise<string | null>;
 
-    isAdminMode: boolean;
-    toggleAdminMode: () => void;
+    deleteMenuItem: (id: string) => Promise<void>;
 
     adminLoading: boolean;
     adminError: string | null;
@@ -61,7 +62,13 @@ interface AppState {
     loadMenuItems: () => Promise<void>;
     createMenuItem: (item: Omit<Product, 'id'> & { id?: string }) => Promise<Product | null>;
     updateMenuItem: (id: string, updates: Partial<Omit<Product, 'id'>>) => Promise<Product | null>;
-    deleteMenuItem: (id: string) => Promise<void>;
+
+    user: User | null;
+    role: 'admin' | 'customer' | null;
+    authLoading: boolean;
+
+    initializeAuth: () => Promise<void>;
+    signOut: () => Promise<void>;
 }
 
 const getErrorMessage = (error: unknown): string =>
@@ -130,8 +137,56 @@ export const useStore = create<AppState>()(
                 }
             },
 
-            isAdminMode: false,
-            toggleAdminMode: () => set((state) => ({ isAdminMode: !state.isAdminMode })),
+            user: null,
+            role: null,
+            authLoading: true,
+
+            initializeAuth: async () => {
+                if (!supabase) {
+                    set({ authLoading: false });
+                    return;
+                }
+
+                const { data: { session } } = await supabase.auth.getSession();
+                if (session?.user) {
+                    const { data: profile } = await supabase
+                        .from('users')
+                        .select('role')
+                        .eq('id', session.user.id)
+                        .single();
+
+                    set({
+                        user: session.user,
+                        role: profile?.role ?? 'customer',
+                        authLoading: false
+                    });
+                } else {
+                    set({ user: null, role: null, authLoading: false });
+                }
+
+                supabase.auth.onAuthStateChange(async (event, session) => {
+                    if (session?.user) {
+                        const { data: profile } = await supabase
+                            .from('users')
+                            .select('role')
+                            .eq('id', session.user.id)
+                            .single();
+
+                        set({
+                            user: session.user,
+                            role: profile?.role ?? 'customer'
+                        });
+                    } else {
+                        set({ user: null, role: null });
+                    }
+                });
+            },
+
+            signOut: async () => {
+                if (!supabase) return;
+                await supabase.auth.signOut();
+                set({ user: null, role: null });
+            },
 
             adminLoading: false,
             adminError: null,
@@ -337,7 +392,6 @@ export const useStore = create<AppState>()(
             storage: createJSONStorage(() => localStorage),
             partialize: (state) => ({
                 cart: state.cart,
-                isAdminMode: state.isAdminMode,
             }),
         }
     )

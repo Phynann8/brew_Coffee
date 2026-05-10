@@ -3,7 +3,6 @@ import { PRODUCTS, STORES, INVENTORY, STAFF, REVIEWS, PAST_ORDERS, ORDER_QUEUE, 
 import type { Product as DbProduct, Store as DbStore, Order as DbOrder, Staff as DbStaff, Inventory as DbInventory, Review as DbReview } from './database.types';
 import type { AnalyticsData, Campaign, CartItem, CustomerReview, NotificationAudience, NotificationHistoryItem, OrderQueueItem, Product as UiProduct, QueueAction, StaffPerformance } from '../types';
 
-const MOCK_USER_ID = 'mock-user';
 const MOCK_STORE_ID = 'mock-store';
 const AUDIENCE_COUNTS: Record<NotificationAudience, number> = { all: 1240, loyal: 420, inactive: 265, new: 138 };
 
@@ -71,9 +70,9 @@ const toDbStaff = (member: (typeof STAFF)[number]): DbStaff => ({
     created_at: nowIso(),
 });
 
-const toDbReview = (review: CustomerReview): DbReview => ({
+const toDbReview = (review: CustomerReview, userId: string): DbReview => ({
     id: review.id,
-    user_id: MOCK_USER_ID,
+    user_id: userId,
     product_id: 'mock-product',
     rating: review.rating,
     review_text: review.reviewText,
@@ -126,7 +125,7 @@ const mockInventory = INVENTORY.map((item) => ({ ...item }));
 const mockStaff = STAFF.map((member) => ({ ...member }));
 const mockReviews: CustomerReview[] = REVIEWS.map((review) => ({ ...review, replyText: review.isReplied ? 'Thanks for your feedback. We have shared this with our team.' : undefined }));
 const mockQueue: OrderQueueItem[] = ORDER_QUEUE.map((order) => ({ ...order, items: order.items.map((item) => ({ ...item })), customizations: [...order.customizations] }));
-const mockOrders: DbOrder[] = PAST_ORDERS.map((order, index) => ({ id: order.id, user_id: MOCK_USER_ID, store_id: MOCK_STORE_ID, status: index === 0 ? 'Pending' : 'Completed', total: order.total, created_at: new Date(Date.now() - index * 3 * 60 * 60 * 1000).toISOString() }));
+const mockOrders: DbOrder[] = PAST_ORDERS.map((order, index) => ({ id: order.id, user_id: 'mock-user', store_id: MOCK_STORE_ID, status: index === 0 ? 'Pending' : 'Completed', total: order.total, created_at: new Date(Date.now() - index * 3 * 60 * 60 * 1000).toISOString() }));
 const mockCampaigns: Campaign[] = [
     { id: randomId('campaign'), name: 'Summer Espresso Deal', offerType: 'percent', discountValue: 25, minPurchase: 10, startDate: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(), endDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(), targetAudience: 'loyal', status: 'Draft' },
     { id: randomId('campaign'), name: 'Weekend BOGO Latte', offerType: 'bogo', discountValue: 0, minPurchase: 0, startDate: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(), endDate: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString(), targetAudience: 'all', status: 'Active' },
@@ -335,13 +334,14 @@ export async function createOrderFromCart(
     cartItems: CartItem[],
     options?: { userId?: string; storeId?: string; customerName?: string }
 ): Promise<string> {
+    const userId = options?.userId;
     if (!cartItems.length) throw new Error('Cannot create an order with an empty cart');
 
     const total = cartItems.reduce((sum, item) => sum + (item.product.price * item.quantity), 0);
     const customerName = options?.customerName ?? 'Guest';
 
     const order = await createOrder({
-        user_id: options?.userId ?? MOCK_USER_ID,
+        user_id: userId || 'mock-user',
         store_id: options?.storeId ?? MOCK_STORE_ID,
         status: 'Pending',
         total,
@@ -526,7 +526,7 @@ export async function getReviews(): Promise<DbReview[]> {
             if (error) throw error;
             return data ?? [];
         },
-        () => mockReviews.map(toDbReview)
+        () => mockReviews.map((r) => toDbReview(r, 'mock-user'))
     );
 }
 
@@ -775,7 +775,7 @@ export async function sendNotification(payload: {
                 createdAt: nowIso(),
             };
             mockNotificationHistory.unshift(notification);
-            return clone(notification);
+            return clone(notification) as any;
         }
     );
 }

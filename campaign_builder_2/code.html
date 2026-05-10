@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Campaign Builder - Dark Cozy</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#f4c025", gold: "#d4af37", cream: "#f5f5dc", "background-dark": "#221e10", "surface-dark": "#251c14", "input-dark": "#2d241c", "border-cream": "#e8e0d5", "background-light": "#f8f8f5"}, fontFamily: {display: "Plus Jakarta Sans"}, borderRadius: {DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px"}}}};</script>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply bg-background-dark text-stone-200 antialiased overflow-x-hidden min-h-screen flex flex-col;
+            }
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a140f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3d3025;
+            border-radius: 3px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="dark font-display">
+<header class="sticky top-0 z-50 bg-background-dark/95 backdrop-blur-md border-b border-stone-800">
+<div class="flex items-center p-4 justify-between max-w-lg mx-auto w-full">
+<button class="text-stone-400 flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h2 class="text-white text-lg font-bold leading-tight tracking-tight text-center">New Campaign</h2>
+<button class="text-stone-500 text-sm font-bold leading-normal hover:text-gold transition-colors">Cancel</button>
+</div>
+</header>
+<main class="flex-1 flex flex-col max-w-lg mx-auto w-full pb-24">
+<div class="flex flex-col gap-3 px-4 py-6">
+<div class="flex gap-6 justify-between items-baseline">
+<p class="text-stone-300 text-sm font-medium leading-normal">Step 1 of 3: Details</p>
+<p class="text-gold text-xs font-medium">33% Completed</p>
+</div>
+<div class="h-1.5 w-full bg-stone-800 rounded-full overflow-hidden">
+<div class="h-full bg-gold rounded-full" style="width: 33%;"></div>
+</div>
+</div>
+<div class="px-4 space-y-6">
+<div class="space-y-2">
+<label class="block text-sm font-medium text-stone-400">Internal Campaign Name</label>
+<input class="w-full h-12 px-4 rounded-lg bg-input-dark border border-stone-700 text-white placeholder-stone-600 focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-all" placeholder="e.g. Summer Morning Boost" type="text" value="Summer Espresso Deal"/>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-medium text-stone-400">Offer Type</label>
+<div class="flex p-1 bg-input-dark rounded-lg border border-stone-800">
+<button class="flex-1 py-2 px-3 text-sm font-medium rounded bg-surface-dark text-gold shadow-md transition-all text-center border border-stone-700/50">
+                        % Off
+                    </button>
+<button class="flex-1 py-2 px-3 text-sm font-medium rounded text-stone-500 hover:text-white transition-all text-center">
+                        Fixed $
+                    </button>
+<button class="flex-1 py-2 px-3 text-sm font-medium rounded text-stone-500 hover:text-white transition-all text-center">
+                        BOGO
+                    </button>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-1 space-y-2">
+<label class="block text-sm font-medium text-stone-400">Discount Value</label>
+<div class="relative">
+<input class="w-full h-12 px-4 rounded-lg bg-input-dark border border-stone-700 text-white placeholder-stone-600 focus:border-gold focus:ring-1 focus:ring-gold outline-none" placeholder="20" type="number" value="20"/>
+<div class="absolute inset-y-0 right-4 flex items-center pointer-events-none">
+<span class="text-stone-500 font-bold">%</span>
+</div>
+</div>
+</div>
+<div class="flex-1 space-y-2">
+<label class="block text-sm font-medium text-stone-400">Min. Purchase</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+<span class="text-stone-500 font-bold">$</span>
+</div>
+<input class="w-full h-12 pl-8 pr-4 rounded-lg bg-input-dark border border-stone-700 text-white placeholder-stone-600 focus:border-gold focus:ring-1 focus:ring-gold outline-none" placeholder="0.00" type="number"/>
+</div>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-medium text-stone-400">Schedule</label>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-input-dark border border-stone-700 rounded-lg p-3 flex flex-col justify-center cursor-pointer hover:border-gold/50 transition-colors">
+<span class="text-xs text-stone-500 mb-1">Start Date</span>
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium text-white">Oct 12</span>
+<span class="text-xs text-stone-500">10:00 AM</span>
+</div>
+</div>
+<div class="bg-input-dark border border-stone-700 rounded-lg p-3 flex flex-col justify-center cursor-pointer hover:border-gold/50 transition-colors">
+<span class="text-xs text-stone-500 mb-1">End Date</span>
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium text-white">Oct 15</span>
+<span class="text-xs text-stone-500">11:59 PM</span>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-medium text-stone-400">Target Audience</label>
+<div class="relative">
+<select class="w-full h-12 pl-4 pr-10 appearance-none rounded-lg bg-input-dark border border-stone-700 text-white focus:border-gold focus:ring-1 focus:ring-gold outline-none cursor-pointer">
+<option>All Users</option>
+<option selected="">Loyalty Members &gt; 500pts</option>
+<option>New Customers (Last 30 days)</option>
+<option>Inactive Users (60+ days)</option>
+</select>
+<div class="absolute inset-y-0 right-4 flex items-center pointer-events-none text-stone-500">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+</div>
+<div class="pt-6">
+<div class="flex items-center justify-between mb-3">
+<label class="text-sm font-medium text-stone-300 flex items-center gap-2">
+<span class="material-symbols-outlined text-gold text-lg">visibility</span>
+                        Live Mobile Preview
+                    </label>
+<span class="text-[10px] uppercase tracking-wider text-stone-400 bg-stone-800 px-2 py-0.5 rounded-full">Dark Theme App</span>
+</div>
+<div class="bg-black rounded-[2rem] p-3 border-4 border-stone-800 shadow-2xl">
+<div class="bg-zinc-950 rounded-[1.5rem] overflow-hidden border border-zinc-800 h-[420px] relative">
+<div class="h-6 flex items-center justify-between px-6 pt-2">
+<span class="text-[10px] text-white font-medium">9:41</span>
+<div class="flex gap-1 items-center">
+<div class="w-3 h-3 bg-white rounded-full scale-75"></div>
+<div class="w-4 h-2 bg-white rounded-sm"></div>
+</div>
+</div>
+<div class="h-14 bg-zinc-950 flex items-center px-4 justify-between">
+<span class="material-symbols-outlined text-stone-400 text-xl">menu</span>
+<span class="text-[10px] font-bold uppercase tracking-[0.2em] text-gold">Aura Coffee</span>
+<span class="material-symbols-outlined text-stone-400 text-xl">shopping_bag</span>
+</div>
+<div class="p-4 space-y-4">
+<div class="relative h-44 w-full bg-zinc-900 rounded-2xl overflow-hidden group">
+<img alt="Campaign Image" class="w-full h-full object-cover opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQBCACi7xVDDNXttB0Ex1EwA0SEb9J_k0duUPGEZ2HXne5fa4URNuwIGu6Iw6sYf-qv_TH17h8mqjMwjTJjXxaS4098Xewcr2nXk3xQgJJWmnXGilHQfCeixA5W9u4tLklEWGOu_Ck_LiAXujUW21zboW1ajVWnCsXhU-ETEV2pF-imgB8vhRpTEdK8XMLLQJCVeRr3CFO97PtRRVato2vxUgJW_TWfsdwZH50k9XiPMNbSDRqsXByacVSBla3YQRNMHAkmVZnL-lh"/>
+<div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent flex flex-col justify-end p-4">
+<span class="bg-gold text-black text-[9px] font-bold px-2 py-0.5 rounded-sm w-fit mb-2 uppercase tracking-tight">Exclusive Offer</span>
+<h3 class="text-white font-bold text-base leading-tight">Summer Espresso Deal</h3>
+<p class="text-stone-400 text-[11px] mt-1 leading-relaxed">Get 20% off all espresso-based drinks this weekend only!</p>
+</div>
+</div>
+<div class="bg-zinc-900/50 rounded-xl p-4 border border-zinc-800 flex justify-between items-center">
+<div>
+<p class="text-[9px] text-stone-500 uppercase font-bold tracking-wider">Promo Code</p>
+<p class="text-sm font-mono text-gold font-bold">SUM20</p>
+</div>
+<button class="bg-gold text-black text-[11px] font-bold px-4 py-2 rounded-full shadow-lg">
+                                    Apply
+                                </button>
+</div>
+<p class="text-[10px] text-center text-stone-600 italic">Valid until October 15, 2023</p>
+</div>
+<div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-24 h-1 bg-white/20 rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<div class="fixed bottom-0 left-0 right-0 p-4 bg-background-dark/95 backdrop-blur-md border-t border-stone-800 flex gap-3 max-w-lg mx-auto w-full z-40">
+<button class="flex-1 h-12 rounded-lg border border-stone-700 bg-transparent text-stone-400 font-bold text-base hover:bg-white/5 transition-colors">
+            Save Draft
+        </button>
+<button class="flex-1 h-12 rounded-lg bg-gold text-black font-bold text-base shadow-lg shadow-gold/20 hover:bg-gold/90 transition-colors flex items-center justify-center gap-2">
+            Next Step
+            <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</body></html>

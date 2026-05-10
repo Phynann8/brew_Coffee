@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Customer Feedback - Dark Cozy</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#f4c025", cream: "#F5F5DC", "cozy-dark": "#1A1412", "cozy-card": "#261E1B", "accent-gold": "#C5A028", "background-light": "#f8f8f5", "background-dark": "#221e10"}, fontFamily: {display: "Plus Jakarta Sans", sans: ["Inter", "sans-serif"]}, borderRadius: {DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px"}}}};</script>
+<style type="text/tailwindcss">
+        @layer base {
+            body { 
+                @apply bg-[#120D0B] text-cream;
+                font-family: 'Inter', sans-serif;
+            }
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex justify-center min-h-screen">
+<div class="relative flex h-full w-full max-w-md flex-col overflow-x-hidden bg-[#120D0B] pb-6">
+<header class="sticky top-0 z-20 flex items-center justify-between bg-[#120D0B]/95 p-4 backdrop-blur-md border-b border-white/5">
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center text-primary hover:text-accent-gold transition-colors">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</button>
+<h1 class="text-xl font-display font-bold text-cream tracking-tight">Customer Feedback</h1>
+</div>
+<button class="flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">tune</span>
+</button>
+</header>
+<div class="px-4 py-6">
+<div class="rounded-2xl bg-cozy-card p-5 border border-white/5 shadow-2xl">
+<div class="flex flex-col gap-1 mb-4">
+<p class="text-xs font-semibold uppercase tracking-widest text-primary/70">Sentiment Trend</p>
+<div class="flex items-baseline gap-3">
+<h2 class="text-4xl font-display font-bold text-cream">4.8</h2>
+<span class="flex items-center text-sm font-medium text-primary">
+<span class="material-symbols-outlined text-sm mr-0.5">trending_up</span>
+                            +0.2%
+                        </span>
+</div>
+</div>
+<div class="relative h-36 w-full mt-2">
+<svg fill="none" height="100%" preserveaspectratio="none" viewbox="0 0 478 150" width="100%" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25V149H326.769H0V109Z" fill="url(#paint0_linear)"></path>
+<path d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25" stroke="#D4AF37" stroke-linecap="round" stroke-width="3"></path>
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="paint0_linear" x1="236" x2="236" y1="1" y2="149">
+<stop stop-color="#D4AF37" stop-opacity="0.3"></stop>
+<stop offset="1" stop-color="#D4AF37" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+</svg>
+</div>
+<div class="mt-4 flex justify-between px-2 text-[10px] font-bold uppercase tracking-widest text-primary/40">
+<span>Week 1</span>
+<span>Week 2</span>
+<span>Week 3</span>
+<span>Week 4</span>
+</div>
+</div>
+</div>
+<div class="flex w-full gap-3 overflow-x-auto px-4 pb-2 hide-scrollbar">
+<button class="flex h-10 min-w-[64px] shrink-0 items-center justify-center rounded-xl bg-primary px-4 text-xs font-bold uppercase tracking-widest text-cozy-dark transition">
+                All
+            </button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-1.5 rounded-xl bg-cozy-card border border-white/10 px-4 text-xs font-bold text-cream/80 transition">
+                5 <span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-1.5 rounded-xl bg-cozy-card border border-white/10 px-4 text-xs font-bold text-cream/80 transition">
+                4 <span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-1.5 rounded-xl bg-cozy-card border border-white/10 px-4 text-xs font-bold text-cream/80 transition">
+                3 <span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-1.5 rounded-xl bg-cozy-card border border-white/10 px-4 text-xs font-bold text-cream/80 transition">
+                2 <span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+</div>
+<div class="flex flex-col gap-4 p-4">
+<div class="flex flex-col gap-4 rounded-2xl bg-cozy-card p-5 border border-white/5 shadow-lg">
+<div class="flex items-start justify-between">
+<div class="flex gap-4">
+<div class="h-12 w-12 shrink-0 overflow-hidden rounded-full border border-primary/20 bg-cozy-dark">
+<img class="h-full w-full object-cover grayscale-[20%]" data-alt="Alice M." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtl6CixJ6fIOrlaCMXzHTuuCMMPuHZk30dzxsNZ__ZkmIFsipzw5joPNNV8QriMt3qWC-FHsRbJNnYmyd4D8xrBfI2PnvrPpVKLtTnLxwo11poRB3t3sVOmJDJAExyXFIPhn57LdJSoT7iiY_1Cwf-3SRObuSZ9_6MVEvsSH-v26Win_j_6sCKFR1wMYKMnh4kJQv-uhIeBha_PjGxAccNphuaUcbZLgy9VnR2ndZZbRl7aUlLgyGl6CJgrVV-mttPaAbdAPrUMAn5"/>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-sm font-bold text-cream">Alice M.</h3>
+<div class="flex items-center gap-2">
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-tighter text-cream/40">2h ago</span>
+</div>
+</div>
+</div>
+</div>
+<p class="text-sm leading-relaxed text-cream/90 font-medium">
+                    "Great espresso! The foam was perfect, and the service was super quick this morning."
+                </p>
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-1.5 rounded-full bg-cozy-dark border border-white/5 py-1.5 px-3">
+<span class="material-symbols-outlined text-[14px] text-primary">coffee</span>
+<span class="text-[11px] font-semibold text-cream/60">Large Latte</span>
+</div>
+<button class="flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-primary hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined text-[18px]">reply</span>
+                        Reply
+                    </button>
+</div>
+</div>
+<div class="flex flex-col gap-4 rounded-2xl bg-cozy-card p-5 border border-primary/30 shadow-lg">
+<div class="flex items-start justify-between">
+<div class="flex gap-4">
+<div class="h-12 w-12 shrink-0 overflow-hidden rounded-full border border-primary/20 bg-cozy-dark">
+<img class="h-full w-full object-cover grayscale-[20%]" data-alt="John D." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrb80ET8SpXOpVSXWIsP7bE7bu1zfdtlmBvjUcTV1Ld3xFvwUJfnc0I7djRSV8vY2y72hGNFcPod8kCjlMvakFawDqLNNt_Kr0r5cH_MN8aiT1WImEzMEGJV2_HSq34Y8nu5n1u0LTVrCanHmmPxVtYHnVRJxR2_DIJzxD8YaQQVyHYQdBoUC4o_7JPztiu44z4IrCC_wP1F3qxQHjXJPHbrtAc3QrlS1ktg7NBl_JP1ZS9QSlP2-ezUZtubeyuWqxBP8vaAwgN7Ki"/>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-sm font-bold text-cream">John D.</h3>
+<div class="flex items-center gap-2">
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px] text-cream/20" style="font-variation-settings: 'FILL' 0;">star</span>
+<span class="material-symbols-outlined text-[16px] text-cream/20" style="font-variation-settings: 'FILL' 0;">star</span>
+<span class="material-symbols-outlined text-[16px] text-cream/20" style="font-variation-settings: 'FILL' 0;">star</span>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-tighter text-cream/40">5h ago</span>
+</div>
+</div>
+</div>
+</div>
+<p class="text-sm leading-relaxed text-cream/90 font-medium">
+                    "Coffee was cold upon arrival. Not what I expected for the price."
+                </p>
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-1.5 rounded-full bg-cozy-dark border border-white/5 py-1.5 px-3">
+<span class="material-symbols-outlined text-[14px] text-primary">coffee</span>
+<span class="text-[11px] font-semibold text-cream/60">Americano</span>
+</div>
+<button class="flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-xs font-bold uppercase tracking-widest text-cozy-dark hover:bg-accent-gold shadow-lg shadow-primary/10 transition-all">
+<span class="material-symbols-outlined text-[18px]">reply</span>
+                        Reply
+                    </button>
+</div>
+</div>
+<div class="flex flex-col gap-4 rounded-2xl bg-cozy-card p-5 border border-white/5 shadow-lg opacity-80">
+<div class="flex items-start justify-between">
+<div class="flex gap-4">
+<div class="h-12 w-12 shrink-0 overflow-hidden rounded-full border border-primary/20 bg-cozy-dark">
+<img class="h-full w-full object-cover grayscale-[20%]" data-alt="Sarah L." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrCX3rtIA4EhF-oh3lG9fmmw1GJ6UY7jZP0AUfuMHfiknFDp2ZEMJkuJ9-ml890GNE6pp7iK-GRHbxg3dEEFTKEPm63UpH0J4sWpqDR9uzfFIojrhDhjyb-FBQ0_GKwRF1p7mZAehfq5Fr1iitZUkrx9Od1_BtD9FCvQLVK-ezrz_NhDxSn1GyB7ZuVL1wta_bUE-7Fl2Uopeb4Aj2nMRRDPcpyH_tXEEk_y01WHEienIkoOeMmXIl57xqVAFjgtJdAR_oLcq5nYNr"/>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-sm font-bold text-cream">Sarah L.</h3>
+<div class="flex items-center gap-2">
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px] text-cream/20" style="font-variation-settings: 'FILL' 0;">star</span>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-tighter text-cream/40">1d ago</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1 rounded-full border border-primary/30 bg-primary/5 px-3 py-1">
+<span class="material-symbols-outlined text-[14px] text-primary">done_all</span>
+<span class="text-[9px] font-bold uppercase tracking-widest text-primary">Replied</span>
+</div>
+</div>
+<p class="text-sm leading-relaxed text-cream/90 font-medium italic">
+                    "Good, but forgot the sugar I requested in the notes."
+                </p>
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-1.5 rounded-full bg-cozy-dark border border-white/5 py-1.5 px-3">
+<span class="material-symbols-outlined text-[14px] text-primary">coffee</span>
+<span class="text-[11px] font-semibold text-cream/60">Cappuccino</span>
+</div>
+<button class="flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-widest text-cream/40 hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-[18px]">edit_note</span>
+                        Edit
+                    </button>
+</div>
+</div>
+<div class="flex flex-col gap-4 rounded-2xl bg-cozy-card p-5 border border-white/5 shadow-lg">
+<div class="flex items-start justify-between">
+<div class="flex gap-4">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-full border border-primary/30 bg-primary/10 text-primary">
+<span class="font-bold font-display">MK</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-sm font-bold text-cream">Mike K.</h3>
+<div class="flex items-center gap-2">
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px] text-cream/20" style="font-variation-settings: 'FILL' 0;">star</span>
+<span class="material-symbols-outlined text-[16px] text-cream/20" style="font-variation-settings: 'FILL' 0;">star</span>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-tighter text-cream/40">2d ago</span>
+</div>
+</div>
+</div>
+</div>
+<p class="text-sm leading-relaxed text-cream/90 font-medium">
+                    "Average at best."
+                </p>
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-1.5 rounded-full bg-cozy-dark border border-white/5 py-1.5 px-3">
+<span class="material-symbols-outlined text-[14px] text-primary">coffee</span>
+<span class="text-[11px] font-semibold text-cream/60">Espresso</span>
+</div>
+<button class="flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-primary hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined text-[18px]">reply</span>
+                        Reply
+                    </button>
+</div>
+</div>
+</div>
+</div>
+</body></html>

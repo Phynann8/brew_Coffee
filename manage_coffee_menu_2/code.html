@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html class="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Manage Coffee Menu - Dark Cozy</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+        :root {
+            --deep-brown: #241a14;
+            --surface-brown: #2d231b;
+            --cozy-cream: #f4ece2;
+            --cozy-gold: #c4a47c;
+            --cozy-gold-hover: #b3936b;
+            --text-muted: #a08c7d;
+        }
+        @theme {
+            extend {
+                colors: {
+                    "primary": "var(--cozy-gold)",
+                    "background-dark": "var(--deep-brown)",
+                    "surface-dark": "var(--surface-brown)",
+                    "cream": "var(--cozy-cream)",
+                    "gold": "var(--cozy-gold)",
+                    "gold-hover": "var(--cozy-gold-hover)",
+                }
+            }
+        }
+    </style>
+<script>tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#f4c025", "background-dark": "#221e10", "surface-dark": "#2d231b", "cream-text": "#f4ece2", "gold-accent": "#c4a47c", "background-light": "#f8f8f5"}, fontFamily: {display: "Plus Jakarta Sans"}, borderRadius: {DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px"}}}};</script>
+<style>
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#241a14] text-[#f4ece2] font-display antialiased selection:bg-[#c4a47c] selection:text-[#241a14]">
+<div class="relative min-h-screen flex flex-col w-full max-w-md mx-auto overflow-hidden shadow-2xl bg-[#241a14] border-x border-[#3d3027]">
+<header class="sticky top-0 z-20 flex items-center justify-between p-4 bg-[#241a14]/95 backdrop-blur-md border-b border-[#3d3027]">
+<div class="flex items-center gap-3">
+<button class="p-2 -ml-2 rounded-full hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-[#a08c7d]">menu</span>
+</button>
+<h1 class="text-xl font-bold tracking-tight text-[#f4ece2]">Menu</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-2 px-3 py-2 bg-[#c4a47c] hover:bg-[#b3936b] text-[#241a14] text-sm font-bold rounded-lg transition-colors shadow-lg shadow-[#c4a47c]/10">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span>Add Item</span>
+</button>
+</div>
+</header>
+<div class="flex flex-col gap-4 px-4 py-4 z-10">
+<label class="relative flex w-full items-center">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+<span class="material-symbols-outlined text-[#a08c7d]">search</span>
+</div>
+<input class="block w-full rounded-lg border-none bg-[#2d231b] py-3 pl-10 pr-4 text-sm text-[#f4ece2] placeholder-[#a08c7d] focus:ring-2 focus:ring-[#c4a47c] shadow-inner" placeholder="Search menu items..." type="text"/>
+</label>
+<div class="flex gap-2 overflow-x-auto hide-scrollbar pb-1">
+<button class="shrink-0 px-4 py-2 rounded-lg bg-[#c4a47c] text-[#241a14] text-sm font-bold shadow-md shadow-[#c4a47c]/10 whitespace-nowrap">
+                    All Items
+                </button>
+<button class="shrink-0 px-4 py-2 rounded-lg bg-[#2d231b] hover:bg-[#3d3027] text-[#a08c7d] text-sm font-medium transition-colors whitespace-nowrap border border-[#3d3027]">
+                    Espresso
+                </button>
+<button class="shrink-0 px-4 py-2 rounded-lg bg-[#2d231b] hover:bg-[#3d3027] text-[#a08c7d] text-sm font-medium transition-colors whitespace-nowrap border border-[#3d3027]">
+                    Cold Brew
+                </button>
+<button class="shrink-0 px-4 py-2 rounded-lg bg-[#2d231b] hover:bg-[#3d3027] text-[#a08c7d] text-sm font-medium transition-colors whitespace-nowrap border border-[#3d3027]">
+                    Pastries
+                </button>
+<button class="shrink-0 px-4 py-2 rounded-lg bg-[#2d231b] hover:bg-[#3d3027] text-[#a08c7d] text-sm font-medium transition-colors whitespace-nowrap border border-[#3d3027]">
+                    Seasonal
+                </button>
+</div>
+</div>
+<main class="flex-1 overflow-y-auto px-4 pb-24 space-y-4">
+<div class="flex items-center justify-between px-1 text-xs font-semibold uppercase tracking-widest text-[#a08c7d]">
+<span>24 Items</span>
+<span>Sort: Name</span>
+</div>
+<div class="group relative flex flex-col gap-3 p-4 bg-[#2d231b] rounded-xl shadow-lg border border-[#3d3027] transition-all hover:border-[#c4a47c]/50">
+<div class="flex items-start justify-between gap-3">
+<div class="flex gap-3">
+<div class="relative size-16 shrink-0 rounded-lg overflow-hidden bg-[#241a14]">
+<img alt="Caramel Macchiato" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChQ_q8j6RIPEhY0S4oN-ILAXHe9Dg0IOrxxvzNMh_PDl_DjDPJ8XKy3Lh17CnM0ADeWxEsmtYMckVcQtvaumNfaDQTBRkVql-4Lv5eITRLxYifg4WBTrvqCIwAVLHM37htdpbIy5LwoI7c_2fo5gsveSxRG4grhzibVcdWHAnKDZshHEK4LZFB7ST44CbCW2jas4u2VyefwKpGHG6pGMaEnGyxc3HE2HyiA9N8gC0S28_GEZAE0J-ItsT_EFxZQu6dye5f8RKgkY7N"/>
+</div>
+<div class="flex flex-col pt-0.5">
+<h3 class="text-base font-bold text-[#f4ece2] leading-tight">Caramel Macchiato</h3>
+<p class="text-xs text-[#a08c7d] font-medium mt-0.5">Hot Coffees</p>
+<p class="text-[#c4a47c] font-bold mt-1">$4.50</p>
+</div>
+</div>
+<button class="p-1 rounded-full text-[#a08c7d] hover:text-[#f4ece2] hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-[24px]">more_vert</span>
+</button>
+</div>
+<div class="mt-1 pt-3 border-t border-[#3d3027] flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="size-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
+<span class="text-[10px] font-semibold text-[#a08c7d] uppercase tracking-wider">In Stock</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex items-center justify-center px-3 py-1.5 rounded-lg bg-[#c4a47c]/10 text-[#c4a47c] hover:bg-[#c4a47c]/20 text-xs font-bold transition-colors">
+<span class="material-symbols-outlined text-[16px] mr-1">edit</span> Edit
+                        </button>
+<button class="flex items-center justify-center p-1.5 rounded-lg text-red-400/80 hover:bg-red-500/10 text-xs transition-colors">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+<div class="group relative flex flex-col gap-3 p-4 bg-[#2d231b] rounded-xl shadow-lg border border-[#3d3027] transition-all hover:border-[#c4a47c]/50">
+<div class="flex items-start justify-between gap-3">
+<div class="flex gap-3">
+<div class="relative size-16 shrink-0 rounded-lg overflow-hidden bg-[#241a14]">
+<img alt="Iced Vanilla Latte" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZGn2KPM9ObORcyFGZYyM_1CJtHhJ-qDc0g2cdkIRhkxKxUDDQCKYVqClEy2Ccvxzr-T9VYcau3rnPzP8SM2Cy1vT3ux-5tMrsK3D-IJZwzN-Vf12opjqRLcwMY-nAXSULb6_4zQtSdxQwtW2Rs611S_V0lyeyEtHbVR8ObB3IbEJrLveN-29_d_FtLQeldXRepE7lYp77v6L7bI66K5LAxnC7StUZ4ZpVBLS4urim8D8G5-KhlUwrEB2AWRRHV_j1_me2LQqYqpd-"/>
+</div>
+<div class="flex flex-col pt-0.5">
+<h3 class="text-base font-bold text-[#f4ece2] leading-tight">Iced Vanilla Latte</h3>
+<p class="text-xs text-[#a08c7d] font-medium mt-0.5">Cold Coffees</p>
+<p class="text-[#c4a47c] font-bold mt-1">$5.25</p>
+</div>
+</div>
+<button class="p-1 rounded-full text-[#a08c7d] hover:text-[#f4ece2] hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-[24px]">more_vert</span>
+</button>
+</div>
+<div class="mt-1 pt-3 border-t border-[#3d3027] flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="size-1.5 rounded-full bg-orange-400 shadow-[0_0_8px_rgba(251,146,60,0.5)]"></div>
+<span class="text-[10px] font-semibold text-[#a08c7d] uppercase tracking-wider">Low Stock (5)</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex items-center justify-center px-3 py-1.5 rounded-lg bg-[#c4a47c]/10 text-[#c4a47c] hover:bg-[#c4a47c]/20 text-xs font-bold transition-colors">
+<span class="material-symbols-outlined text-[16px] mr-1">edit</span> Edit
+                        </button>
+<button class="flex items-center justify-center p-1.5 rounded-lg text-red-400/80 hover:bg-red-500/10 text-xs transition-colors">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+<div class="group relative flex flex-col gap-3 p-4 bg-[#2d231b] rounded-xl shadow-lg border border-[#3d3027] opacity-60 transition-all">
+<div class="flex items-start justify-between gap-3">
+<div class="flex gap-3">
+<div class="relative size-16 shrink-0 rounded-lg overflow-hidden bg-[#241a14] grayscale">
+<img alt="Seasonal Blend" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL7aJ2mKJXzmi0VLKZ89qVR_qPSEJYXEu4Xoovcpt7f0WFPt7GiCpS57oqg_9_pZEapFw08li1AMgnCLiHD169dnSalhCVqnLIKXjDByryB8HM5e9YKuQ3UPrQiHr4DLHkdD2xPZq12tJFRSzP2cFapjWlpNQwp8AhnlzN4bXkn_UluBaCcVFQZ2nXYF_ocn6kvyZHo7t4O11IBkgMSrFXRz92Gbp9ib-9Nh8fpOlXZpQ56eppn9ZHoG1AnadF7sshSAK1A1QTjrvL"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+<span class="material-symbols-outlined text-white/80 text-[24px]">block</span>
+</div>
+</div>
+<div class="flex flex-col pt-0.5">
+<h3 class="text-base font-bold text-[#f4ece2] leading-tight line-through decoration-[#a08c7d]">Seasonal Blend</h3>
+<p class="text-xs text-[#a08c7d] font-medium mt-0.5">Beans</p>
+<p class="text-[#a08c7d] font-bold mt-1">$18.00</p>
+</div>
+</div>
+<button class="p-1 rounded-full text-[#a08c7d] hover:text-[#f4ece2] hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-[24px]">more_vert</span>
+</button>
+</div>
+<div class="mt-1 pt-3 border-t border-[#3d3027] flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="size-1.5 rounded-full bg-[#a08c7d]"></div>
+<span class="text-[10px] font-semibold text-[#a08c7d] uppercase tracking-wider">Sold Out</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center px-3 py-1.5 rounded-lg text-[#c4a47c] hover:bg-[#c4a47c]/10 text-xs font-bold transition-colors">
+<span class="material-symbols-outlined text-[18px] mr-1">refresh</span> Restock
+                        </button>
+</div>
+</div>
+</div>
+<div class="group relative flex flex-col gap-3 p-4 bg-[#2d231b] rounded-xl shadow-lg border border-[#3d3027] transition-all hover:border-[#c4a47c]/50">
+<div class="flex items-start justify-between gap-3">
+<div class="flex gap-3">
+<div class="relative size-16 shrink-0 rounded-lg overflow-hidden bg-[#241a14]">
+<img alt="Butter Croissant" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGCteR8hd3MxreAUcIUqJyTGvcsdgI1OMSLoCiaIEixBLJ4lhlUQU8B3vBAdP9w7t3DV8k8CS7j8QmurbzQlhZq2ry3HHecwfi9EHTcclkL4H__zWF5P8Wo1tINusE1KJyWMx7Am-jA_8LDhqI9zFu2AAejcPSJWYWzk5aGUjJcSo5ftbUFHk_U9eU2lP6a8wImodH1eK6pJ69O3WoLJwcmPQWCjhsETFNIjeC_RrINPkbX6NKiLx73Nwl94_p5MBUxO4rCGUn17Wv"/>
+</div>
+<div class="flex flex-col pt-0.5">
+<h3 class="text-base font-bold text-[#f4ece2] leading-tight">Butter Croissant</h3>
+<p class="text-xs text-[#a08c7d] font-medium mt-0.5">Pastries</p>
+<p class="text-[#c4a47c] font-bold mt-1">$3.75</p>
+</div>
+</div>
+<button class="p-1 rounded-full text-[#a08c7d] hover:text-[#f4ece2] hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-[24px]">more_vert</span>
+</button>
+</div>
+<div class="mt-1 pt-3 border-t border-[#3d3027] flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="size-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
+<span class="text-[10px] font-semibold text-[#a08c7d] uppercase tracking-wider">In Stock</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex items-center justify-center px-3 py-1.5 rounded-lg bg-[#c4a47c]/10 text-[#c4a47c] hover:bg-[#c4a47c]/20 text-xs font-bold transition-colors">
+<span class="material-symbols-outlined text-[16px] mr-1">edit</span> Edit
+                        </button>
+<button class="flex items-center justify-center p-1.5 rounded-lg text-red-400/80 hover:bg-red-500/10 text-xs transition-colors">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<nav class="absolute bottom-0 w-full bg-[#241a14]/95 backdrop-blur-md border-t border-[#3d3027] px-6 pb-6 pt-3 flex justify-between items-center z-30">
+<a class="flex flex-col items-center gap-1 text-[#a08c7d] hover:text-[#f4ece2] transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]">dashboard</span>
+<span class="text-[10px] font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-[#c4a47c]" href="#">
+<span class="material-symbols-outlined text-[24px] fill-current">inventory_2</span>
+<span class="text-[10px] font-bold">Menu</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-[#a08c7d] hover:text-[#f4ece2] transition-colors" href="#">
+<div class="relative">
+<span class="material-symbols-outlined text-[24px]">shopping_bag</span>
+<span class="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-[#c4a47c] text-[9px] font-bold text-[#241a14]">3</span>
+</div>
+<span class="text-[10px] font-medium">Orders</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-[#a08c7d] hover:text-[#f4ece2] transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]">settings</span>
+<span class="text-[10px] font-medium">Settings</span>
+</a>
+</nav>
+</div>
+</body></html>

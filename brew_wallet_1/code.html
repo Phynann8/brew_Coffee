@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Brew Wallet</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f4c025",
+                        "background-light": "#f8f8f5",
+                        "background-dark": "#221e10",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hiding for cleaner mobile look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex flex-col font-display antialiased overflow-x-hidden text-[#111418] dark:text-white">
+<!-- Top App Bar -->
+<div class="flex items-center p-4 justify-between sticky top-0 z-50 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm">
+<button class="flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-[#111418] dark:text-white" style="font-size: 24px;">arrow_back</span>
+</button>
+<h2 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">My Wallet</h2>
+<button class="flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-[#111418] dark:text-white" style="font-size: 24px;">more_horiz</span>
+</button>
+</div>
+<!-- Main Content -->
+<div class="flex-1 flex flex-col w-full max-w-md mx-auto pb-6">
+<!-- Balance Card -->
+<div class="px-4 py-2">
+<div class="relative overflow-hidden rounded-xl shadow-lg group">
+<!-- Background Image -->
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Dark coffee beans texture background" style='background-image: linear-gradient(135deg, rgba(34, 30, 16, 0.8) 0%, rgba(34, 30, 16, 0.4) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuC3_ZcrVccPlpnmtInl1jYKRnpsQYaIqjSj6kCpPqBjMytjPn8ILOu_1bLQSc1XhDYKR0vdA8vm2p8OqpDyUTkaXAqUr5T-Pc3HMvQCEsjFIgzDsgVruhoI0OhnGhSa3E6FQF_IDeARkxNlXH1zMf48tU_eiIrJkO4UbWdbzYOc14P0fITTDWkU353EqXh5XeqygrCm7kkKYp9r7FhhbfMPTHvtnRP4dkN58PbVpkruAYoUe4oqYel46_2fPY_Ned0PDAY0tuovw7nh");'>
+</div>
+<!-- Card Content -->
+<div class="relative z-10 p-6 flex flex-col h-[200px] justify-between">
+<div class="flex justify-between items-start">
+<div class="size-10 rounded-full bg-primary/20 backdrop-blur-md flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" style="font-size: 24px;">coffee</span>
+</div>
+<span class="material-symbols-outlined text-white/50" style="font-size: 24px;">contactless</span>
+</div>
+<div>
+<p class="text-white/80 text-sm font-medium mb-1">Current Balance</p>
+<h1 class="text-white text-4xl font-extrabold tracking-tight">245 <span class="text-primary text-2xl font-bold">Credits</span></h1>
+<p class="text-white/60 text-xs mt-2 font-mono">≈ $24.50 USD</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Top Up Section -->
+<div class="mt-4">
+<div class="flex items-center justify-between px-4 pb-3 pt-2">
+<h3 class="text-[#111418] dark:text-white text-lg font-bold leading-tight">Quick Top Up</h3>
+<span class="material-symbols-outlined text-green-500/80 text-sm mr-1" style="font-size: 16px;">lock</span>
+</div>
+<div class="px-4">
+<div class="grid grid-cols-4 gap-3">
+<!-- Option 1 -->
+<label class="cursor-pointer group">
+<input class="peer sr-only" name="topup" type="radio" value="10"/>
+<div class="flex flex-col items-center justify-center h-14 rounded-xl border border-[#e6e0cf] dark:border-[#393528] bg-white dark:bg-[#2c271b] peer-checked:bg-primary peer-checked:border-primary peer-checked:text-[#221e10] transition-all">
+<span class="font-bold text-sm">$10</span>
+</div>
+</label>
+<!-- Option 2 -->
+<label class="cursor-pointer group">
+<input checked="" class="peer sr-only" name="topup" type="radio" value="25"/>
+<div class="flex flex-col items-center justify-center h-14 rounded-xl border border-[#e6e0cf] dark:border-[#393528] bg-white dark:bg-[#2c271b] peer-checked:bg-primary peer-checked:border-primary peer-checked:text-[#221e10] transition-all">
+<span class="font-bold text-sm">$25</span>
+</div>
+</label>
+<!-- Option 3 -->
+<label class="cursor-pointer group">
+<input class="peer sr-only" name="topup" type="radio" value="50"/>
+<div class="flex flex-col items-center justify-center h-14 rounded-xl border border-[#e6e0cf] dark:border-[#393528] bg-white dark:bg-[#2c271b] peer-checked:bg-primary peer-checked:border-primary peer-checked:text-[#221e10] transition-all">
+<span class="font-bold text-sm">$50</span>
+</div>
+</label>
+<!-- Option 4 -->
+<label class="cursor-pointer group">
+<input class="peer sr-only" name="topup" type="radio" value="other"/>
+<div class="flex flex-col items-center justify-center h-14 rounded-xl border border-[#e6e0cf] dark:border-[#393528] bg-white dark:bg-[#2c271b] peer-checked:bg-primary peer-checked:border-primary peer-checked:text-[#221e10] transition-all">
+<span class="font-bold text-sm">Other</span>
+</div>
+</label>
+</div>
+<button class="w-full mt-4 h-12 bg-[#2c271b] dark:bg-[#393528] hover:dark:bg-[#4a4536] text-white rounded-xl font-bold flex items-center justify-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" style="font-size: 20px;">add_card</span>
+                    Add Funds
+                </button>
+</div>
+</div>
+<!-- Auto Reload Settings -->
+<div class="mt-8 px-4">
+<div class="flex items-center gap-4 bg-white dark:bg-[#2c271b] p-4 rounded-xl shadow-sm border border-[#e6e0cf] dark:border-transparent">
+<div class="size-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary" style="font-size: 24px;">autorenew</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-[#111418] dark:text-white text-base font-bold leading-tight truncate">Auto-Reload</p>
+<p class="text-[#635c4a] dark:text-[#bab29c] text-xs font-medium leading-normal mt-0.5">Add $20 when balance &lt; $5</p>
+</div>
+<div class="shrink-0">
+<label class="relative flex h-[31px] w-[51px] cursor-pointer items-center rounded-full border-none bg-[#e6e0cf] dark:bg-[#393528] p-0.5 has-[:checked]:justify-end has-[:checked]:bg-primary transition-colors duration-200">
+<div class="h-[27px] w-[27px] rounded-full bg-white shadow-sm transform transition-transform"></div>
+<input checked="" class="invisible absolute" type="checkbox"/>
+</label>
+</div>
+</div>
+</div>
+<!-- Recent Activity Header -->
+<div class="mt-8 mb-2 px-4 flex justify-between items-end">
+<h3 class="text-[#111418] dark:text-white text-lg font-bold leading-tight">Recent Activity</h3>
+<a class="text-primary text-sm font-bold" href="#">See All</a>
+</div>
+<!-- Transactions List -->
+<div class="px-4 flex flex-col gap-2">
+<!-- Item 1: Top Up -->
+<div class="flex items-center gap-3 p-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+<div class="size-10 rounded-full bg-green-500/10 flex items-center justify-center shrink-0 text-green-500">
+<span class="material-symbols-outlined" style="font-size: 20px;">account_balance_wallet</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-[#111418] dark:text-white text-sm font-bold truncate">Reload via Apple Pay</p>
+<p class="text-[#635c4a] dark:text-[#bab29c] text-xs truncate">Today, 9:41 AM</p>
+</div>
+<div class="text-right">
+<p class="text-green-600 dark:text-green-400 text-sm font-bold">+ $20.00</p>
+<p class="text-[#635c4a] dark:text-[#bab29c] text-xs">+200 Credits</p>
+</div>
+</div>
+<!-- Item 2: Spending -->
+<div class="flex items-center gap-3 p-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+<div class="size-10 rounded-full bg-[#e6e0cf] dark:bg-[#393528] flex items-center justify-center shrink-0 text-[#111418] dark:text-white">
+<span class="material-symbols-outlined" style="font-size: 20px;">local_cafe</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-[#111418] dark:text-white text-sm font-bold truncate">Morning Latte</p>
+<p class="text-[#635c4a] dark:text-[#bab29c] text-xs truncate">Yesterday, 8:30 AM</p>
+</div>
+<div class="text-right">
+<p class="text-[#111418] dark:text-white text-sm font-bold">- $4.50</p>
+<p class="text-[#635c4a] dark:text-[#bab29c] text-xs">-45 Credits</p>
+</div>
+</div>
+<!-- Item 3: Spending -->
+<div class="flex items-center gap-3 p-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+<div class="size-10 rounded-full bg-[#e6e0cf] dark:bg-[#393528] flex items-center justify-center shrink-0 text-[#111418] dark:text-white">
+<span class="material-symbols-outlined" style="font-size: 20px;">bakery_dining</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-[#111418] dark:text-white text-sm font-bold truncate">Almond Croissant</p>
+<p class="text-[#635c4a] dark:text-[#bab29c] text-xs truncate">Monday, 2:15 PM</p>
+</div>
+<div class="text-right">
+<p class="text-[#111418] dark:text-white text-sm font-bold">- $3.75</p>
+<p class="text-[#635c4a] dark:text-[#bab29c] text-xs">-38 Credits</p>
+</div>
+</div>
+<!-- Item 4: Top Up -->
+<div class="flex items-center gap-3 p-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+<div class="size-10 rounded-full bg-green-500/10 flex items-center justify-center shrink-0 text-green-500">
+<span class="material-symbols-outlined" style="font-size: 20px;">redeem</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-[#111418] dark:text-white text-sm font-bold truncate">Rewards Redemption</p>
+<p class="text-[#635c4a] dark:text-[#bab29c] text-xs truncate">Last Week</p>
+</div>
+<div class="text-right">
+<p class="text-green-600 dark:text-green-400 text-sm font-bold">+ $5.00</p>
+<p class="text-[#635c4a] dark:text-[#bab29c] text-xs">+50 Credits</p>
+</div>
+</div>
+</div>
+</div>
+</body></html>

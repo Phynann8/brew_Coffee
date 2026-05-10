@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Customize Your Drink</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#f4c025", "background-dark": "#221e10", "surface-dark": "#2D1B12", "selection-dark": "#3D261C", cream: "#F5F5DC", "cream-muted": "#BAAA9C", "background-light": "#f8f8f5"}, fontFamily: {display: "Plus Jakarta Sans", body: ["Noto Sans", "sans-serif"]}, borderRadius: {DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px"}}}};</script>
+<style type="text/tailwindcss">
+        input[type=range] {
+            -webkit-appearance: none;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #D4AF37;
+            cursor: pointer;
+            margin-top: -8px;
+            box-shadow: 0 0 0 4px #1A0F0A;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #3D261C;
+            border-radius: 2px;
+        }
+        input[type=range]::-moz-range-thumb {
+            height: 20px;
+            width: 20px;
+            border: none;
+            border-radius: 50%;
+            background: #D4AF37;
+            cursor: pointer;
+            box-shadow: 0 0 0 4px #1A0F0A;
+        }
+        input[type=range]::-moz-range-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #3D261C;
+            border-radius: 2px;
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark font-display text-cream antialiased pb-32">
+<div class="fixed top-0 left-0 w-full z-20 bg-background-dark/95 backdrop-blur-md border-b border-white/5">
+<div class="flex items-center justify-between p-4">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-cream">arrow_back_ios_new</span>
+</button>
+<h2 class="text-lg font-bold leading-tight text-cream">Customize Your Drink</h2>
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-cream">favorite</span>
+</button>
+</div>
+</div>
+<main class="relative flex flex-col w-full pt-20">
+<div class="px-4 mb-6">
+<div class="w-full h-80 rounded-2xl bg-center bg-cover bg-no-repeat shadow-2xl relative overflow-hidden border border-white/10" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDBOXqaJJxTMrPTJIeey0NMgYJHJbB5HW5nVNd_6_hZH9Qn-71tESeClig9Ek0FdExXGRbSQJPwQ2mVfJjPteYTAhtEWgJEXuTqMGBz0fV5eNTz7Opm5zWGnyrqAwU1xV0-fusoH6GZ1hZy8aRoE4-LshrVOhjqi8UbFzgNgcJ-DrYOD4byJU7lXGLX8BxL99goVQo7EnPaSkAw1Hp-UwIU54MoYhUHgiPQkNC5emi5MTE6jHuuJEQnof0IPwuE3K0n25XDLTJm5-pY');">
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark/60 via-transparent to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase bg-primary/20 text-primary border border-primary/30 backdrop-blur-md mb-2">
+                        House Special
+                    </span>
+</div>
+</div>
+</div>
+<div class="px-4 mb-8">
+<div class="flex justify-between items-end mb-2">
+<h1 class="text-3xl font-bold tracking-tight text-cream">Vanilla Latte</h1>
+<span class="text-2xl font-bold text-primary">$4.50</span>
+</div>
+<p class="text-cream-muted text-sm leading-relaxed max-w-[90%]">
+                Rich espresso combined with creamy steamed milk and organic vanilla bean syrup, finished with a signature foam leaf.
+            </p>
+</div>
+<div class="px-4 mb-8">
+<h3 class="text-sm font-bold uppercase tracking-widest mb-4 text-cream/60">Select Size</h3>
+<div class="flex p-1 bg-surface-dark rounded-xl border border-white/5">
+<label class="flex-1 cursor-pointer">
+<input class="peer sr-only" name="size" type="radio" value="small"/>
+<div class="flex flex-col items-center justify-center py-3 rounded-lg text-cream-muted transition-all peer-checked:bg-selection-dark peer-checked:text-primary peer-checked:shadow-inner">
+<span class="material-symbols-outlined text-[20px] mb-1">local_cafe</span>
+<span class="text-xs font-semibold">Small</span>
+<span class="text-[10px] opacity-60">12 oz</span>
+</div>
+</label>
+<label class="flex-1 cursor-pointer">
+<input checked="" class="peer sr-only" name="size" type="radio" value="medium"/>
+<div class="flex flex-col items-center justify-center py-3 rounded-lg text-cream-muted transition-all peer-checked:bg-selection-dark peer-checked:text-primary peer-checked:shadow-inner">
+<span class="material-symbols-outlined text-[24px] mb-1">local_cafe</span>
+<span class="text-xs font-semibold">Medium</span>
+<span class="text-[10px] opacity-60">16 oz</span>
+</div>
+</label>
+<label class="flex-1 cursor-pointer">
+<input class="peer sr-only" name="size" type="radio" value="large"/>
+<div class="flex flex-col items-center justify-center py-3 rounded-lg text-cream-muted transition-all peer-checked:bg-selection-dark peer-checked:text-primary peer-checked:shadow-inner">
+<span class="material-symbols-outlined text-[28px] mb-1">local_cafe</span>
+<span class="text-xs font-semibold">Large</span>
+<span class="text-[10px] opacity-60">20 oz</span>
+</div>
+</label>
+</div>
+</div>
+<div class="px-4 mb-8">
+<h3 class="text-sm font-bold uppercase tracking-widest mb-4 text-cream/60">Milk Choice</h3>
+<div class="grid grid-cols-3 gap-3">
+<label class="relative cursor-pointer group">
+<input checked="" class="peer sr-only" name="milk" type="radio" value="whole"/>
+<div class="flex flex-col items-center justify-center h-full p-4 rounded-xl border border-white/5 bg-surface-dark transition-all peer-checked:border-primary peer-checked:bg-selection-dark">
+<div class="w-10 h-10 rounded-full bg-background-dark flex items-center justify-center mb-2 text-cream-muted peer-checked:text-primary">
+<span class="material-symbols-outlined">water_drop</span>
+</div>
+<span class="text-xs font-semibold text-center text-cream">Whole</span>
+<span class="text-[10px] text-cream-muted mt-0.5">Free</span>
+</div>
+</label>
+<label class="relative cursor-pointer group">
+<input class="peer sr-only" name="milk" type="radio" value="oat"/>
+<div class="flex flex-col items-center justify-center h-full p-4 rounded-xl border border-white/5 bg-surface-dark transition-all peer-checked:border-primary peer-checked:bg-selection-dark">
+<div class="w-10 h-10 rounded-full bg-background-dark flex items-center justify-center mb-2 text-cream-muted peer-checked:text-primary">
+<span class="material-symbols-outlined">grass</span>
+</div>
+<span class="text-xs font-semibold text-center text-cream">Oat</span>
+<span class="text-[10px] text-cream-muted mt-0.5">+$0.50</span>
+</div>
+</label>
+<label class="relative cursor-pointer group">
+<input class="peer sr-only" name="milk" type="radio" value="almond"/>
+<div class="flex flex-col items-center justify-center h-full p-4 rounded-xl border border-white/5 bg-surface-dark transition-all peer-checked:border-primary peer-checked:bg-selection-dark">
+<div class="w-10 h-10 rounded-full bg-background-dark flex items-center justify-center mb-2 text-cream-muted peer-checked:text-primary">
+<span class="material-symbols-outlined">nutrition</span>
+</div>
+<span class="text-xs font-semibold text-center text-cream">Almond</span>
+<span class="text-[10px] text-cream-muted mt-0.5">+$0.50</span>
+</div>
+</label>
+</div>
+</div>
+<div class="px-4 mb-8">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-sm font-bold uppercase tracking-widest text-cream/60">Sweetness</h3>
+<span class="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded-md border border-primary/20">50% Sugar</span>
+</div>
+<div class="px-2">
+<input class="w-full" max="100" min="0" step="25" type="range" value="50"/>
+<div class="flex justify-between mt-3 text-[10px] text-cream-muted font-bold tracking-tighter">
+<span>UNSWEETENED</span>
+<span>25%</span>
+<span>NORMAL</span>
+<span>75%</span>
+<span>EXTRA</span>
+</div>
+</div>
+</div>
+<div class="px-4 mb-8">
+<h3 class="text-sm font-bold uppercase tracking-widest mb-4 text-cream/60">Enhancements</h3>
+<div class="space-y-3">
+<label class="flex items-center justify-between p-4 rounded-xl bg-surface-dark border border-white/5 cursor-pointer group hover:border-primary/30 transition-colors">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-background-dark flex items-center justify-center text-cream-muted">
+<span class="material-symbols-outlined">coffee</span>
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-cream">Extra Espresso Shot</span>
+<span class="text-xs text-cream-muted">+$1.00 per shot</span>
+</div>
+</div>
+<div class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-selection-dark peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-cream-muted after:border-transparent after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary peer-checked:after:bg-background-dark"></div>
+</div>
+</label>
+<label class="flex items-center justify-between p-4 rounded-xl bg-surface-dark border border-white/5 cursor-pointer group hover:border-primary/30 transition-colors">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-background-dark flex items-center justify-center text-cream-muted">
+<span class="material-symbols-outlined">cloud</span>
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-cream">Vanilla Cold Foam</span>
+<span class="text-xs text-cream-muted">+$1.25</span>
+</div>
+</div>
+<div class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-selection-dark peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-cream-muted after:border-transparent after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary peer-checked:after:bg-background-dark"></div>
+</div>
+</label>
+</div>
+</div>
+</main>
+<div class="fixed bottom-0 left-0 w-full z-30 bg-background-dark/95 backdrop-blur-xl border-t border-white/5 p-4 pb-8 shadow-[0_-10px_30px_rgba(0,0,0,0.5)]">
+<div class="flex gap-6 items-center max-w-md mx-auto">
+<div class="flex flex-col">
+<span class="text-[10px] text-cream-muted font-bold uppercase tracking-widest">Total</span>
+<span class="text-2xl font-bold text-cream">$4.50</span>
+</div>
+<button class="flex-1 h-14 bg-primary hover:brightness-110 text-background-dark font-extrabold rounded-2xl flex items-center justify-center gap-2 transition-all shadow-lg shadow-primary/10 active:scale-[0.97]">
+<span class="material-symbols-outlined font-bold">shopping_bag</span>
+                ADD TO CART
+            </button>
+</div>
+</div>
+</body></html>

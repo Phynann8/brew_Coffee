@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Brew Wallet</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#D4AF37", // Gold
+                        "cream": "#F5F5DC",
+                        "coffee-dark": "#1A1612",
+                        "coffee-brown": "#3C2A21",
+                        "background-dark": "#120F0D",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        :root {
+            --primary-gold: #D4AF37;
+            --cream-text: #F5F5DC;
+            --deep-brown: #2A1B12;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        body {
+            min-height: max(884px, 100dvh);
+            background-color: #120F0D;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="dark:bg-background-dark min-h-screen flex flex-col font-display antialiased overflow-x-hidden text-cream">
+<div class="flex items-center p-4 justify-between sticky top-0 z-50 bg-background-dark/95 backdrop-blur-md border-b border-white/5">
+<button class="flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-cream" style="font-size: 24px;">arrow_back_ios_new</span>
+</button>
+<h2 class="text-cream text-lg font-bold leading-tight tracking-tight">Brew Wallet</h2>
+<button class="flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-cream" style="font-size: 24px;">receipt_long</span>
+</button>
+</div>
+<div class="flex-1 flex flex-col w-full max-w-md mx-auto pb-8">
+<div class="px-4 py-4">
+<div class="relative overflow-hidden rounded-2xl shadow-2xl group border border-white/10">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style='background-image: linear-gradient(135deg, rgba(42, 27, 18, 0.92) 0%, rgba(26, 22, 18, 0.85) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuC3_ZcrVccPlpnmtInl1jYKRnpsQYaIqjSj6kCpPqBjMytjPn8ILOu_1bLQSc1XhDYKR0vdA8vm2p8OqpDyUTkaXAqUr5T-Pc3HMvQCEsjFIgzDsgVruhoI0OhnGhSa3E6FQF_IDeARkxNlXH1zMf48tU_eiIrJkO4UbWdbzYOc14P0fITTDWkU353EqXh5XeqygrCm7kkKYp9r7FhhbfMPTHvtnRP4dkN58PbVpkruAYoUe4oqYel46_2fPY_Ned0PDAY0tuovw7nh");'>
+</div>
+<div class="relative z-10 p-7 flex flex-col h-[210px] justify-between">
+<div class="flex justify-between items-start">
+<div class="flex flex-col">
+<span class="text-xs font-bold tracking-[0.2em] text-primary uppercase opacity-80">Brew Credit Pass</span>
+<div class="h-1 w-8 bg-primary mt-1 rounded-full"></div>
+</div>
+<span class="material-symbols-outlined text-cream/30" style="font-size: 32px;">sensors</span>
+</div>
+<div>
+<p class="text-cream/70 text-sm font-medium mb-1">Available Balance</p>
+<div class="flex items-baseline gap-2">
+<h1 class="text-cream text-5xl font-extrabold tracking-tight">245</h1>
+<span class="text-primary text-xl font-bold">Credits</span>
+</div>
+<div class="flex justify-between items-center mt-4">
+<p class="text-cream/40 text-[10px] tracking-widest font-mono uppercase">Value: $24.50 USD</p>
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full bg-primary/20 border border-primary/30"></div>
+<div class="w-6 h-6 rounded-full bg-primary/40 border border-primary/30"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-4">
+<div class="flex items-center justify-between px-5 pb-3">
+<h3 class="text-cream text-base font-bold">Refill Credits</h3>
+<span class="text-xs text-primary font-semibold">Secure Payment</span>
+</div>
+<div class="px-4">
+<div class="grid grid-cols-4 gap-3">
+<label class="cursor-pointer group">
+<input class="peer sr-only" name="topup" type="radio" value="10"/>
+<div class="flex flex-col items-center justify-center h-16 rounded-xl border border-white/10 bg-white/5 peer-checked:bg-primary/20 peer-checked:border-primary peer-checked:text-primary transition-all duration-300">
+<span class="font-bold text-sm">$10</span>
+</div>
+</label>
+<label class="cursor-pointer group">
+<input checked="" class="peer sr-only" name="topup" type="radio" value="25"/>
+<div class="flex flex-col items-center justify-center h-16 rounded-xl border border-white/10 bg-white/5 peer-checked:bg-primary/20 peer-checked:border-primary peer-checked:text-primary transition-all duration-300">
+<span class="font-bold text-sm">$25</span>
+</div>
+</label>
+<label class="cursor-pointer group">
+<input class="peer sr-only" name="topup" type="radio" value="50"/>
+<div class="flex flex-col items-center justify-center h-16 rounded-xl border border-white/10 bg-white/5 peer-checked:bg-primary/20 peer-checked:border-primary peer-checked:text-primary transition-all duration-300">
+<span class="font-bold text-sm">$50</span>
+</div>
+</label>
+<label class="cursor-pointer group">
+<input class="peer sr-only" name="topup" type="radio" value="other"/>
+<div class="flex flex-col items-center justify-center h-16 rounded-xl border border-white/10 bg-white/5 peer-checked:bg-primary/20 peer-checked:border-primary peer-checked:text-primary transition-all duration-300">
+<span class="material-symbols-outlined" style="font-size: 20px;">edit</span>
+</div>
+</label>
+</div>
+<button class="w-full mt-6 h-14 bg-primary hover:bg-[#E5C14B] text-black rounded-xl font-extrabold flex items-center justify-center gap-2 active:scale-95 transition-all shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined" style="font-size: 24px; font-weight: 700;">add_circle</span>
+                    TOP UP NOW
+                </button>
+</div>
+</div>
+<div class="mt-8 px-4">
+<div class="flex items-center gap-4 bg-white/5 p-5 rounded-2xl border border-white/5">
+<div class="size-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary" style="font-size: 24px;">autorenew</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-cream text-base font-bold leading-tight truncate">Auto-Reload</p>
+<p class="text-cream/50 text-xs font-medium leading-normal mt-1">Refill $20 when balance &lt; $5</p>
+</div>
+<div class="shrink-0">
+<label class="relative flex h-[28px] w-[48px] cursor-pointer items-center rounded-full border-none bg-white/10 p-0.5 has-[:checked]:justify-end has-[:checked]:bg-primary transition-colors duration-300">
+<div class="h-[24px] w-[24px] rounded-full bg-cream shadow-sm transform transition-transform"></div>
+<input checked="" class="invisible absolute" type="checkbox"/>
+</label>
+</div>
+</div>
+</div>
+<div class="mt-10 mb-3 px-5 flex justify-between items-center">
+<h3 class="text-cream text-lg font-bold leading-tight">Transaction History</h3>
+<button class="text-primary text-xs font-bold tracking-widest uppercase hover:underline">View All</button>
+</div>
+<div class="px-4 flex flex-col gap-1">
+<div class="flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 transition-colors group">
+<div class="size-11 rounded-full bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20 text-primary">
+<span class="material-symbols-outlined" style="font-size: 22px;">account_balance_wallet</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-cream text-[15px] font-bold truncate group-hover:text-primary transition-colors">Reload via Apple Pay</p>
+<p class="text-cream/40 text-xs truncate mt-0.5">Today • 9:41 AM</p>
+</div>
+<div class="text-right">
+<p class="text-primary text-sm font-bold">+200 Credits</p>
+<p class="text-cream/40 text-[10px] mt-0.5">$20.00 USD</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 transition-colors group">
+<div class="size-11 rounded-full bg-white/5 flex items-center justify-center shrink-0 border border-white/5 text-cream/70">
+<span class="material-symbols-outlined" style="font-size: 22px;">local_cafe</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-cream text-[15px] font-bold truncate group-hover:text-white transition-colors">Morning Oat Latte</p>
+<p class="text-cream/40 text-xs truncate mt-0.5">Yesterday • 8:30 AM</p>
+</div>
+<div class="text-right">
+<p class="text-cream text-sm font-bold">-45 Credits</p>
+<p class="text-cream/40 text-[10px] mt-0.5">$4.50 USD</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 transition-colors group">
+<div class="size-11 rounded-full bg-white/5 flex items-center justify-center shrink-0 border border-white/5 text-cream/70">
+<span class="material-symbols-outlined" style="font-size: 22px;">bakery_dining</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-cream text-[15px] font-bold truncate group-hover:text-white transition-colors">Warm Croissant</p>
+<p class="text-cream/40 text-xs truncate mt-0.5">Oct 12 • 2:15 PM</p>
+</div>
+<div class="text-right">
+<p class="text-cream text-sm font-bold">-38 Credits</p>
+<p class="text-cream/40 text-[10px] mt-0.5">$3.75 USD</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 transition-colors group">
+<div class="size-11 rounded-full bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20 text-primary">
+<span class="material-symbols-outlined" style="font-size: 22px;">card_giftcard</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-cream text-[15px] font-bold truncate group-hover:text-primary transition-colors">Loyalty Bonus</p>
+<p class="text-cream/40 text-xs truncate mt-0.5">Oct 10 • 11:20 AM</p>
+</div>
+<div class="text-right">
+<p class="text-primary text-sm font-bold">+15 Credits</p>
+<p class="text-cream/40 text-[10px] mt-0.5">Reward</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed bottom-0 left-0 right-0 bg-background-dark/80 backdrop-blur-xl border-t border-white/5 pb-8 pt-2 px-6 flex justify-between items-center z-50">
+<div class="flex flex-col items-center gap-1 opacity-50">
+<span class="material-symbols-outlined" style="font-size: 24px;">home</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 opacity-50">
+<span class="material-symbols-outlined" style="font-size: 24px;">coffee</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Order</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-size: 24px; font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Wallet</span>
+</div>
+<div class="flex flex-col items-center gap-1 opacity-50">
+<span class="material-symbols-outlined" style="font-size: 24px;">person</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Profile</span>
+</div>
+</div>
+</body></html>

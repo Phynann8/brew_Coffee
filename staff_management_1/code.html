@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html class="light dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Staff Management</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#f4c025", "background-light": "#f8f8f5", "background-dark": "#221e10", "coffee-dark": "#4a3b32", "coffee-light": "#d6c0b3"}, fontFamily: {display: "Plus Jakarta Sans"}, borderRadius: {DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px"}, boxShadow: {card: "0 2px 8px -2px rgba(24, 20, 17, 0.08)", float: "0 10px 15px -3px rgba(230, 115, 15, 0.3), 0 4px 6px -2px rgba(230, 115, 15, 0.15)"}}}};</script>
+<style>
+        /* Hide scrollbar for clean look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-gray-100 antialiased overflow-x-hidden">
+<div class="relative min-h-screen w-full flex flex-col max-w-md mx-auto bg-white dark:bg-[#1a1614] shadow-2xl overflow-hidden border-x border-gray-100 dark:border-gray-800">
+<!-- Header -->
+<header class="sticky top-0 z-30 bg-white/95 dark:bg-[#1a1614]/95 backdrop-blur-sm border-b border-gray-100 dark:border-gray-800">
+<div class="flex items-center px-4 h-16 justify-between">
+<button class="p-2 -ml-2 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 text-gray-800 dark:text-white transition-colors">
+<span class="material-symbols-outlined" style="font-size: 24px;">menu</span>
+</button>
+<h1 class="text-lg font-bold text-gray-900 dark:text-white tracking-tight">Staff Management</h1>
+<button class="p-0 rounded-full overflow-hidden w-9 h-9 border border-gray-200 dark:border-gray-700">
+<div class="w-full h-full bg-cover bg-center" data-alt="User profile avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCeVLgOlsz4mPt2T5cA2xGc1s4crarHDXhZwJnQuMzP4ehm98MpSiy5Jssz7JNQLHzgJpEdz4Vfj3yCBbwDuRGZO4aGYbmgfYH9AgmGHhGTb-XoRtbyxNrHAk8W-NI0-WniD5KNT9Qvw4NHs2UR81eoiQpEvJ7NLW54X_8xuwDx4mxrr_dk7VltPJykKRlyem2Efg-XyF6Gy_wVcw3y0pfc5McU-qPFJ1F_detwFQUlSQssQyZCq6E90dMWA7vtYw97Fb4OAA5zSbup');"></div>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto pb-24">
+<!-- Search & Actions -->
+<div class="px-4 py-4 space-y-4">
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-500" style="font-size: 20px;">search</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-3 border-none rounded-xl bg-gray-50 dark:bg-white/5 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:ring-2 focus:ring-primary/50 text-sm transition-all" placeholder="Search employee name or role..." type="text"/>
+</div>
+<!-- Filters Chips -->
+<div class="flex gap-2 overflow-x-auto no-scrollbar pb-1">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary text-white text-xs font-medium shadow-sm whitespace-nowrap">
+<span>All Roles</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-white/5 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 text-xs font-medium whitespace-nowrap hover:bg-gray-50 dark:hover:bg-white/10">
+<span>Active</span>
+<span class="material-symbols-outlined" style="font-size: 16px;">expand_more</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-white/5 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 text-xs font-medium whitespace-nowrap hover:bg-gray-50 dark:hover:bg-white/10">
+<span>On Shift</span>
+<span class="material-symbols-outlined" style="font-size: 16px;">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Staff List -->
+<div class="px-4 space-y-3">
+<div class="flex items-center justify-between pt-2 pb-1">
+<h2 class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">All Staff (12)</h2>
+<span class="text-xs text-primary font-medium">View Schedule</span>
+</div>
+<!-- Employee Card 1 -->
+<div class="bg-white dark:bg-[#25201d] rounded-xl p-4 shadow-card border border-gray-100 dark:border-gray-800 flex items-start gap-4">
+<div class="shrink-0">
+<div class="w-14 h-14 rounded-full bg-cover bg-center ring-2 ring-gray-50 dark:ring-gray-700" data-alt="Portrait of Sarah Jenkins" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuATFKhNxulT_uhylFd184MEy0is9qyvPvP2al3bwidjmNQl_0yhz_jfXIardkabdupW9mzr8R_TbKaO-Vk2preocCtETSi3v39rWJE9kNWkyPrs1mj__7PDdDgp0Q15-qczBhM2GJAwFvlowaappPKMQehTPk8D5qSCiV2sudVNquQcwOoAIDDE_Qb3iwvDRYcNi9uRPa3bsoBRpd5s6D_RQbITM_fY9sYNAtonWiLXyiwbQ-49A52ngAACmEypFRJw-HpwC420pRqZ');"></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-base font-semibold text-gray-900 dark:text-white truncate">Sarah Jenkins</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400 font-medium">Head Barista</p>
+</div>
+<button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 p-1">
+<span class="material-symbols-outlined" style="font-size: 20px;">more_vert</span>
+</button>
+</div>
+<div class="mt-3 flex flex-wrap items-center gap-2">
+<span class="inline-flex items-center px-2 py-1 rounded-md bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs font-medium ring-1 ring-inset ring-green-600/20">
+<span class="w-1.5 h-1.5 rounded-full bg-green-600 mr-1.5"></span>
+                                Active
+                            </span>
+<span class="inline-flex items-center px-2 py-1 rounded-md bg-gray-50 dark:bg-white/5 text-gray-600 dark:text-gray-400 text-xs font-medium">
+<span class="material-symbols-outlined mr-1" style="font-size: 14px;">schedule</span>
+                                06:00 - 14:00
+                            </span>
+</div>
+</div>
+</div>
+<!-- Employee Card 2 -->
+<div class="bg-white dark:bg-[#25201d] rounded-xl p-4 shadow-card border border-gray-100 dark:border-gray-800 flex items-start gap-4">
+<div class="shrink-0">
+<div class="w-14 h-14 rounded-full bg-cover bg-center ring-2 ring-gray-50 dark:ring-gray-700" data-alt="Portrait of Mike Ross" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC5bhTe5QP7aOZSnaUpwsGIbtp0H108dQeIQwillNrgeKzkXa5i15_svvLg37fNBIC1ijRJ_3dL1jC7hTtKEKgm8nY9KQB8_Qcn21HKISzrOMoK5PhjQ2dpbzRBSLUihoBP_peyJ_h_KO4OOzQ2PjMlZ0im1_ftsfP2RJKG3R4vXLZtHDWynsrhiCxTtzesU20clUK6QaeskvYidUCPrX68a3sDC1iHbNfk9RC6JLqxMgOhM8LIhYAkwpK0ZNAwJDt-j-Gt0nr3xaej');"></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-base font-semibold text-gray-900 dark:text-white truncate">Mike Ross</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400 font-medium">Shift Manager</p>
+</div>
+<button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 p-1">
+<span class="material-symbols-outlined" style="font-size: 20px;">more_vert</span>
+</button>
+</div>
+<div class="mt-3 flex flex-wrap items-center gap-2">
+<span class="inline-flex items-center px-2 py-1 rounded-md bg-gray-100 dark:bg-white/10 text-gray-600 dark:text-gray-400 text-xs font-medium ring-1 ring-inset ring-gray-500/10">
+<span class="w-1.5 h-1.5 rounded-full bg-gray-400 mr-1.5"></span>
+                                Inactive
+                            </span>
+<span class="inline-flex items-center px-2 py-1 rounded-md bg-gray-50 dark:bg-white/5 text-gray-600 dark:text-gray-400 text-xs font-medium">
+<span class="material-symbols-outlined mr-1" style="font-size: 14px;">schedule</span>
+                                14:00 - 22:00
+                            </span>
+</div>
+</div>
+</div>
+<!-- Employee Card 3 -->
+<div class="bg-white dark:bg-[#25201d] rounded-xl p-4 shadow-card border border-gray-100 dark:border-gray-800 flex items-start gap-4">
+<div class="shrink-0">
+<div class="w-14 h-14 rounded-full bg-cover bg-center ring-2 ring-gray-50 dark:ring-gray-700" data-alt="Portrait of Elena Rodriguez" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCcmKatw2uBOvwxS8QabugY2UWDiJtF9KLB951GAN15mrFsJV4eTfqb5OQOFf42M70Eakt418F9VSKGAYeSpJmF4MP9HEsth-ZIsSO9a86EeQi1PDqlO5-y_GqD56zw9r2i_3UrRxwDaoeZ7LblgHVBqrLP1M9qWLKkUtWSRd5Z0YPkOAmZDvLMEluslzvemVk59QJal1KMIhWEtACBOEzoeU_EnPLrDxlZ93ixjQ6t82E6pkdbdAEntnMakKI0We6RuofUbkL0Vecd');"></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-base font-semibold text-gray-900 dark:text-white truncate">Elena Rodriguez</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400 font-medium">Barista</p>
+</div>
+<button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 p-1">
+<span class="material-symbols-outlined" style="font-size: 20px;">more_vert</span>
+</button>
+</div>
+<div class="mt-3 flex flex-wrap items-center gap-2">
+<span class="inline-flex items-center px-2 py-1 rounded-md bg-primary/10 text-primary dark:text-orange-400 text-xs font-medium ring-1 ring-inset ring-primary/20">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse mr-1.5"></span>
+                                On Shift
+                            </span>
+<span class="inline-flex items-center px-2 py-1 rounded-md bg-gray-50 dark:bg-white/5 text-gray-600 dark:text-gray-400 text-xs font-medium">
+<span class="material-symbols-outlined mr-1" style="font-size: 14px;">schedule</span>
+                                09:00 - 17:00
+                            </span>
+</div>
+</div>
+</div>
+<!-- Employee Card 4 -->
+<div class="bg-white dark:bg-[#25201d] rounded-xl p-4 shadow-card border border-gray-100 dark:border-gray-800 flex items-start gap-4">
+<div class="shrink-0">
+<div class="w-14 h-14 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-300 flex items-center justify-center font-bold text-lg ring-2 ring-gray-50 dark:ring-gray-700">
+                            JD
+                        </div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-base font-semibold text-gray-900 dark:text-white truncate">John Doe</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400 font-medium">Trainee</p>
+</div>
+<button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 p-1">
+<span class="material-symbols-outlined" style="font-size: 20px;">more_vert</span>
+</button>
+</div>
+<div class="mt-3 flex flex-wrap items-center gap-2">
+<span class="inline-flex items-center px-2 py-1 rounded-md bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs font-medium ring-1 ring-inset ring-green-600/20">
+<span class="w-1.5 h-1.5 rounded-full bg-green-600 mr-1.5"></span>
+                                Active
+                            </span>
+<span class="inline-flex items-center px-2 py-1 rounded-md bg-gray-50 dark:bg-white/5 text-gray-600 dark:text-gray-400 text-xs font-medium">
+<span class="material-symbols-outlined mr-1" style="font-size: 14px;">schedule</span>
+                                12:00 - 18:00
+                            </span>
+</div>
+</div>
+</div>
+</div>
+<div class="h-8"></div>
+</main>
+<!-- Floating Action Button -->
+<div class="absolute bottom-6 right-6 z-40">
+<button class="flex items-center justify-center w-14 h-14 bg-primary text-white rounded-full shadow-float hover:bg-orange-600 transition-colors focus:outline-none focus:ring-4 focus:ring-orange-300">
+<span class="material-symbols-outlined" style="font-size: 28px;">add</span>
+</button>
+</div>
+</div>
+</body></html>

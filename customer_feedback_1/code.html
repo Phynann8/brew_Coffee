@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Customer Feedback</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#f4c025", "background-light": "#f8f8f5", "background-dark": "#221e10"}, fontFamily: {display: "Plus Jakarta Sans"}, borderRadius: {DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px"}}}};</script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen flex justify-center">
+<div class="relative flex h-full w-full max-w-md flex-col overflow-x-hidden bg-background-light dark:bg-background-dark pb-6">
+<!-- Header -->
+<header class="sticky top-0 z-10 flex items-center justify-between bg-background-light/95 dark:bg-background-dark/95 p-4 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center text-slate-900 dark:text-white hover:text-primary transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="text-lg font-bold leading-tight tracking-tight">Customer Feedback</h1>
+</div>
+<button class="flex items-center justify-center text-slate-900 dark:text-white hover:text-primary transition-colors">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+</header>
+<!-- Sentiment Chart Section -->
+<div class="px-4 py-6">
+<div class="rounded-xl bg-white dark:bg-[#1a2632] p-5 shadow-sm">
+<div class="flex flex-col gap-1 mb-4">
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Sentiment Trend (30 Days)</p>
+<div class="flex items-baseline gap-3">
+<h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">4.8</h2>
+<span class="flex items-center text-sm font-medium text-green-500">
+<span class="material-symbols-outlined text-sm mr-0.5">trending_up</span>
+                            +0.2%
+                        </span>
+</div>
+</div>
+<!-- Chart Visualization -->
+<div class="relative h-32 w-full">
+<svg fill="none" height="100%" preserveaspectratio="none" viewbox="0 0 478 150" width="100%" xmlns="http://www.w3.org/2000/svg">
+<!-- Gradient Fill -->
+<path d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25V149H326.769H0V109Z" fill="url(#paint0_linear)"></path>
+<!-- Stroke Line -->
+<path d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25" stroke="#137fec" stroke-linecap="round" stroke-width="3"></path>
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="paint0_linear" x1="236" x2="236" y1="1" y2="149">
+<stop stop-color="#137fec" stop-opacity="0.4"></stop>
+<stop offset="1" stop-color="#137fec" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+</svg>
+</div>
+<div class="mt-2 flex justify-between px-2 text-xs font-semibold text-slate-400">
+<span>Week 1</span>
+<span>Week 2</span>
+<span>Week 3</span>
+<span>Week 4</span>
+</div>
+</div>
+</div>
+<!-- Filter Chips -->
+<div class="flex w-full gap-3 overflow-x-auto px-4 pb-2 hide-scrollbar">
+<button class="flex h-9 min-w-[60px] shrink-0 items-center justify-center rounded-lg bg-primary px-4 text-sm font-semibold text-white transition hover:bg-primary/90">
+                All
+            </button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-1.5 rounded-lg bg-white dark:bg-[#1a2632] px-4 text-sm font-medium text-slate-600 dark:text-slate-300 transition hover:bg-slate-100 dark:hover:bg-[#253646]">
+                5 <span class="material-symbols-outlined text-[16px] text-yellow-400" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-1.5 rounded-lg bg-white dark:bg-[#1a2632] px-4 text-sm font-medium text-slate-600 dark:text-slate-300 transition hover:bg-slate-100 dark:hover:bg-[#253646]">
+                4 <span class="material-symbols-outlined text-[16px] text-yellow-400" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-1.5 rounded-lg bg-white dark:bg-[#1a2632] px-4 text-sm font-medium text-slate-600 dark:text-slate-300 transition hover:bg-slate-100 dark:hover:bg-[#253646]">
+                3 <span class="material-symbols-outlined text-[16px] text-yellow-400" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-1.5 rounded-lg bg-white dark:bg-[#1a2632] px-4 text-sm font-medium text-slate-600 dark:text-slate-300 transition hover:bg-slate-100 dark:hover:bg-[#253646]">
+                2 <span class="material-symbols-outlined text-[16px] text-yellow-400" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-1.5 rounded-lg bg-white dark:bg-[#1a2632] px-4 text-sm font-medium text-slate-600 dark:text-slate-300 transition hover:bg-slate-100 dark:hover:bg-[#253646]">
+                1 <span class="material-symbols-outlined text-[16px] text-yellow-400" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+</div>
+<!-- Reviews List -->
+<div class="flex flex-col gap-4 p-4">
+<!-- Review Card 1 -->
+<div class="flex flex-col gap-3 rounded-xl bg-white dark:bg-[#1a2632] p-4 shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex gap-3">
+<div class="h-10 w-10 shrink-0 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700">
+<img class="h-full w-full object-cover" data-alt="Portrait of a smiling woman with long brown hair" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtl6CixJ6fIOrlaCMXzHTuuCMMPuHZk30dzxsNZ__ZkmIFsipzw5joPNNV8QriMt3qWC-FHsRbJNnYmyd4D8xrBfI2PnvrPpVKLtTnLxwo11poRB3t3sVOmJDJAExyXFIPhn57LdJSoT7iiY_1Cwf-3SRObuSZ9_6MVEvsSH-v26Win_j_6sCKFR1wMYKMnh4kJQv-uhIeBha_PjGxAccNphuaUcbZLgy9VnR2ndZZbRl7aUlLgyGl6CJgrVV-mttPaAbdAPrUMAn5"/>
+</div>
+<div class="flex flex-col">
+<h3 class="text-sm font-bold text-slate-900 dark:text-white">Alice M.</h3>
+<div class="flex items-center gap-1">
+<div class="flex text-yellow-400">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="mx-1 h-1 w-1 rounded-full bg-slate-400"></span>
+<p class="text-xs text-slate-500 dark:text-slate-400">2h ago</p>
+</div>
+</div>
+</div>
+</div>
+<p class="text-sm leading-relaxed text-slate-700 dark:text-slate-200">
+                    Great espresso! The foam was perfect, and the service was super quick this morning.
+                </p>
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-1.5 rounded-full bg-slate-100 dark:bg-[#111418] py-1 pl-2 pr-3">
+<span class="material-symbols-outlined text-[16px] text-slate-400">local_cafe</span>
+<span class="text-xs font-medium text-slate-600 dark:text-slate-400">Large Latte</span>
+</div>
+<button class="flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-2 text-xs font-bold uppercase tracking-wide text-primary hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-[18px]">reply</span>
+                        Reply
+                    </button>
+</div>
+</div>
+<!-- Review Card 2 -->
+<div class="flex flex-col gap-3 rounded-xl bg-white dark:bg-[#1a2632] p-4 shadow-sm border border-transparent hover:border-slate-800 transition-colors">
+<div class="flex items-start justify-between">
+<div class="flex gap-3">
+<div class="h-10 w-10 shrink-0 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700">
+<img class="h-full w-full object-cover" data-alt="Portrait of a man looking to the side with short hair" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrb80ET8SpXOpVSXWIsP7bE7bu1zfdtlmBvjUcTV1Ld3xFvwUJfnc0I7djRSV8vY2y72hGNFcPod8kCjlMvakFawDqLNNt_Kr0r5cH_MN8aiT1WImEzMEGJV2_HSq34Y8nu5n1u0LTVrCanHmmPxVtYHnVRJxR2_DIJzxD8YaQQVyHYQdBoUC4o_7JPztiu44z4IrCC_wP1F3qxQHjXJPHbrtAc3QrlS1ktg7NBl_JP1ZS9QSlP2-ezUZtubeyuWqxBP8vaAwgN7Ki"/>
+</div>
+<div class="flex flex-col">
+<h3 class="text-sm font-bold text-slate-900 dark:text-white">John D.</h3>
+<div class="flex items-center gap-1">
+<div class="flex text-yellow-400">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px] text-slate-600" style="font-variation-settings: 'FILL' 0;">star</span>
+<span class="material-symbols-outlined text-[16px] text-slate-600" style="font-variation-settings: 'FILL' 0;">star</span>
+<span class="material-symbols-outlined text-[16px] text-slate-600" style="font-variation-settings: 'FILL' 0;">star</span>
+</div>
+<span class="mx-1 h-1 w-1 rounded-full bg-slate-400"></span>
+<p class="text-xs text-slate-500 dark:text-slate-400">5h ago</p>
+</div>
+</div>
+</div>
+</div>
+<p class="text-sm leading-relaxed text-slate-700 dark:text-slate-200">
+                    Coffee was cold upon arrival. Not what I expected for the price.
+                </p>
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-1.5 rounded-full bg-slate-100 dark:bg-[#111418] py-1 pl-2 pr-3">
+<span class="material-symbols-outlined text-[16px] text-slate-400">local_cafe</span>
+<span class="text-xs font-medium text-slate-600 dark:text-slate-400">Americano</span>
+</div>
+<button class="flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-xs font-bold uppercase tracking-wide text-white hover:bg-primary/90 shadow-sm shadow-primary/20 transition-all">
+<span class="material-symbols-outlined text-[18px]">reply</span>
+                        Reply
+                    </button>
+</div>
+</div>
+<!-- Review Card 3 -->
+<div class="flex flex-col gap-3 rounded-xl bg-white dark:bg-[#1a2632] p-4 shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex gap-3">
+<div class="h-10 w-10 shrink-0 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700">
+<img class="h-full w-full object-cover" data-alt="Portrait of a young woman with blonde hair smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrCX3rtIA4EhF-oh3lG9fmmw1GJ6UY7jZP0AUfuMHfiknFDp2ZEMJkuJ9-ml890GNE6pp7iK-GRHbxg3dEEFTKEPm63UpH0J4sWpqDR9uzfFIojrhDhjyb-FBQ0_GKwRF1p7mZAehfq5Fr1iitZUkrx9Od1_BtD9FCvQLVK-ezrz_NhDxSn1GyB7ZuVL1wta_bUE-7Fl2Uopeb4Aj2nMRRDPcpyH_tXEEk_y01WHEienIkoOeMmXIl57xqVAFjgtJdAR_oLcq5nYNr"/>
+</div>
+<div class="flex flex-col">
+<h3 class="text-sm font-bold text-slate-900 dark:text-white">Sarah L.</h3>
+<div class="flex items-center gap-1">
+<div class="flex text-yellow-400">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px] text-slate-600" style="font-variation-settings: 'FILL' 0;">star</span>
+</div>
+<span class="mx-1 h-1 w-1 rounded-full bg-slate-400"></span>
+<p class="text-xs text-slate-500 dark:text-slate-400">1d ago</p>
+</div>
+</div>
+</div>
+<!-- Replied Badge Example -->
+<div class="flex items-center gap-1 rounded bg-green-500/10 px-2 py-0.5">
+<span class="material-symbols-outlined text-[14px] text-green-500">check</span>
+<span class="text-[10px] font-bold uppercase tracking-wider text-green-500">Replied</span>
+</div>
+</div>
+<p class="text-sm leading-relaxed text-slate-700 dark:text-slate-200">
+                    Good, but forgot the sugar I requested in the notes.
+                </p>
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-1.5 rounded-full bg-slate-100 dark:bg-[#111418] py-1 pl-2 pr-3">
+<span class="material-symbols-outlined text-[16px] text-slate-400">local_cafe</span>
+<span class="text-xs font-medium text-slate-600 dark:text-slate-400">Cappuccino</span>
+</div>
+<button class="flex items-center gap-2 rounded-lg bg-slate-100 dark:bg-[#253646] px-4 py-2 text-xs font-bold uppercase tracking-wide text-slate-500 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#2d4052] transition-colors">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+                        Edit
+                    </button>
+</div>
+</div>
+<!-- Review Card 4 -->
+<div class="flex flex-col gap-3 rounded-xl bg-white dark:bg-[#1a2632] p-4 shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex gap-3">
+<div class="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-orange-500/20 text-orange-500">
+<span class="font-bold">MK</span>
+</div>
+<div class="flex flex-col">
+<h3 class="text-sm font-bold text-slate-900 dark:text-white">Mike K.</h3>
+<div class="flex items-center gap-1">
+<div class="flex text-yellow-400">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px] text-slate-600" style="font-variation-settings: 'FILL' 0;">star</span>
+<span class="material-symbols-outlined text-[16px] text-slate-600" style="font-variation-settings: 'FILL' 0;">star</span>
+</div>
+<span class="mx-1 h-1 w-1 rounded-full bg-slate-400"></span>
+<p class="text-xs text-slate-500 dark:text-slate-400">2d ago</p>
+</div>
+</div>
+</div>
+</div>
+<p class="text-sm leading-relaxed text-slate-700 dark:text-slate-200">
+                    Average at best.
+                </p>
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-1.5 rounded-full bg-slate-100 dark:bg-[#111418] py-1 pl-2 pr-3">
+<span class="material-symbols-outlined text-[16px] text-slate-400">local_cafe</span>
+<span class="text-xs font-medium text-slate-600 dark:text-slate-400">Espresso</span>
+</div>
+<button class="flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-2 text-xs font-bold uppercase tracking-wide text-primary hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-[18px]">reply</span>
+                        Reply
+                    </button>
+</div>
+</div>
+</div>
+</div>
+</body></html>

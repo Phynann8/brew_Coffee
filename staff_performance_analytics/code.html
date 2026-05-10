@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Staff Performance Analytics</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#f4c025", "background-light": "#f8f8f5", "background-dark": "#221e10", "surface-dark": "#2c241b", "border-dark": "#443629", "text-secondary": "#baaa9c"}, fontFamily: {display: "Plus Jakarta Sans"}, borderRadius: {DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px"}}}};</script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white antialiased overflow-x-hidden">
+<div class="relative flex h-full min-h-screen w-full flex-col max-w-md mx-auto shadow-2xl">
+<!-- Header -->
+<header class="sticky top-0 z-50 flex items-center justify-between bg-background-dark/95 backdrop-blur-md p-4 border-b border-border-dark">
+<button class="flex size-10 items-center justify-center rounded-full hover:bg-surface-dark text-white transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="text-lg font-bold leading-tight tracking-tight">Performance</h1>
+<button class="relative flex size-10 items-center justify-center rounded-full hover:bg-surface-dark text-white transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 size-2 rounded-full bg-primary border border-background-dark"></span>
+</button>
+</header>
+<!-- Filters Section -->
+<div class="flex flex-col gap-3 px-4 py-4 bg-background-dark">
+<div class="flex gap-3">
+<div class="relative flex-1">
+<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+<span class="material-symbols-outlined text-text-secondary text-[20px]">calendar_month</span>
+</div>
+<input class="block w-full rounded-lg border-border-dark bg-surface-dark py-2.5 pl-10 pr-3 text-sm text-white placeholder-text-secondary focus:border-primary focus:ring-1 focus:ring-primary" readonly="" type="text" value="Oct 1 - Oct 31, 2023"/>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+<span class="material-symbols-outlined text-text-secondary text-[20px]">expand_more</span>
+</div>
+</div>
+</div>
+<div class="relative w-full">
+<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+<span class="material-symbols-outlined text-text-secondary text-[20px]">person_search</span>
+</div>
+<input class="block w-full rounded-lg border-border-dark bg-surface-dark py-2.5 pl-10 pr-3 text-sm text-white placeholder-text-secondary focus:border-primary focus:ring-1 focus:ring-primary" placeholder="Filter by employee name..." type="text"/>
+</div>
+</div>
+<!-- Scrollable Content -->
+<main class="flex-1 flex flex-col gap-6 px-4 pb-24">
+<!-- Hero: Top Performer -->
+<section>
+<div class="flex items-center justify-between mb-3 mt-2">
+<h2 class="text-xl font-bold tracking-tight">Top Performer</h2>
+<span class="text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded">Month of October</span>
+</div>
+<div class="overflow-hidden rounded-xl bg-surface-dark border border-border-dark shadow-sm">
+<div class="flex p-4 gap-4">
+<div class="flex-1 flex flex-col justify-center gap-1">
+<div class="flex items-center gap-1 mb-1">
+<span class="material-symbols-outlined text-primary text-[18px] fill-1">trophy</span>
+<span class="text-xs font-semibold text-primary uppercase tracking-wide">#1 Barista</span>
+</div>
+<h3 class="text-lg font-bold text-white">Sarah Jenkins</h3>
+<p class="text-text-secondary text-sm">Main Street Branch</p>
+<div class="mt-3 flex items-center gap-4">
+<div>
+<p class="text-xs text-text-secondary">Orders</p>
+<p class="text-base font-bold text-white">342</p>
+</div>
+<div class="w-px h-8 bg-border-dark"></div>
+<div>
+<p class="text-xs text-text-secondary">Rating</p>
+<div class="flex items-center gap-1">
+<span class="text-base font-bold text-white">4.9</span>
+<span class="material-symbols-outlined text-primary text-[16px] fill-1">star</span>
+</div>
+</div>
+</div>
+</div>
+<div class="w-24 shrink-0 rounded-lg bg-center bg-cover bg-no-repeat shadow-inner" data-alt="Portrait of a smiling female barista with an apron" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAgJwDE0Hi0Rn3I1yGvuu1NwcslA7f3Ohg4iWqccKv-mYbzF6dRjL9SPSy_v3_WWOdmkY3xnUuHKnxP4YcSqLhY3NIwHVrh5gtU_WerTQU1rLRod48pQXWvWyugHPCC25RZi8hnvI9R2-ckIWsfSjO5HQrucMYV0l9ysppe1DifQCeHfBcgCQorokmBXiD5OI0i-cYfX9SKmakSEx9XWmxzgXkrnHKvgPKTa1-DParSSBpIBoeeAxbTX2qNt-_8Nif9NrSLQweu44iD");'>
+</div>
+</div>
+<div class="bg-primary/10 px-4 py-2 flex justify-between items-center border-t border-border-dark">
+<span class="text-xs text-text-secondary font-medium">Total Sales Generated</span>
+<span class="text-sm font-bold text-primary">$4,285.50</span>
+</div>
+</div>
+</section>
+<!-- Chart: Prep Time -->
+<section>
+<div class="flex items-center justify-between mb-3">
+<h2 class="text-lg font-bold tracking-tight">Prep Time Efficiency</h2>
+<button class="text-xs text-primary font-medium flex items-center">
+                        View Details <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+<div class="rounded-xl border border-border-dark bg-surface-dark p-5">
+<div class="flex justify-between items-end mb-6">
+<div>
+<p class="text-sm text-text-secondary font-medium">Avg Prep Time</p>
+<p class="text-2xl font-bold text-white mt-1">3m 45s</p>
+</div>
+<div class="flex items-center gap-1 bg-green-500/10 px-2 py-1 rounded text-green-400 text-xs font-bold">
+<span class="material-symbols-outlined text-[14px]">trending_down</span>
+                            12s faster
+                        </div>
+</div>
+<!-- Bar Chart Visual -->
+<div class="grid grid-cols-3 gap-4 h-32 items-end px-2">
+<!-- Morning -->
+<div class="flex flex-col items-center gap-2 group">
+<div class="w-full bg-border-dark rounded-t-sm relative h-full flex items-end overflow-hidden">
+<div class="w-full bg-primary/80 group-hover:bg-primary transition-all duration-300" style="height: 45%;"></div>
+</div>
+<span class="text-xs font-medium text-text-secondary">Morning</span>
+</div>
+<!-- Lunch -->
+<div class="flex flex-col items-center gap-2 group">
+<div class="w-full bg-border-dark rounded-t-sm relative h-full flex items-end overflow-hidden">
+<div class="w-full bg-primary/80 group-hover:bg-primary transition-all duration-300" style="height: 75%;"></div>
+</div>
+<span class="text-xs font-medium text-text-secondary">Lunch</span>
+</div>
+<!-- Evening -->
+<div class="flex flex-col items-center gap-2 group">
+<div class="w-full bg-border-dark rounded-t-sm relative h-full flex items-end overflow-hidden">
+<div class="w-full bg-primary/80 group-hover:bg-primary transition-all duration-300" style="height: 30%;"></div>
+</div>
+<span class="text-xs font-medium text-text-secondary">Evening</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Staff Metrics List -->
+<section>
+<div class="flex items-center justify-between mb-3">
+<h2 class="text-lg font-bold tracking-tight">Team Metrics</h2>
+<div class="flex items-center gap-1 text-xs text-text-secondary">
+<span>Sort by:</span>
+<span class="text-white font-medium">Rating</span>
+</div>
+</div>
+<div class="flex flex-col gap-3">
+<!-- List Item 1 -->
+<div class="flex flex-col gap-3 rounded-xl border border-border-dark bg-surface-dark p-4 shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-cover bg-center border border-border-dark" data-alt="Portrait of male staff member Mike" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC2_qhywo-oqm3RCECroUl2Nkapza-QAjpGuthIDF5NJh5om8vDRkv0FRuuTTvesQq-iE2vv0c2uzbRYsDC8mJsEtCnZk-lsN0Hlb4_GW9-5iAHpnOBkQrPyMcnkn8Oa90vHTwxmsGXA2FzZpt02_PcgcWNLpxbdstrgpiAHqjy8kiq3K2z-dKzSbuPgbudqOewiFMZ7HjE3Ja_7X97HTZkDJaz1x-RmuEL21LZIck4d0ZrsYBtdhLvZ-NwIsvNy1B9BJPn0E3rWLxW");'></div>
+<div>
+<p class="text-sm font-bold text-white">Mike Thompson</p>
+<p class="text-xs text-text-secondary">Senior Barista</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex items-center gap-1 text-primary">
+<span class="text-sm font-bold">4.8</span>
+<span class="material-symbols-outlined text-[16px] fill-1">star</span>
+</div>
+<span class="text-xs text-text-secondary">120 Orders</span>
+</div>
+</div>
+<div class="h-px bg-border-dark w-full"></div>
+<div class="flex items-center justify-between text-xs">
+<div class="flex items-center gap-1.5 text-text-secondary">
+<span class="material-symbols-outlined text-[16px]">timer</span>
+<span>Avg: <span class="text-white font-medium">3m 12s</span></span>
+</div>
+<div class="flex items-center gap-1.5 text-text-secondary">
+<span class="material-symbols-outlined text-[16px]">payments</span>
+<span>Sales: <span class="text-white font-medium">$1,940</span></span>
+</div>
+</div>
+</div>
+<!-- List Item 2 -->
+<div class="flex flex-col gap-3 rounded-xl border border-border-dark bg-surface-dark p-4 shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-cover bg-center border border-border-dark" data-alt="Portrait of female staff member Jessica" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDljTTsOc72HGjSrOBN3R1X4WKe4sWldYl0OGtd6jfWZRV-JvwfB2wCFrcMW_QKzqHjzI9tKhvoEt-eEQ-tzqt2IR3SqyGcDB4blbtWAzy8qp9sTSjFRTTTmhAXZDlqXqvp3sJCovatCGzxabnv8JjgVLf2k5stEp72OMkqJq7ebFAL8WvySxzTGrPQ3dPE-GLwihcApav3k191EGzDufIFkATD-O8gXN0bz5mbU9R7JR4Wlc-Pen5ezU0bWzjUdCfEapkZQotLQwig");'></div>
+<div>
+<p class="text-sm font-bold text-white">Jessica Lee</p>
+<p class="text-xs text-text-secondary">Barista</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex items-center gap-1 text-primary/80">
+<span class="text-sm font-bold text-white/90">4.5</span>
+<span class="material-symbols-outlined text-[16px] fill-1">star</span>
+</div>
+<span class="text-xs text-text-secondary">98 Orders</span>
+</div>
+</div>
+<div class="h-px bg-border-dark w-full"></div>
+<div class="flex items-center justify-between text-xs">
+<div class="flex items-center gap-1.5 text-text-secondary">
+<span class="material-symbols-outlined text-[16px]">timer</span>
+<span>Avg: <span class="text-white font-medium">4m 05s</span></span>
+</div>
+<div class="flex items-center gap-1.5 text-text-secondary">
+<span class="material-symbols-outlined text-[16px]">payments</span>
+<span>Sales: <span class="text-white font-medium">$1,250</span></span>
+</div>
+</div>
+</div>
+<!-- List Item 3 -->
+<div class="flex flex-col gap-3 rounded-xl border border-border-dark bg-surface-dark p-4 shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-cover bg-center border border-border-dark" data-alt="Portrait of male staff member David" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB7We4r_Nc2MpcO_b1AKbEnj56fsD_jWrb8ByqMb4A2zo_lGym1G2x08vxNb1hrBl2n-tejL3ASrm3R5KhuNcDCTEAtuBiebS-KEgkbDdRDYYsPPEAcbp3D7YT4mvQj4C-zongx6XuDkIW2aIGPRDLmRqh6try4n-s7P2iomuPt0ImE5UKY3C9uRFjFxRJjepqxqEWBgyhYLgkiHsSY5j2GU6xDuO-qUwkosHk5LqfN28OKrDCZ6bIXkdR-Q7bHv80AbHAfZlpu9z5D");'></div>
+<div>
+<p class="text-sm font-bold text-white">David Chen</p>
+<p class="text-xs text-text-secondary">Trainee</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex items-center gap-1 text-text-secondary">
+<span class="text-sm font-bold text-white/80">4.2</span>
+<span class="material-symbols-outlined text-[16px] fill-1">star</span>
+</div>
+<span class="text-xs text-text-secondary">45 Orders</span>
+</div>
+</div>
+<div class="h-px bg-border-dark w-full"></div>
+<div class="flex items-center justify-between text-xs">
+<div class="flex items-center gap-1.5 text-text-secondary">
+<span class="material-symbols-outlined text-[16px]">timer</span>
+<span>Avg: <span class="text-white font-medium">5m 10s</span></span>
+</div>
+<div class="flex items-center gap-1.5 text-text-secondary">
+<span class="material-symbols-outlined text-[16px]">payments</span>
+<span>Sales: <span class="text-white font-medium">$620</span></span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+</body></html>

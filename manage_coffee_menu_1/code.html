@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Manage Coffee Menu</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script>tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#f4c025", "background-light": "#f8f8f5", "background-dark": "#221e10", "surface-dark": "#2f261f", "input-dark": "#393028"}, fontFamily: {display: "Plus Jakarta Sans"}, borderRadius: {DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px"}}}};</script>
+<style>
+        /* Custom scrollbar for horizontal scrolling chips */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Toggle Switch Styling since we can't use JS for logic, we style a checkbox */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #e6730f;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #e6730f;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased selection:bg-primary selection:text-white">
+<div class="relative min-h-screen flex flex-col w-full max-w-md mx-auto overflow-hidden shadow-2xl bg-background-light dark:bg-background-dark border-x border-stone-200 dark:border-stone-800">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-20 flex items-center justify-between p-4 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-stone-200 dark:border-stone-800/50">
+<div class="flex items-center gap-3">
+<button class="p-2 -ml-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-stone-600 dark:text-stone-300">menu</span>
+</button>
+<h1 class="text-xl font-bold tracking-tight text-stone-900 dark:text-white">Menu</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-2 px-3 py-2 bg-primary hover:bg-primary/90 text-white text-sm font-semibold rounded-lg transition-colors shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span>Add Item</span>
+</button>
+</div>
+</header>
+<!-- Search & Filter Area -->
+<div class="flex flex-col gap-4 px-4 py-4 z-10">
+<!-- Search Bar -->
+<label class="relative flex w-full items-center">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+<span class="material-symbols-outlined text-[#baaa9c]">search</span>
+</div>
+<input class="block w-full rounded-lg border-none bg-white dark:bg-input-dark py-3 pl-10 pr-4 text-sm text-stone-900 dark:text-white placeholder-[#baaa9c] focus:ring-2 focus:ring-primary shadow-sm" placeholder="Search by item name..." type="text"/>
+</label>
+<!-- Filter Chips -->
+<div class="flex gap-2 overflow-x-auto hide-scrollbar pb-1">
+<button class="shrink-0 px-4 py-2 rounded-lg bg-primary text-white text-sm font-semibold shadow-md shadow-primary/20 whitespace-nowrap">
+                    All Items
+                </button>
+<button class="shrink-0 px-4 py-2 rounded-lg bg-white dark:bg-input-dark hover:bg-stone-100 dark:hover:bg-stone-700 text-stone-600 dark:text-stone-300 text-sm font-medium transition-colors whitespace-nowrap border border-stone-200 dark:border-transparent">
+                    Espresso
+                </button>
+<button class="shrink-0 px-4 py-2 rounded-lg bg-white dark:bg-input-dark hover:bg-stone-100 dark:hover:bg-stone-700 text-stone-600 dark:text-stone-300 text-sm font-medium transition-colors whitespace-nowrap border border-stone-200 dark:border-transparent">
+                    Cold Brew
+                </button>
+<button class="shrink-0 px-4 py-2 rounded-lg bg-white dark:bg-input-dark hover:bg-stone-100 dark:hover:bg-stone-700 text-stone-600 dark:text-stone-300 text-sm font-medium transition-colors whitespace-nowrap border border-stone-200 dark:border-transparent">
+                    Pastries
+                </button>
+<button class="shrink-0 px-4 py-2 rounded-lg bg-white dark:bg-input-dark hover:bg-stone-100 dark:hover:bg-stone-700 text-stone-600 dark:text-stone-300 text-sm font-medium transition-colors whitespace-nowrap border border-stone-200 dark:border-transparent">
+                    Seasonal
+                </button>
+</div>
+</div>
+<!-- Product List -->
+<main class="flex-1 overflow-y-auto px-4 pb-24 space-y-4">
+<!-- List Header Stats -->
+<div class="flex items-center justify-between px-1 text-xs font-semibold uppercase tracking-wider text-[#baaa9c]">
+<span>24 Items</span>
+<span>Sorted by: Name</span>
+</div>
+<!-- Item 1 -->
+<div class="group relative flex flex-col gap-3 p-3 bg-white dark:bg-surface-dark rounded-xl shadow-sm border border-stone-100 dark:border-stone-800 transition-all hover:border-primary/30">
+<div class="flex items-start justify-between gap-3">
+<div class="flex gap-3">
+<div class="relative size-16 shrink-0 rounded-lg overflow-hidden bg-stone-200 dark:bg-stone-800">
+<img alt="Caramel Macchiato in a clear glass with whipped cream" class="h-full w-full object-cover" data-alt="Caramel Macchiato in a clear glass with whipped cream" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChQ_q8j6RIPEhY0S4oN-ILAXHe9Dg0IOrxxvzNMh_PDl_DjDPJ8XKy3Lh17CnM0ADeWxEsmtYMckVcQtvaumNfaDQTBRkVql-4Lv5eITRLxYifg4WBTrvqCIwAVLHM37htdpbIy5LwoI7c_2fo5gsveSxRG4grhzibVcdWHAnKDZshHEK4LZFB7ST44CbCW2jas4u2VyefwKpGHG6pGMaEnGyxc3HE2HyiA9N8gC0S28_GEZAE0J-ItsT_EFxZQu6dye5f8RKgkY7N"/>
+</div>
+<div class="flex flex-col pt-0.5">
+<h3 class="text-base font-bold text-stone-900 dark:text-white leading-tight">Caramel Macchiato</h3>
+<p class="text-sm text-[#baaa9c] font-medium mt-0.5">Hot Coffees</p>
+<p class="text-primary font-bold mt-1">$4.50</p>
+</div>
+</div>
+<button class="p-1 rounded-full text-stone-400 hover:text-stone-600 dark:hover:text-white hover:bg-stone-100 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-[24px]">more_vert</span>
+</button>
+</div>
+<div class="mt-1 pt-3 border-t border-stone-100 dark:border-stone-700/50 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="size-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
+<span class="text-xs font-semibold text-stone-600 dark:text-stone-300">In Stock</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center p-2 rounded-lg text-stone-500 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-white/5 text-xs font-medium">
+<span class="material-symbols-outlined text-[18px] mr-1">edit</span> Edit
+                        </button>
+<button class="flex items-center justify-center p-2 rounded-lg text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 text-xs font-medium">
+<span class="material-symbols-outlined text-[18px] mr-1">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="group relative flex flex-col gap-3 p-3 bg-white dark:bg-surface-dark rounded-xl shadow-sm border border-stone-100 dark:border-stone-800 transition-all hover:border-primary/30">
+<div class="flex items-start justify-between gap-3">
+<div class="flex gap-3">
+<div class="relative size-16 shrink-0 rounded-lg overflow-hidden bg-stone-200 dark:bg-stone-800">
+<img alt="Iced Vanilla Latte in a tall plastic cup" class="h-full w-full object-cover" data-alt="Iced Vanilla Latte in a tall plastic cup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZGn2KPM9ObORcyFGZYyM_1CJtHhJ-qDc0g2cdkIRhkxKxUDDQCKYVqClEy2Ccvxzr-T9VYcau3rnPzP8SM2Cy1vT3ux-5tMrsK3D-IJZwzN-Vf12opjqRLcwMY-nAXSULb6_4zQtSdxQwtW2Rs611S_V0lyeyEtHbVR8ObB3IbEJrLveN-29_d_FtLQeldXRepE7lYp77v6L7bI66K5LAxnC7StUZ4ZpVBLS4urim8D8G5-KhlUwrEB2AWRRHV_j1_me2LQqYqpd-"/>
+</div>
+<div class="flex flex-col pt-0.5">
+<h3 class="text-base font-bold text-stone-900 dark:text-white leading-tight">Iced Vanilla Latte</h3>
+<p class="text-sm text-[#baaa9c] font-medium mt-0.5">Cold Coffees</p>
+<p class="text-primary font-bold mt-1">$5.25</p>
+</div>
+</div>
+<button class="p-1 rounded-full text-stone-400 hover:text-stone-600 dark:hover:text-white hover:bg-stone-100 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-[24px]">more_vert</span>
+</button>
+</div>
+<div class="mt-1 pt-3 border-t border-stone-100 dark:border-stone-700/50 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="size-2 rounded-full bg-orange-400 shadow-[0_0_8px_rgba(251,146,60,0.5)]"></div>
+<span class="text-xs font-semibold text-stone-600 dark:text-stone-300">Low Stock (5)</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center p-2 rounded-lg text-stone-500 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-white/5 text-xs font-medium">
+<span class="material-symbols-outlined text-[18px] mr-1">edit</span> Edit
+                        </button>
+<button class="flex items-center justify-center p-2 rounded-lg text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 text-xs font-medium">
+<span class="material-symbols-outlined text-[18px] mr-1">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="group relative flex flex-col gap-3 p-3 bg-white dark:bg-surface-dark rounded-xl shadow-sm border border-stone-100 dark:border-stone-800 transition-all hover:border-primary/30 opacity-75">
+<div class="flex items-start justify-between gap-3">
+<div class="flex gap-3">
+<div class="relative size-16 shrink-0 rounded-lg overflow-hidden bg-stone-200 dark:bg-stone-800 grayscale">
+<img alt="Dark coffee beans roasted" class="h-full w-full object-cover" data-alt="Dark coffee beans roasted" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL7aJ2mKJXzmi0VLKZ89qVR_qPSEJYXEu4Xoovcpt7f0WFPt7GiCpS57oqg_9_pZEapFw08li1AMgnCLiHD169dnSalhCVqnLIKXjDByryB8HM5e9YKuQ3UPrQiHr4DLHkdD2xPZq12tJFRSzP2cFapjWlpNQwp8AhnlzN4bXkn_UluBaCcVFQZ2nXYF_ocn6kvyZHo7t4O11IBkgMSrFXRz92Gbp9ib-9Nh8fpOlXZpQ56eppn9ZHoG1AnadF7sshSAK1A1QTjrvL"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+<span class="material-symbols-outlined text-white/80 text-[24px]">block</span>
+</div>
+</div>
+<div class="flex flex-col pt-0.5">
+<h3 class="text-base font-bold text-stone-900 dark:text-white leading-tight line-through decoration-stone-500">Seasonal Blend</h3>
+<p class="text-sm text-[#baaa9c] font-medium mt-0.5">Beans</p>
+<p class="text-stone-500 font-bold mt-1">$18.00</p>
+</div>
+</div>
+<button class="p-1 rounded-full text-stone-400 hover:text-stone-600 dark:hover:text-white hover:bg-stone-100 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-[24px]">more_vert</span>
+</button>
+</div>
+<div class="mt-1 pt-3 border-t border-stone-100 dark:border-stone-700/50 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="size-2 rounded-full bg-stone-500"></div>
+<span class="text-xs font-semibold text-stone-500">Sold Out</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center p-2 rounded-lg text-primary hover:bg-primary/10 text-xs font-medium">
+<span class="material-symbols-outlined text-[18px] mr-1">refresh</span> Restock
+                        </button>
+</div>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="group relative flex flex-col gap-3 p-3 bg-white dark:bg-surface-dark rounded-xl shadow-sm border border-stone-100 dark:border-stone-800 transition-all hover:border-primary/30">
+<div class="flex items-start justify-between gap-3">
+<div class="flex gap-3">
+<div class="relative size-16 shrink-0 rounded-lg overflow-hidden bg-stone-200 dark:bg-stone-800">
+<img alt="Croissant on a plate" class="h-full w-full object-cover" data-alt="Croissant on a plate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGCteR8hd3MxreAUcIUqJyTGvcsdgI1OMSLoCiaIEixBLJ4lhlUQU8B3vBAdP9w7t3DV8k8CS7j8QmurbzQlhZq2ry3HHecwfi9EHTcclkL4H__zWF5P8Wo1tINusE1KJyWMx7Am-jA_8LDhqI9zFu2AAejcPSJWYWzk5aGUjJcSo5ftbUFHk_U9eU2lP6a8wImodH1eK6pJ69O3WoLJwcmPQWCjhsETFNIjeC_RrINPkbX6NKiLx73Nwl94_p5MBUxO4rCGUn17Wv"/>
+</div>
+<div class="flex flex-col pt-0.5">
+<h3 class="text-base font-bold text-stone-900 dark:text-white leading-tight">Butter Croissant</h3>
+<p class="text-sm text-[#baaa9c] font-medium mt-0.5">Pastries</p>
+<p class="text-primary font-bold mt-1">$3.75</p>
+</div>
+</div>
+<button class="p-1 rounded-full text-stone-400 hover:text-stone-600 dark:hover:text-white hover:bg-stone-100 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-[24px]">more_vert</span>
+</button>
+</div>
+<div class="mt-1 pt-3 border-t border-stone-100 dark:border-stone-700/50 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="size-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
+<span class="text-xs font-semibold text-stone-600 dark:text-stone-300">In Stock</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center p-2 rounded-lg text-stone-500 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-white/5 text-xs font-medium">
+<span class="material-symbols-outlined text-[18px] mr-1">edit</span> Edit
+                        </button>
+<button class="flex items-center justify-center p-2 rounded-lg text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 text-xs font-medium">
+<span class="material-symbols-outlined text-[18px] mr-1">delete</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation -->
+<nav class="absolute bottom-0 w-full bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-t border-stone-200 dark:border-stone-800 px-6 pb-6 pt-3 flex justify-between items-center z-30">
+<a class="flex flex-col items-center gap-1 text-stone-400 hover:text-stone-600 dark:hover:text-stone-200 transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]">dashboard</span>
+<span class="text-[10px] font-medium">Dashboard</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined text-[24px] fill-current">inventory_2</span>
+<span class="text-[10px] font-bold">Menu</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-stone-400 hover:text-stone-600 dark:hover:text-stone-200 transition-colors" href="#">
+<div class="relative">
+<span class="material-symbols-outlined text-[24px]">shopping_bag</span>
+<span class="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[9px] font-bold text-white">3</span>
+</div>
+<span class="text-[10px] font-medium">Orders</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-stone-400 hover:text-stone-600 dark:hover:text-stone-200 transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]">settings</span>
+<span class="text-[10px] font-medium">Settings</span>
+</a>
+</nav>
+</div>
+</body></html>

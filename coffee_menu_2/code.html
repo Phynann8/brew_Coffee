@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Coffee Menu</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#f4c025", "background-dark": "#221e10", "surface-dark": "#2D241E", cream: "#F5EFE6", gold: "#D4AF37", "accent-brown": "#3D3028", "text-secondary-dark": "#A69080", "background-light": "#f8f8f5"}, fontFamily: {display: "Plus Jakarta Sans"}, borderRadius: {DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px"}}}};</script>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply bg-background-dark text-cream;
+                min-height: max(884px, 100dvh);
+            }
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display antialiased flex flex-col pb-24">
+<header class="sticky top-0 z-10 bg-background-dark/95 backdrop-blur-md px-6 py-4 flex items-center justify-between transition-colors duration-300">
+<div class="flex items-center gap-3">
+<div class="relative">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-12 ring-2 ring-gold/30" data-alt="User profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBze4b3iXDSOhgEMxMb8kfnfz5_1KYWJna-wHYajYzNMTsPMKFY6Se_b2mzcZybqchIlhzsKZFAFKItgYoKn0QyhPRlb_aZOBD7fNbxhmX3fyFVXmd6zwxhD0f6Ji42lBDLXGEBi-6l5lv2M1TH9odzPisv7a5dXkcx6tcfB3FKcbtrlwi77xLSFp161oCsdnl2I9m7rZRlvDjJoMqbyLSNKBTUQBk0xQPSy1yJTwZiq1QGCgsdeIP_RWhSoV6dft2NhR_U1K_JYy05");'>
+</div>
+<div class="absolute bottom-0 right-0 size-3 bg-green-500 rounded-full border-2 border-background-dark"></div>
+</div>
+<div class="flex flex-col">
+<p class="text-text-secondary-dark text-xs font-medium uppercase tracking-wider">Welcome back,</p>
+<h2 class="text-lg font-bold leading-tight text-cream">Alex</h2>
+</div>
+</div>
+<button class="relative p-2 rounded-full hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-2xl text-cream" style="font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24">notifications</span>
+<span class="absolute top-2 right-2.5 flex size-2">
+<span class="relative inline-flex rounded-full size-2 bg-gold"></span>
+</span>
+</button>
+</header>
+<div class="px-6 py-2">
+<label class="group flex items-center gap-3 w-full h-12 rounded-2xl bg-surface-dark px-4 shadow-inner border border-white/5 focus-within:border-gold/30 transition-all duration-300">
+<span class="material-symbols-outlined text-text-secondary-dark group-focus-within:text-gold transition-colors">search</span>
+<input class="bg-transparent border-none outline-none w-full text-base text-cream placeholder:text-text-secondary-dark focus:ring-0 p-0" placeholder="Search for your favorite brew..." type="text"/>
+<span class="material-symbols-outlined text-text-secondary-dark">tune</span>
+</label>
+</div>
+<section class="p-6">
+<div class="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#3D3028] to-[#2D241E] p-6 shadow-2xl border border-white/5">
+<div class="absolute -right-16 -top-16 size-40 rounded-full bg-gold/5 blur-3xl"></div>
+<div class="relative z-10 flex flex-col gap-5">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-sm font-semibold text-gold uppercase tracking-[0.2em]">Gold Rewards</h3>
+<p class="text-cream text-lg font-bold mt-1">Loyalty Points</p>
+</div>
+<div class="bg-gold/10 backdrop-blur-md px-3 py-1 rounded-full border border-gold/20">
+<span class="text-gold text-[10px] font-bold tracking-tighter uppercase">Premium Tier</span>
+</div>
+</div>
+<div class="flex flex-col gap-3">
+<div class="flex justify-between items-end">
+<span class="text-cream text-2xl font-bold italic">350 <span class="text-text-secondary-dark text-base font-normal not-italic">/ 400 pts</span></span>
+<span class="text-gold text-xs font-medium">50 pts to free latte</span>
+</div>
+<div class="h-2 w-full rounded-full bg-background-dark shadow-inner overflow-hidden">
+<div class="h-full rounded-full bg-gradient-to-r from-gold/60 to-gold shadow-[0_0_15px_rgba(212,175,55,0.4)] transition-all duration-700" style="width: 87.5%;"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="flex gap-4 px-6 pb-4 overflow-x-auto no-scrollbar scroll-smooth">
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-gold px-6 shadow-lg shadow-gold/10 transition-transform active:scale-95">
+<p class="text-background-dark text-sm font-bold">All Drinks</p>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-surface-dark px-6 border border-white/5 hover:bg-accent-brown transition-all active:scale-95">
+<span class="text-cream text-sm font-medium">Hot Coffee</span>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-surface-dark px-6 border border-white/5 hover:bg-accent-brown transition-all active:scale-95">
+<span class="text-cream text-sm font-medium">Iced Coffee</span>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-surface-dark px-6 border border-white/5 hover:bg-accent-brown transition-all active:scale-95">
+<span class="text-cream text-sm font-medium">Seasonal</span>
+</button>
+</div>
+<section class="grid grid-cols-2 gap-5 px-6 pb-8">
+<div class="group relative flex flex-col rounded-[1.5rem] bg-surface-dark p-3.5 shadow-xl border border-white/5 transition-all hover:border-gold/20">
+<div class="relative aspect-square w-full overflow-hidden rounded-2xl bg-accent-brown">
+<div class="h-full w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Cappuccino" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA_Il1pi_dr6ez1-ng3FvlzDdMGM5znu02WXAQbQJXfHah9_xe_Bguq_IkFJUKq-WxvukXM5DP4ex_-k0tHKkFQUlMKw8ZnyZYCVnmY8mKhVjoxQtnGWEk2Ro9OwHDGsVmfs3ZpuJ658FAfRjl7aFDnzsRuqBeQt9wcvuP_KGaVzAIALHKSADgZPgI3Y6Yb2trRp3PkzaqTOtN4VTV4GOTsvL3ezc49xgWN3NLglSmHVmXNbw5QM0oGnyrLHcKVCVLjQzVOnYPSW4Yj");'>
+</div>
+<div class="absolute top-2.5 right-2.5 rounded-full bg-black/30 backdrop-blur-md p-1.5 text-cream hover:text-gold transition-colors">
+<span class="material-symbols-outlined text-[18px] block" style="font-variation-settings: 'FILL' 0">favorite</span>
+</div>
+</div>
+<div class="mt-4 flex flex-col gap-1">
+<h3 class="text-base font-bold text-cream leading-tight tracking-wide">Cappuccino</h3>
+<p class="text-xs text-text-secondary-dark">With oat milk foam</p>
+</div>
+<div class="mt-4 flex items-center justify-between">
+<span class="text-lg font-bold text-gold tracking-tight">$4.50</span>
+<button class="flex size-9 items-center justify-center rounded-full bg-gold text-background-dark shadow-lg shadow-gold/20 hover:brightness-110 active:scale-90 transition-all">
+<span class="material-symbols-outlined text-[24px] font-bold">add</span>
+</button>
+</div>
+</div>
+<div class="group relative flex flex-col rounded-[1.5rem] bg-surface-dark p-3.5 shadow-xl border border-white/5 transition-all hover:border-gold/20">
+<div class="relative aspect-square w-full overflow-hidden rounded-2xl bg-accent-brown">
+<div class="h-full w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Cold Brew" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBf1u5-qOslMDBzyviUWyVFdAs6ZKsq7Kn0RPbRay4ND3Oiz5To23hWr065rCdjO8VgZ0CPTN5SvfgO6wtedCGrKCH1mGJHZiprw89OLBOm0EFZuP485pYZZdK52DE44IbD59_DNc217dihASms6oFNW2KyIk7zAUABWwU0rHbAx8LsRJsaKQMOZN05mabziUVAW6JhPwNU_Fd7KFBURbUfcHcNR6IlnCSLVNw4mH_HTpsRLo4MUFnP7nFPVw4-g55SlfQk6_Vdjwr8");'>
+</div>
+</div>
+<div class="mt-4 flex flex-col gap-1">
+<h3 class="text-base font-bold text-cream leading-tight tracking-wide">Cold Brew</h3>
+<p class="text-xs text-text-secondary-dark">Smooth &amp; strong</p>
+</div>
+<div class="mt-4 flex items-center justify-between">
+<span class="text-lg font-bold text-gold tracking-tight">$5.00</span>
+<button class="flex size-9 items-center justify-center rounded-full bg-gold text-background-dark shadow-lg shadow-gold/20 hover:brightness-110 active:scale-90 transition-all">
+<span class="material-symbols-outlined text-[24px] font-bold">add</span>
+</button>
+</div>
+</div>
+<div class="group relative flex flex-col rounded-[1.5rem] bg-surface-dark p-3.5 shadow-xl border border-white/5 transition-all hover:border-gold/20">
+<div class="relative aspect-square w-full overflow-hidden rounded-2xl bg-accent-brown">
+<div class="h-full w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Pumpkin Spice" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBPhI5q6tz9szzAgSVdQ9aFOilbz5f7UAh9p44SPgXW8AoYd6rOAP6Wjkm56NfHVqff2cw9CG-_2J12wa_xVBT3USKW1gVWOGAtgFneP3OuStPVej1RzCZCsUd_2c_r4TycJ4SZxg2aP-iIgLzN-WwzYnpUVwqoEWPkjJG9dCwUhRqrInnjWjwDnoRpgg36LYp0YHjqedJ852BDqsw4zMBdkTJYhsj9QFgynRdajSTJanUSNf3_MZjEb1aHV7NLOL5jiL1LEWOuH3rF");'>
+</div>
+<div class="absolute top-2.5 left-2.5 rounded-lg bg-gold/90 backdrop-blur-sm px-2 py-1 text-[9px] font-bold uppercase tracking-widest text-background-dark">Seasonal</div>
+</div>
+<div class="mt-4 flex flex-col gap-1">
+<h3 class="text-base font-bold text-cream leading-tight tracking-wide">Pumpkin Spice</h3>
+<p class="text-xs text-text-secondary-dark">Limited time only</p>
+</div>
+<div class="mt-4 flex items-center justify-between">
+<span class="text-lg font-bold text-gold tracking-tight">$6.20</span>
+<button class="flex size-9 items-center justify-center rounded-full bg-gold text-background-dark shadow-lg shadow-gold/20 hover:brightness-110 active:scale-90 transition-all">
+<span class="material-symbols-outlined text-[24px] font-bold">add</span>
+</button>
+</div>
+</div>
+<div class="group relative flex flex-col rounded-[1.5rem] bg-surface-dark p-3.5 shadow-xl border border-white/5 transition-all hover:border-gold/20">
+<div class="relative aspect-square w-full overflow-hidden rounded-2xl bg-accent-brown">
+<div class="h-full w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Espresso" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAPIZheoZLOJ4x_dHZ3Rv1NhY1YukNaaSoRuhS46Cx5bHckeff6tDpjT8o328WABCFo6ZihLEaE0FhEcq2IEcyjEpGw7K95XnMK0CHlMI0GTJo0v-AHHziL-eNiOKJLHXwfAVoX6vQL4-lvXrN_pRwYzPPY9rjWIEc8xJQBgYCjaEaokPcF0DXqnxfPOZ9RTQootHaZE1lZSVxwerolUbkcLxLVs4VqlQMUnGysj-WBZke9KMwtw4FyJxIv8Y0EBWW3RTvP7TQ_2wZ_");'>
+</div>
+</div>
+<div class="mt-4 flex flex-col gap-1">
+<h3 class="text-base font-bold text-cream leading-tight tracking-wide">Espresso</h3>
+<p class="text-xs text-text-secondary-dark">Single origin beans</p>
+</div>
+<div class="mt-4 flex items-center justify-between">
+<span class="text-lg font-bold text-gold tracking-tight">$3.00</span>
+<button class="flex size-9 items-center justify-center rounded-full bg-gold text-background-dark shadow-lg shadow-gold/20 hover:brightness-110 active:scale-90 transition-all">
+<span class="material-symbols-outlined text-[24px] font-bold">add</span>
+</button>
+</div>
+</div>
+</section>
+<nav class="fixed bottom-0 w-full z-20 bg-background-dark/80 backdrop-blur-xl border-t border-white/5 pb-8 pt-4 px-10">
+<ul class="flex justify-between items-center max-w-sm mx-auto">
+<li>
+<button class="flex flex-col items-center gap-1.5 text-gold">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1">home</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Home</span>
+</button>
+</li>
+<li>
+<button class="flex flex-col items-center gap-1.5 text-text-secondary-dark hover:text-gold transition-colors">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 0">receipt_long</span>
+<span class="text-[10px] font-medium uppercase tracking-wider">Orders</span>
+</button>
+</li>
+<li>
+<button class="flex flex-col items-center gap-1.5 text-text-secondary-dark hover:text-gold transition-colors">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 0">favorite</span>
+<span class="text-[10px] font-medium uppercase tracking-wider">Saved</span>
+</button>
+</li>
+<li>
+<button class="flex flex-col items-center gap-1.5 text-text-secondary-dark hover:text-gold transition-colors">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 0">person</span>
+<span class="text-[10px] font-medium uppercase tracking-wider">Account</span>
+</button>
+</li>
+</ul>
+</nav>
+</body></html>

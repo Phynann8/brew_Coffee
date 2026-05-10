@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Brew Rewards</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d4af37","primary-dark": "#b8860b","background-dark": "#1a120b","card-dark": "#2d241c","cream": "#f5f5dc","text-subtle": "#a39281",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .bg-textured-card {
+                background-color: #241c15;
+                background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
+                background-blend-mode: overlay;
+            }
+            .no-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+            .no-scrollbar {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+            .pb-safe {
+                padding-bottom: env(safe-area-inset-bottom, 20px);
+            }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark font-display antialiased text-cream">
+<div class="relative flex h-full min-h-screen w-full max-w-md mx-auto flex-col overflow-x-hidden pb-32 shadow-2xl bg-background-dark">
+<div class="flex items-center px-6 py-5 justify-between sticky top-0 z-50 bg-background-dark/95 backdrop-blur-md">
+<div class="text-cream flex size-10 shrink-0 items-center justify-center rounded-full active:bg-white/10 cursor-pointer transition-colors">
+<span class="material-symbols-outlined" style="font-size: 24px;">arrow_back_ios_new</span>
+</div>
+<h2 class="text-cream text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-10">Brew Rewards</h2>
+</div>
+<div class="px-6 pt-2 pb-6">
+<div class="relative w-full overflow-hidden rounded-2xl bg-textured-card shadow-2xl border border-white/5">
+<div class="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-primary/10 blur-3xl"></div>
+<div class="absolute -left-10 bottom-0 h-32 w-32 rounded-full bg-primary/5 blur-2xl"></div>
+<div class="relative p-6 flex flex-col gap-6">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-primary font-bold text-xs uppercase tracking-[0.2em] mb-1">Gold Member</p>
+<h1 class="text-cream text-3xl font-extrabold tracking-tight">Your Status</h1>
+</div>
+<div class="h-10 w-10 bg-primary/20 rounded-full flex items-center justify-center text-primary border border-primary/30">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+</div>
+<div class="flex flex-col gap-3">
+<div class="flex justify-between items-end">
+<p class="text-text-subtle text-sm font-medium">3 cups to free drink</p>
+<p class="text-cream text-xl font-bold">7<span class="text-text-subtle text-base font-normal">/10</span></p>
+</div>
+<div class="h-4 w-full bg-black/40 rounded-full overflow-hidden border border-white/5">
+<div class="h-full w-[70%] bg-gradient-to-r from-primary-dark via-primary to-primary-dark rounded-full shadow-[0_0_15px_rgba(212,175,55,0.3)]"></div>
+</div>
+<p class="text-primary/80 text-xs mt-1 italic">Earn 50 bonus points on your next mobile order!</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between px-6 pb-4 pt-2">
+<h2 class="text-cream text-xl font-bold">Available Rewards</h2>
+<button class="text-primary text-sm font-semibold hover:text-primary-dark transition-colors">View All</button>
+</div>
+<div class="grid grid-cols-2 gap-4 px-6 mb-8">
+<div class="group flex flex-col gap-3 bg-card-dark p-3 rounded-xl border border-white/5 shadow-lg transition-transform active:scale-95">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden bg-black/40">
+<div class="absolute inset-0 bg-cover bg-center transition-transform group-hover:scale-105 opacity-80" data-alt="Close up of a flaky croissant on a plate" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB1Rr2UX1E_Mxeso2zf1tDO16uC_6SZS83EM1jhh6UTqe_4-uCm_-2ddy9cOtoL8JlQy3ex6hv8Bc3PNTOqx4o8zuS9xXLDuoU9ELAb1R5wY56-p7_5coRXYFFsWnqRFDwXoAioyfT96q2AFk_WSsYQkf_f61g9mso4rgdN2BVGVM4klyTAbfMMpGKszcGcO5nlHgGRwnBcze4Hbl-OCmFPlugvKfCx7pWiFdnQxg1pxYiSA_G30_N8lpmcXcLKXVX-nUww9hEPHOPx");'></div>
+<div class="absolute top-2 right-2 bg-background-dark/80 backdrop-blur-md px-2 py-1 rounded text-[10px] font-bold text-primary border border-primary/20">
+                        400 pts
+                    </div>
+</div>
+<div class="flex flex-col">
+<p class="text-cream text-base font-bold leading-tight">Free Pastry</p>
+<p class="text-text-subtle text-xs mt-1">Any bakery item up to $5</p>
+<button class="mt-3 w-full py-2 rounded-lg bg-white/5 text-cream text-xs font-bold hover:bg-primary hover:text-background-dark transition-colors border border-white/10">Redeem</button>
+</div>
+</div>
+<div class="group flex flex-col gap-3 bg-card-dark p-3 rounded-xl border border-white/5 shadow-lg transition-transform active:scale-95">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden bg-black/40">
+<div class="absolute inset-0 bg-cover bg-center transition-transform group-hover:scale-105 opacity-80" data-alt="Close up of espresso being poured into a small glass" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDDew_SO6UHHOsFiyvFZL98qMN0kuT1mVCjK7sdx2S13XlXa3foopNkvaMXNLX_Ru0SYWx9lkCJ4Wg4V5nXfWbatD0Zl1Dm4VuvajlUzOQJQWe5yKP8-xNSwwmZQ_GoMpxn2k_G-c_j6H1i-2Q2NdwKtq_ZhQHmC2LVsscwoAG5GZX6Y9usBpSutegoipMAVJWvjKV_0SvESZeNc5skcR6LxbCpbVobnZr9FXcI6x3Ex2mkY1J3UawvoWU7v2QXKkKxSjt_413-ZRDN");'></div>
+<div class="absolute top-2 right-2 bg-background-dark/80 backdrop-blur-md px-2 py-1 rounded text-[10px] font-bold text-primary border border-primary/20">
+                        150 pts
+                    </div>
+</div>
+<div class="flex flex-col">
+<p class="text-cream text-base font-bold leading-tight">Extra Shot</p>
+<p class="text-text-subtle text-xs mt-1">Add espresso to any drink</p>
+<button class="mt-3 w-full py-2 rounded-lg bg-white/5 text-cream text-xs font-bold hover:bg-primary hover:text-background-dark transition-colors border border-white/10">Redeem</button>
+</div>
+</div>
+<div class="group flex flex-col gap-3 bg-card-dark p-3 rounded-xl border border-white/5 shadow-lg transition-transform active:scale-95">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden bg-black/40">
+<div class="absolute inset-0 bg-cover bg-center transition-transform group-hover:scale-105 opacity-80" data-alt="Line of different sized coffee cups showing small medium large" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCj1Rflztqr2T9y1myJxk9bAuQVulWMl5WJK9g8w_oUBR8B-NJ6dWlOor2r28M0KZEow__4KtY9ctBZUa50RbyxWJ1JJins9wKTUfiHex63DzoMmVIjhs_a-x7opgnNS68caB0hvMECZ6xwk-Rlib1Y0u6TiuNEMSeYgtwFU6FcY2cruZpOmVjFpUinIJ6WqTr3JTcwPkDphZpL8qYM3SJDGA93WcaJeB2iP02DuYDYpY9YPzkZbR7awgCX1lCGAmFgrXz73Ypd49ZL");'></div>
+<div class="absolute top-2 right-2 bg-background-dark/80 backdrop-blur-md px-2 py-1 rounded text-[10px] font-bold text-primary border border-primary/20">
+                        100 pts
+                    </div>
+</div>
+<div class="flex flex-col">
+<p class="text-cream text-base font-bold leading-tight">Size Upgrade</p>
+<p class="text-text-subtle text-xs mt-1">Bump up your cup size</p>
+<button class="mt-3 w-full py-2 rounded-lg bg-white/5 text-cream text-xs font-bold hover:bg-primary hover:text-background-dark transition-colors border border-white/10">Redeem</button>
+</div>
+</div>
+<div class="group flex flex-col gap-3 bg-card-dark p-3 rounded-xl border border-white/5 shadow-lg transition-transform active:scale-95">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden bg-black/40">
+<div class="absolute inset-0 bg-cover bg-center transition-transform group-hover:scale-105 opacity-80" data-alt="Bag of coffee beans on a wooden counter" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCIB9cZxLFB3HQMhEvHlF8XuofVO1pxAWX2SZDi-kZS8_IAaEpD2WzRqV4m3P4033XPD41dArXXkFTGjuaPciztdRES7DB__WD_S5qLUCQVBKCUvBl0H0W3EJ-h1a3rg09_-SF-wI0Qv-k_w_UWVLMuAIjxAfo3ShOwFaHcR0jwbcdcUbl-ROEyrMcb6uCOxt34EWXi3dcMWvo4aNKPVK8JKb40H_YQwBFx7oAZQGBPCAyu5BiH3v38OZsv2llc1erSk29fhXrSVTlu");'></div>
+<div class="absolute top-2 right-2 bg-background-dark/80 backdrop-blur-md px-2 py-1 rounded text-[10px] font-bold text-primary border border-primary/20">
+                        800 pts
+                    </div>
+</div>
+<div class="flex flex-col">
+<p class="text-cream text-base font-bold leading-tight">Coffee Beans</p>
+<p class="text-text-subtle text-xs mt-1">Take the flavor home</p>
+<button class="mt-3 w-full py-2 rounded-lg bg-white/5 text-cream text-xs font-bold hover:bg-primary hover:text-background-dark transition-colors border border-white/10">Redeem</button>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-4 px-6 pb-12">
+<h2 class="text-cream text-xl font-bold">Points History</h2>
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between p-4 bg-card-dark rounded-xl shadow-sm border border-white/5">
+<div class="flex items-center gap-4">
+<div class="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-size: 20px;">local_cafe</span>
+</div>
+<div>
+<p class="text-cream font-semibold text-sm">Morning Latte</p>
+<p class="text-text-subtle text-xs">Yesterday, 8:30 AM</p>
+</div>
+</div>
+<span class="text-primary font-bold text-sm">+10 pts</span>
+</div>
+<div class="flex items-center justify-between p-4 bg-card-dark rounded-xl shadow-sm border border-white/5">
+<div class="flex items-center gap-4">
+<div class="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-size: 20px;">bakery_dining</span>
+</div>
+<div>
+<p class="text-cream font-semibold text-sm">Cappuccino &amp; Muffin</p>
+<p class="text-text-subtle text-xs">Oct 24, 2:15 PM</p>
+</div>
+</div>
+<span class="text-primary font-bold text-sm">+25 pts</span>
+</div>
+<div class="flex items-center justify-between p-4 bg-card-dark rounded-xl shadow-sm border border-white/5">
+<div class="flex items-center gap-4">
+<div class="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-size: 20px;">shopping_bag</span>
+</div>
+<div>
+<p class="text-cream font-semibold text-sm">Bean Purchase</p>
+<p class="text-text-subtle text-xs">Oct 20, 10:45 AM</p>
+</div>
+</div>
+<span class="text-primary font-bold text-sm">+50 pts</span>
+</div>
+</div>
+<button class="w-full py-4 text-center text-text-subtle text-sm font-medium hover:text-primary transition-colors">
+                View All Activity
+            </button>
+</div>
+<div class="fixed bottom-24 right-6 z-40">
+<button class="h-14 w-14 rounded-full bg-primary shadow-lg shadow-primary/20 flex items-center justify-center text-background-dark hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined" style="font-size: 28px; font-variation-settings: 'wght' 600;">qr_code_scanner</span>
+</button>
+</div>
+<div class="fixed bottom-0 w-full max-w-md bg-background-dark border-t border-white/5 z-50 pb-safe">
+<div class="flex justify-around items-center h-16 px-2">
+<button class="flex flex-col items-center justify-center w-full h-full text-text-subtle hover:text-primary gap-1">
+<span class="material-symbols-outlined" style="font-size: 24px;">restaurant_menu</span>
+<span class="text-[10px] font-medium">Menu</span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full text-text-subtle hover:text-primary gap-1">
+<span class="material-symbols-outlined" style="font-size: 24px;">shopping_bag</span>
+<span class="text-[10px] font-medium">Order</span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full text-primary gap-1 relative">
+<div class="absolute -top-1 h-1 w-8 bg-primary rounded-full"></div>
+<span class="material-symbols-outlined" style="font-size: 24px; font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-[10px] font-bold">Rewards</span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full text-text-subtle hover:text-primary gap-1">
+<span class="material-symbols-outlined" style="font-size: 24px;">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</button>
+</div>
+</div>
+</div>
+</body></html>

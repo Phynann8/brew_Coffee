@@ -13,11 +13,42 @@ import { LiveQueueScreen, AnalyticsScreen, FeedbackScreen } from './screens/Phas
 // Phase 3: Advanced Features
 import { StaffPerformanceScreen, CampaignBuilderScreen, NotificationComposerScreen, MenuManagementScreen } from './screens/Phase3Screens';
 import { CartScreen } from './screens/CartScreen';
+import { AuthScreen } from './screens/AuthScreen';
 
 const App = () => {
-  const { isAdminMode, toggleAdminMode } = useStore();
+  const { user, role, authLoading, initializeAuth, signOut } = useStore();
   const navigate = useNavigate();
   const location = useLocation();
+
+  const isAdmin = role === 'admin';
+  const isAuthenticated = !!user;
+
+  useEffect(() => {
+    initializeAuth();
+  }, [initializeAuth]);
+
+  if (authLoading) {
+    return (
+      <div className="h-screen w-screen flex items-center justify-center bg-bg-dark">
+        <span className="material-symbols-outlined text-primary text-5xl animate-spin">local_cafe</span>
+      </div>
+    );
+  }
+
+  // Redirect to login if not authenticated (except for onboarding)
+  if (!isAuthenticated && location.pathname !== '/onboarding' && location.pathname !== '/auth') {
+    return <Navigate to="/auth" replace />;
+  }
+
+  // Redirect authenticated users away from /auth
+  if (isAuthenticated && location.pathname === '/auth') {
+    return <Navigate to="/" replace />;
+  }
+
+  // Redirect non-admins away from admin routes
+  if (isAuthenticated && !isAdmin && location.pathname.startsWith('/admin')) {
+    return <Navigate to="/" replace />;
+  }
 
 
 
@@ -47,28 +78,23 @@ const App = () => {
   };
 
   return (
-    <div className={`mx-auto bg-bg-dark min-h-screen relative shadow-2xl overflow-hidden transition-all duration-300 ${isAdminMode ? 'w-full' : 'max-w-md'}`}>
+    <div className={`mx-auto bg-bg-dark min-h-screen relative shadow-2xl overflow-hidden transition-all duration-300 ${isAdmin ? 'w-full' : 'max-w-md'}`}>
 
-      {/* Admin Toggle */}
-      <div className="fixed top-6 right-6 z-[60]">
-        <button
-          onClick={() => {
-            toggleAdminMode();
-            if (!isAdminMode) {
-              navigate('/admin/dashboard');
-            } else {
-              navigate('/');
-            }
-          }}
-          className={`bg-white/10 backdrop-blur text-xs px-3 py-1.5 rounded-full text-white border border-white/10 hover:bg-white/20 transition-all ${isAdminMode ? 'shadow-none' : ''}`}
-        >
-          {isAdminMode ? 'Switch to Customer App' : 'Switch to Admin App'}
-        </button>
-      </div>
+      {/* Admin Toggle (Only for Dev/Admins to preview customer side) */}
+      {isAdmin && (
+        <div className="fixed top-6 right-6 z-[60] flex gap-2">
+          <button
+            onClick={() => navigate(location.pathname.startsWith('/admin') ? '/' : '/admin/dashboard')}
+            className="bg-white/10 backdrop-blur text-xs px-3 py-1.5 rounded-full text-white border border-white/10 hover:bg-white/20 transition-all font-bold"
+          >
+            {location.pathname.startsWith('/admin') ? 'View Customer App' : 'Back to Admin'}
+          </button>
+        </div>
+      )}
 
-      <div className={`flex h-screen ${isAdminMode ? 'flex-row' : 'flex-col'}`}>
+      <div className={`flex h-screen ${isAdmin ? 'flex-row' : 'flex-col'}`}>
         {/* Admin Sidebar */}
-        {isAdminMode && (
+        {isAdmin && (
           <div className="hidden md:flex w-64 flex-col border-r border-white/5 bg-card-dark p-4 shrink-0 z-50">
             <div className="flex items-center gap-2 px-2 mb-8">
               <span className="material-symbols-outlined text-primary text-3xl">local_cafe</span>
@@ -95,10 +121,17 @@ const App = () => {
             </div>
 
             <div className="mt-auto pt-4 border-t border-white/5">
+              <button
+                onClick={() => signOut()}
+                className="flex items-center gap-3 w-full p-3 rounded-xl transition-all text-text-subtle hover:bg-white/5 hover:text-red-400 mb-4"
+              >
+                <span className="material-symbols-outlined">logout</span>
+                <span className="text-sm font-medium">Logout</span>
+              </button>
               <div className="flex items-center gap-3 px-2">
-                <img src={IMAGES.profile} className="w-8 h-8 rounded-full border border-white/10" alt="Admin" />
+                <img src={user?.user_metadata?.avatar_url || IMAGES.profile} className="w-8 h-8 rounded-full border border-white/10" alt="Admin" />
                 <div className="flex flex-col">
-                  <span className="text-sm font-bold text-cream">Admin User</span>
+                  <span className="text-sm font-bold text-cream truncate w-32">{user?.user_metadata?.full_name || 'Admin User'}</span>
                   <span className="text-xs text-text-subtle">Store Manager</span>
                 </div>
               </div>
@@ -136,6 +169,9 @@ const App = () => {
             <Route path="/admin/notification" element={<NotificationComposerScreen />} />
             <Route path="/admin/menu" element={<MenuManagementScreen />} />
 
+            {/* Auth Route */}
+            <Route path="/auth" element={<AuthScreen />} />
+
             {/* Fallback */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
@@ -143,12 +179,12 @@ const App = () => {
       </div>
 
       {/* Customer Bottom Nav */}
-      {!isAdminMode && ['/', '/cart', '/wallet', '/rewards', '/orders'].includes(location.pathname) && (
+      {!isAdmin && ['/', '/cart', '/wallet', '/rewards', '/orders'].includes(location.pathname) && (
         <BottomNav />
       )}
 
       {/* Admin Mobile Nav */}
-      {isAdminMode && (
+      {isAdmin && (
         <div className="md:hidden fixed bottom-0 w-full bg-bg-dark border-t border-white/5 z-50 pb-6 pt-2">
           <div className="flex justify-around items-center h-16 px-2">
             <button onClick={() => navigate('/admin/dashboard')} className={`flex flex-col items-center gap-1 ${location.pathname === '/admin/dashboard' ? 'text-primary' : 'text-text-subtle'}`}>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Brew &amp; Co - Onboarding</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Theme Configuration -->
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#f4c025", "background-light": "#f8f8f5", "background-dark": "#221e10"}, fontFamily: {display: "Plus Jakarta Sans"}, borderRadius: {DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px"}}}};</script>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700;900&amp;family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        /* Custom styles to ensure smooth gradients */
+        .scrim-gradient {
+            background: linear-gradient(180deg, rgba(34, 24, 16, 0.00) 0%, rgba(34, 24, 16, 0.40) 40%, rgba(34, 24, 16, 0.95) 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark text-white antialiased overflow-hidden">
+<div class="relative flex h-screen w-full flex-col overflow-hidden group/design-root">
+<!-- Background Image with Overlay -->
+<div class="absolute inset-0 z-0">
+<!-- Main Image -->
+<div class="h-full w-full bg-cover bg-center transition-transform duration-[10000ms] ease-out scale-105" data-alt="Close up of detailed latte art in a dark ceramic cup" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCXJ56yFcKmlKmA1aK7Ocw0G4c6uAkPPh6MkplrzAah1p9hHW5px3OSoOi2SvhNYFOdmDAcKfRl4El3aAudMpU6fu3lEv3Ql1xQkOq--4ZNktBEnH8oBmJ6YEdrvAdeWc9zpfeaUy_KyOotSffviWH0hse8ZgvULvzyyeHjif-ONiRd2PoS2RchFU2y3CSECrdogu5b4DXA-fjSMUGWsAbIDN1IbWT1AphrIYdr4ByXaqsNOp0lPluQ9EAWp9cM38maYeAP9xTiLHYN");'>
+</div>
+<!-- Dark Overlay for readability -->
+<div class="absolute inset-0 bg-black/30"></div>
+<!-- Bottom Gradient Scrim -->
+<div class="absolute inset-0 scim-gradient bg-gradient-to-t from-[#181411] via-[#181411]/80 to-transparent"></div>
+</div>
+<!-- Content Container -->
+<div class="relative z-10 flex h-full flex-col justify-between px-6 py-safe-top pb-safe-bottom">
+<!-- Top Section: Logo -->
+<div class="flex w-full items-center justify-center pt-14">
+<div class="flex items-center gap-2 rounded-full bg-black/20 backdrop-blur-md px-4 py-2 border border-white/10">
+<span class="material-symbols-outlined text-primary text-xl">local_cafe</span>
+<span class="text-sm font-bold tracking-wide uppercase text-white/90">Brew &amp; Co</span>
+</div>
+</div>
+<!-- Bottom Section: Headlines & Actions -->
+<div class="flex flex-col w-full max-w-md mx-auto mb-8">
+<!-- Typography -->
+<div class="mb-8 space-y-3 text-center">
+<h1 class="text-4xl md:text-5xl font-extrabold leading-tight text-white tracking-tight">
+                        Your daily brew,<br/>perfected.
+                    </h1>
+<p class="text-lg text-white/70 font-medium leading-snug mx-4">
+                        Order ahead and skip the line. Experience coffee craft at its finest.
+                    </p>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-3 w-full">
+<!-- Get Started (Primary) -->
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 px-5 bg-primary hover:bg-primary/90 transition-colors duration-200 text-white text-base font-bold leading-normal tracking-[0.015em] shadow-lg shadow-primary/20">
+<span class="truncate">Get Started</span>
+</button>
+<!-- Login (Secondary - Glassy) -->
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 px-5 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/10 transition-all duration-200 text-white text-base font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Login</span>
+</button>
+</div>
+<!-- Footer / Legal -->
+<div class="mt-6 text-center">
+<p class="text-[#baaa9c] text-xs font-normal leading-normal px-4">
+                        By continuing, you agree to our 
+                        <a class="underline hover:text-primary transition-colors" href="#">Terms of Service</a> &amp; 
+                        <a class="underline hover:text-primary transition-colors" href="#">Privacy Policy</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+</body></html>

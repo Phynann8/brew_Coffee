@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inventory Management - Dark Cozy</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d4af37", // Gold
+                        "background-dark": "#1a1614", // Dark Coffee Bean
+                        "surface-dark": "#25201d", // Darker Brown
+                        "cream": "#f5f5dc", // Cream Text
+                        "cream-muted": "#d2c9b1",
+                        "danger": "#FF453A",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        body {
+            min-height: max(884px, 100dvh);
+            background-color: #1a1614;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark font-display text-cream overflow-x-hidden pb-24">
+<header class="sticky top-0 z-50 bg-background-dark/95 backdrop-blur-md border-b border-white/5 pb-2">
+<div class="flex items-center p-4 justify-between">
+<div class="flex size-10 items-center justify-center rounded-full bg-transparent active:bg-white/10 transition-colors cursor-pointer text-cream">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<h1 class="text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center text-cream">Inventory</h1>
+<div class="flex size-10 items-center justify-center rounded-full bg-transparent active:bg-white/10 transition-colors cursor-pointer relative text-cream">
+<span class="material-symbols-outlined">filter_list</span>
+<div class="absolute top-2.5 right-2.5 size-2 bg-primary rounded-full"></div>
+</div>
+</div>
+<div class="px-4 pb-2">
+<div class="relative flex w-full flex-1 items-stretch rounded-xl h-12 bg-surface-dark border border-white/5 shadow-inner">
+<div class="flex items-center justify-center pl-4 pr-2">
+<span class="material-symbols-outlined text-cream-muted">search</span>
+</div>
+<input class="flex w-full min-w-0 flex-1 bg-transparent border-none focus:ring-0 text-cream placeholder:text-cream-muted/50 px-0 text-base font-normal" placeholder="Search supplies..." value=""/>
+</div>
+</div>
+<div class="flex gap-2 px-4 overflow-x-auto no-scrollbar pb-2 pt-1">
+<button class="whitespace-nowrap rounded-full bg-primary text-background-dark px-4 py-1.5 text-sm font-bold">All Items</button>
+<button class="whitespace-nowrap rounded-full bg-surface-dark border border-white/10 text-cream-muted px-4 py-1.5 text-sm font-medium">Low Stock</button>
+<button class="whitespace-nowrap rounded-full bg-surface-dark border border-white/10 text-cream-muted px-4 py-1.5 text-sm font-medium">Beans</button>
+<button class="whitespace-nowrap rounded-full bg-surface-dark border border-white/10 text-cream-muted px-4 py-1.5 text-sm font-medium">Syrups</button>
+</div>
+</header>
+<section class="mt-4">
+<div class="flex items-center justify-between px-4 pb-3">
+<h2 class="text-[20px] font-bold leading-tight text-cream">Critical Alerts</h2>
+<button class="text-sm text-danger font-bold">View All</button>
+</div>
+<div class="flex overflow-x-auto no-scrollbar px-4 gap-3 pb-4">
+<div class="shrink-0 w-[280px] rounded-2xl bg-surface-dark p-3 shadow-lg border border-danger/30 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-danger"></div>
+<div class="flex gap-3">
+<div class="size-20 bg-white/5 rounded-xl bg-cover bg-center shrink-0" data-alt="Vanilla syrup bottle on counter" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB-dzqSpkqZmI6Kv7O8l52AzhkkQ3xmi1DOLJtrO6eASGb5Zs9O5NehVRTYGJmr5931xLtDwGRD8RCcnKbJrd4rufb65umykdR0fFeIOAbgD8DHl6a8xmmFkAdJGooY9LUN8Ugrqp7GESco415aL2pecNGxL27vZV8JnurFpOKRJwjBkxO8R9zw0HLjo7ci7JM5mUZg0ce_vVNgpPNrhR12kht-UnJhxrRcB5n6ZBhnBDrB0HnDjt5qFMkiXaJgGqA4Q5pYKAzp0pYv");'></div>
+<div class="flex flex-col justify-between flex-1 py-0.5">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-bold text-base text-cream leading-tight">Vanilla Syrup</h3>
+<span class="bg-danger/20 text-danger text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">Low</span>
+</div>
+<p class="text-danger text-sm font-medium mt-1">1 Bottle Left</p>
+</div>
+<div class="w-full bg-white/10 rounded-full h-1.5 mt-2">
+<div class="bg-danger h-1.5 rounded-full" style="width: 15%"></div>
+</div>
+</div>
+</div>
+<div class="flex gap-2 mt-3 pl-3">
+<button class="flex-1 bg-danger text-white h-9 rounded-lg text-sm font-bold flex items-center justify-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]">call</span>
+                        Order Now
+                    </button>
+</div>
+</div>
+<div class="shrink-0 w-[280px] rounded-2xl bg-surface-dark p-3 shadow-lg border border-danger/30 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-danger"></div>
+<div class="flex gap-3">
+<div class="size-20 bg-white/5 rounded-xl bg-cover bg-center shrink-0" data-alt="Carton of whole milk" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuANEhEyB-A-EAAoKNtHoK6BHxP4HuLbaePs9tfVVqJtkzL0mgc7ja7cJXC1YZD896gO6m4lPA8SR5fsV8Qx8rXGBc3xi3VObKDdGeyUd_DsjPHVOToV0L0iewddyopUXvF5ejvChBFsdzKu50j_w6KhOEmRL4IHRuuG1WAs1RbVGWLlEg9KGaUPCdkj7K4b-4so2u8M6M3wCynuQhLPJ6RMriyjqEAdsFjILI_65gc_IW0NYFHo7Uzx7TY_ugPhhXHRpFaeSOu97kjr");'></div>
+<div class="flex flex-col justify-between flex-1 py-0.5">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-bold text-base text-cream leading-tight">Whole Milk</h3>
+<span class="bg-danger/20 text-danger text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">Low</span>
+</div>
+<p class="text-danger text-sm font-medium mt-1">2 Cartons Left</p>
+</div>
+<div class="w-full bg-white/10 rounded-full h-1.5 mt-2">
+<div class="bg-danger h-1.5 rounded-full" style="width: 8%"></div>
+</div>
+</div>
+</div>
+<div class="flex gap-2 mt-3 pl-3">
+<button class="flex-1 bg-danger text-white h-9 rounded-lg text-sm font-bold flex items-center justify-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]">call</span>
+                        Order Now
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<section class="mt-2">
+<div class="flex items-center justify-between px-4 pb-3 pt-2">
+<h2 class="text-[20px] font-bold leading-tight text-cream">All Inventory</h2>
+<div class="text-xs text-cream-muted">Updated 2m ago</div>
+</div>
+<div class="grid grid-cols-2 gap-3 px-4 pb-20">
+<div class="flex flex-col rounded-2xl bg-surface-dark p-3 shadow-lg border border-white/5">
+<div class="w-full aspect-square rounded-xl bg-white/5 bg-cover bg-center mb-3 relative" data-alt="Roasted coffee beans" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAeyEbeLQUdiC5JB-YXQ9V1RdDJ8dIkYCxqs_ry113U8bCIIg3GMVfgyC9xdQ43_SOOtkWMMmRKGNH2hizMVaMqhwfax0Tjm-m-ENqLR1AX-BDPw0TsqnUuLCFH8RzrqhIugGnh-GSIDGRwVw1e7ridi3290vORO-IQhMj6T8kjUUCjn24C5UOcurgW3G3WdbPeT5AivDar7uie6ROPPabrMDf2O0au4DJDx3PiedqlXCP2NsTfK8EFMaQtSDjjDAiFSes-gS2TKSF4");'>
+<div class="absolute top-2 right-2 bg-background-dark/80 backdrop-blur-md rounded-lg px-2 py-1 text-primary text-xs font-bold">
+                        8.5kg
+                    </div>
+</div>
+<div class="flex flex-col flex-1">
+<h3 class="text-sm font-bold text-cream truncate">Ethiopian Beans</h3>
+<div class="flex items-center justify-between mt-1 mb-2">
+<span class="text-[10px] text-cream-muted uppercase tracking-wider">Roasts</span>
+<span class="text-xs font-bold text-primary">85%</span>
+</div>
+<div class="w-full bg-white/10 rounded-full h-1.5 mb-3">
+<div class="bg-primary h-1.5 rounded-full shadow-[0_0_8px_rgba(212,175,55,0.4)]" style="width: 85%"></div>
+</div>
+<button class="w-full mt-auto h-9 rounded-lg border border-primary/20 bg-primary/5 text-primary text-xs font-bold active:scale-95 transition-all">
+                        Restock
+                    </button>
+</div>
+</div>
+<div class="flex flex-col rounded-2xl bg-surface-dark p-3 shadow-lg border border-white/5">
+<div class="w-full aspect-square rounded-xl bg-white/5 bg-cover bg-center mb-3 relative" data-alt="Oat milk carton" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCSKc1qZFjPsSkyM68M8c0FalAesP5FRSmpvxXKPUFc_GRCgbBgbYAqkaUUU12-X4AD5BDtUslfHLKwmeeQe7GUbYIxGCVLtWBnxM5L5C5HkMPk5DQNuFVgRMFg1VPKkh5WgtETdQBkPoh-L-x0Aw6W4kxoyfZadHMgmhbtjnO5Xe99vv34NvSkJ5Ro2ZZAlF8GzpD6A2XTuX0DRZyPsHVrNQwLewtwESkKgM-sc1w_zkR3pnI9CMvt-UjdItT9-4P7iDGZkk-QdriA");'>
+<div class="absolute top-2 right-2 bg-background-dark/80 backdrop-blur-md rounded-lg px-2 py-1 text-primary text-xs font-bold">
+                        12L
+                    </div>
+</div>
+<div class="flex flex-col flex-1">
+<h3 class="text-sm font-bold text-cream truncate">Oat Milk</h3>
+<div class="flex items-center justify-between mt-1 mb-2">
+<span class="text-[10px] text-cream-muted uppercase tracking-wider">Dairy</span>
+<span class="text-xs font-bold text-primary">60%</span>
+</div>
+<div class="w-full bg-white/10 rounded-full h-1.5 mb-3">
+<div class="bg-primary h-1.5 rounded-full shadow-[0_0_8px_rgba(212,175,55,0.4)]" style="width: 60%"></div>
+</div>
+<button class="w-full mt-auto h-9 rounded-lg border border-primary/20 bg-primary/5 text-primary text-xs font-bold active:scale-95 transition-all">
+                        Restock
+                    </button>
+</div>
+</div>
+<div class="flex flex-col rounded-2xl bg-surface-dark p-3 shadow-lg border border-white/5">
+<div class="w-full aspect-square rounded-xl bg-white/5 bg-cover bg-center mb-3 relative" data-alt="Paper coffee cups stacked" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCS-lTMiy8YEfQLYeWMCl2DVI-4oj6ADJfbaiz1dAlBYsOT01cRxDcnBTiohYDyeL0kM_JXnVprZIJZ21WG7cwBkKJipcM_d7YOxxldBwS0YFjPSm7pXBrIh-_I11pn79oq-0bw-O3ab3JZSS6ntJnBTY6WlVEO12d5BWFL2pThzZ_hqCm-7rjgmFy7nadxVqkZelKm06s6ppb5eNBkVc_3CI5t4imk5g3lVHiuqk1zGdx2DSk8vbBAClzD41H_IhNn6BNoaYPeIGYb");'>
+<div class="absolute top-2 right-2 bg-background-dark/80 backdrop-blur-md rounded-lg px-2 py-1 text-primary text-xs font-bold">
+                        150
+                    </div>
+</div>
+<div class="flex flex-col flex-1">
+<h3 class="text-sm font-bold text-cream truncate">12oz Cups</h3>
+<div class="flex items-center justify-between mt-1 mb-2">
+<span class="text-[10px] text-cream-muted uppercase tracking-wider">Supplies</span>
+<span class="text-xs font-bold text-primary">30%</span>
+</div>
+<div class="w-full bg-white/10 rounded-full h-1.5 mb-3">
+<div class="bg-primary h-1.5 rounded-full shadow-[0_0_8px_rgba(212,175,55,0.4)]" style="width: 30%"></div>
+</div>
+<button class="w-full mt-auto h-9 rounded-lg border border-primary/20 bg-primary/5 text-primary text-xs font-bold active:scale-95 transition-all">
+                        Restock
+                    </button>
+</div>
+</div>
+<div class="flex flex-col rounded-2xl bg-surface-dark p-3 shadow-lg border border-white/5">
+<div class="w-full aspect-square rounded-xl bg-white/5 bg-cover bg-center mb-3 relative" data-alt="Caramel syrup bottle" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD-cWyCL5Y0sDbvWwTm05lkPYzdo4riASmRz-UhcHVaXL8C1sCR9IYzpUJpyFRokZzdru_vrWK8euojhIH3LyWUDnnubdFVuX2x9F6RShS6mWuiXT3qCMt68OFNU20tTjVOdBMtkkNp8FwgRAba1OIRyFlMf3vchOhZDNpIKDiKByG69T2DPcc1WW6VjiDN8ehnzVzHrIMY1TcoqoqUjWrMRbvSdlV1kUpGksXb9KvDPl9n0CrWSlJe4A7rQhuaJooK0kJL2RdNpfKb");'>
+<div class="absolute top-2 right-2 bg-background-dark/80 backdrop-blur-md rounded-lg px-2 py-1 text-primary text-xs font-bold">
+                        4 Btl
+                    </div>
+</div>
+<div class="flex flex-col flex-1">
+<h3 class="text-sm font-bold text-cream truncate">Caramel Syrup</h3>
+<div class="flex items-center justify-between mt-1 mb-2">
+<span class="text-[10px] text-cream-muted uppercase tracking-wider">Syrups</span>
+<span class="text-xs font-bold text-primary">90%</span>
+</div>
+<div class="w-full bg-white/10 rounded-full h-1.5 mb-3">
+<div class="bg-primary h-1.5 rounded-full shadow-[0_0_8px_rgba(212,175,55,0.4)]" style="width: 90%"></div>
+</div>
+<button class="w-full mt-auto h-9 rounded-lg border border-primary/20 bg-primary/5 text-primary text-xs font-bold active:scale-95 transition-all">
+                        Restock
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<button class="fixed bottom-24 right-4 z-40 bg-primary text-background-dark shadow-[0_4px_20px_rgba(212,175,55,0.3)] rounded-2xl size-14 flex items-center justify-center active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[32px]">add</span>
+</button>
+<nav class="fixed bottom-0 w-full z-50 bg-background-dark/95 backdrop-blur-lg border-t border-white/5 pb-6 pt-3 px-6">
+<div class="flex items-center justify-between">
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined fill">inventory_2</span>
+<span class="text-[10px] font-bold">Inventory</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-cream-muted opacity-50">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="text-[10px] font-bold">Orders</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-cream-muted opacity-50">
+<span class="material-symbols-outlined">restaurant_menu</span>
+<span class="text-[10px] font-bold">Menu</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-cream-muted opacity-50">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-bold">Settings</span>
+</button>
+</div>
+</nav>
+</body></html>

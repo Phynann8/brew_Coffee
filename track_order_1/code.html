@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Track Order</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Theme Configuration -->
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#f4c025", "background-light": "#f8f8f5", "background-dark": "#221e10", "surface-dark": "#2f241d"}, fontFamily: {display: "Plus Jakarta Sans"}, borderRadius: {DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px"}}}};</script>
+<style>
+        /* Custom scrollbar hide for clean mobile look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased">
+<!-- Main Container -->
+<div class="relative flex flex-col h-screen w-full overflow-hidden max-w-md mx-auto shadow-2xl bg-background-light dark:bg-background-dark">
+<!-- Header -->
+<div class="flex items-center justify-between p-4 pt-6 pb-2 z-10 bg-background-light dark:bg-background-dark sticky top-0">
+<button class="text-gray-900 dark:text-white flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+<h2 class="text-gray-900 dark:text-white text-lg font-bold leading-tight tracking-tight">Track Order</h2>
+<div class="size-10"></div> <!-- Spacer for optical centering -->
+</div>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto no-scrollbar pb-8">
+<!-- Hero Section: Estimated Time -->
+<div class="flex flex-col items-center justify-center pt-6 pb-8">
+<span class="text-gray-500 dark:text-gray-400 text-sm font-medium uppercase tracking-wider mb-2">Estimated Pickup</span>
+<h1 class="text-gray-900 dark:text-white text-5xl font-extrabold tracking-tight">10:45 AM</h1>
+<p class="text-primary text-sm font-bold mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">schedule</span> On time
+                </p>
+</div>
+<!-- Timeline / Stepper -->
+<div class="px-6 mb-8">
+<div class="grid grid-cols-[48px_1fr] gap-x-2">
+<!-- Step 1: Confirmed (Done) -->
+<div class="flex flex-col items-center">
+<div class="size-8 rounded-full bg-primary flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-white text-[18px]">check</span>
+</div>
+<div class="w-[2px] bg-primary h-full min-h-[40px]"></div>
+</div>
+<div class="flex flex-col pt-1 pb-8">
+<p class="text-gray-900 dark:text-white text-base font-bold leading-none">Order Confirmed</p>
+<p class="text-gray-500 dark:text-gray-400 text-xs mt-1">10:32 AM</p>
+</div>
+<!-- Step 2: Preparing (Active) -->
+<div class="flex flex-col items-center relative">
+<!-- Pulse Effect for Active State -->
+<div class="absolute top-0 size-8 rounded-full bg-primary/30 animate-ping"></div>
+<div class="size-8 rounded-full bg-background-light dark:bg-background-dark border-2 border-primary flex items-center justify-center z-10 relative">
+<span class="material-symbols-outlined text-primary text-[18px]">coffee_maker</span>
+</div>
+<div class="w-[2px] bg-gray-200 dark:bg-gray-700 h-full min-h-[40px]"></div>
+</div>
+<div class="flex flex-col pt-1 pb-8">
+<p class="text-primary text-lg font-bold leading-none">Preparing</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Barista is making your drink</p>
+</div>
+<!-- Step 3: Ready (Pending) -->
+<div class="flex flex-col items-center">
+<div class="size-8 rounded-full bg-gray-200 dark:bg-surface-dark border-2 border-gray-300 dark:border-gray-600 flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-500 text-[18px]">shopping_bag</span>
+</div>
+</div>
+<div class="flex flex-col pt-1">
+<p class="text-gray-400 dark:text-gray-500 text-base font-medium leading-none">Ready for Pickup</p>
+</div>
+</div>
+</div>
+<!-- Location Map Card -->
+<div class="px-4 mb-6">
+<div class="bg-white dark:bg-surface-dark rounded-2xl p-4 shadow-sm border border-gray-100 dark:border-white/5">
+<div class="flex items-start justify-between mb-3">
+<div>
+<h3 class="text-gray-900 dark:text-white font-bold text-lg">Bean &amp; Brew</h3>
+<p class="text-gray-500 dark:text-gray-400 text-sm">Downtown Branch</p>
+</div>
+<button class="bg-primary/10 hover:bg-primary/20 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined text-primary">directions</span>
+</button>
+</div>
+<!-- Map Image -->
+<div class="relative w-full h-32 rounded-xl overflow-hidden mb-3">
+<img alt="Map showing cafe location with dark theme styling" class="w-full h-full object-cover opacity-80" data-alt="Abstract dark map view with streets and location pin" data-location="Seattle, WA" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-A10aOIL6VLUWECo1mWLFWBVDQ73HodJcNIAAF1knrV--mgt25Wphe1GhuQR9J4s_yFm_vo5GczwXwoX0Fisq8yIKyNev_murhq5c-hUKYr4mEN7s8CcbZ1mpgsYgV4yAqoo7h92N-Y-YtfyoPjNgRDSIQYUeoiAzhNlYXl9GcZ7waihiEyg2oijaBBtMBlv0PWzRsVDUM8AAAPefAg5YdZJawTjkq_q8VD5KKlle2zq39ahFzdNYjmN0YyDyT4cTjQDqKvz1PwtD"/>
+<!-- Map Pin Overlay -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+<span class="material-symbols-outlined text-primary text-4xl drop-shadow-lg">location_on</span>
+</div>
+</div>
+<p class="text-gray-500 dark:text-gray-400 text-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">location_city</span>
+                        123 Main St, Seattle, WA 98101
+                    </p>
+</div>
+</div>
+<!-- QR Code Pass -->
+<div class="px-4 mb-6">
+<div class="bg-white dark:bg-surface-dark rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-white/5 flex flex-col items-center text-center">
+<div class="bg-white p-3 rounded-xl mb-4 border border-gray-100">
+<!-- QR Code Placeholder -->
+<img alt="QR Code for order pickup" class="size-32 object-contain mix-blend-multiply" data-alt="Black and white QR code pattern" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDU0ISH7WbXYQVSK5PvluDR6WhyUmm__9qxHpmyYI6ugguTlhvganyxjbJ08sRNQwUflcQqvyRo-bxLCuMtCNgCVmnrllR1M5qZKoTfi7RVww0CkQnQO_Uu73K_6qzAoEKWaISKFXKqlI_VBOkEUqqNX8CiBAW2l_snik8iUt5oDyRFKFgOiZNTUBPJjepqJXG7OxDGShpBy2Up_WJbpbmvUQUa2j5a2SXuFNLHAjLmKkAmwm0hS4zmuVoJ249TOxWnskysImIuLGex"/>
+</div>
+<h3 class="text-gray-900 dark:text-white font-bold text-xl mb-1">Order #4402</h3>
+<p class="text-gray-500 dark:text-gray-400 text-sm">Show this code to the barista at the counter</p>
+</div>
+</div>
+<!-- Support Buttons -->
+<div class="px-4 pb-4 space-y-3">
+<button class="w-full py-3.5 rounded-xl bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white font-semibold flex items-center justify-center gap-2 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined">call</span>
+                    Call Cafe
+                </button>
+<button class="w-full py-2 rounded-xl text-primary font-medium text-sm hover:underline">
+                    Need help with this order?
+                </button>
+</div>
+</div>
+</div>
+</body></html>

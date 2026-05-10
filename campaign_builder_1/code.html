@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Campaign Builder</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#f4c025", "background-light": "#f8f8f5", "background-dark": "#221e10", "surface-dark": "#2C2219", "input-dark": "#393028"}, fontFamily: {display: "Plus Jakarta Sans"}, borderRadius: {DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px"}}}};</script>
+<style>
+        /* Custom scrollbar for webkit to blend better */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #221810;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #393028;
+            border-radius: 3px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-gray-100 antialiased overflow-x-hidden min-h-screen flex flex-col">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-50 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-stone-200 dark:border-stone-800">
+<div class="flex items-center p-4 justify-between max-w-lg mx-auto w-full">
+<button class="text-gray-600 dark:text-gray-300 flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h2 class="text-gray-900 dark:text-white text-lg font-bold leading-tight tracking-tight text-center">New Campaign</h2>
+<button class="text-gray-500 dark:text-[#baaa9c] text-sm font-bold leading-normal hover:text-primary transition-colors">Cancel</button>
+</div>
+</header>
+<main class="flex-1 flex flex-col max-w-lg mx-auto w-full pb-24">
+<!-- Progress Bar -->
+<div class="flex flex-col gap-3 px-4 py-6">
+<div class="flex gap-6 justify-between items-baseline">
+<p class="text-gray-900 dark:text-white text-sm font-medium leading-normal">Step 1 of 3: Details</p>
+<p class="text-primary text-xs font-medium">33% Completed</p>
+</div>
+<div class="h-1.5 w-full bg-stone-200 dark:bg-[#54473b] rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 33%;"></div>
+</div>
+</div>
+<!-- Form Section -->
+<div class="px-4 space-y-6">
+<!-- Campaign Name -->
+<div class="space-y-2">
+<label class="block text-sm font-medium text-gray-700 dark:text-stone-300">Internal Campaign Name</label>
+<input class="w-full h-12 px-4 rounded-lg bg-white dark:bg-input-dark border border-stone-300 dark:border-stone-700 text-gray-900 dark:text-white placeholder-gray-400 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="e.g. Summer Morning Boost" type="text" value="Summer Espresso Deal"/>
+</div>
+<!-- Discount Type Segmented Control -->
+<div class="space-y-2">
+<label class="block text-sm font-medium text-gray-700 dark:text-stone-300">Offer Type</label>
+<div class="flex p-1 bg-stone-200 dark:bg-input-dark rounded-lg">
+<button class="flex-1 py-2 px-3 text-sm font-medium rounded bg-white dark:bg-surface-dark text-primary shadow-sm transition-all text-center">
+                        % Off
+                    </button>
+<button class="flex-1 py-2 px-3 text-sm font-medium rounded text-gray-500 dark:text-stone-400 hover:text-gray-900 dark:hover:text-white transition-all text-center">
+                        Fixed $
+                    </button>
+<button class="flex-1 py-2 px-3 text-sm font-medium rounded text-gray-500 dark:text-stone-400 hover:text-gray-900 dark:hover:text-white transition-all text-center">
+                        BOGO
+                    </button>
+</div>
+</div>
+<!-- Value Inputs -->
+<div class="flex gap-4">
+<div class="flex-1 space-y-2">
+<label class="block text-sm font-medium text-gray-700 dark:text-stone-300">Discount Value</label>
+<div class="relative">
+<input class="w-full h-12 px-4 rounded-lg bg-white dark:bg-input-dark border border-stone-300 dark:border-stone-700 text-gray-900 dark:text-white placeholder-gray-400 focus:border-primary focus:ring-1 focus:ring-primary outline-none" placeholder="20" type="number" value="20"/>
+<div class="absolute inset-y-0 right-4 flex items-center pointer-events-none">
+<span class="text-gray-500 dark:text-stone-400 font-bold">%</span>
+</div>
+</div>
+</div>
+<div class="flex-1 space-y-2">
+<label class="block text-sm font-medium text-gray-700 dark:text-stone-300">Min. Purchase</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+<span class="text-gray-500 dark:text-stone-400 font-bold">$</span>
+</div>
+<input class="w-full h-12 pl-8 pr-4 rounded-lg bg-white dark:bg-input-dark border border-stone-300 dark:border-stone-700 text-gray-900 dark:text-white placeholder-gray-400 focus:border-primary focus:ring-1 focus:ring-primary outline-none" placeholder="0.00" type="number"/>
+</div>
+</div>
+</div>
+<!-- Date Range -->
+<div class="space-y-2">
+<label class="block text-sm font-medium text-gray-700 dark:text-stone-300">Schedule</label>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-white dark:bg-input-dark border border-stone-300 dark:border-stone-700 rounded-lg p-3 flex flex-col justify-center cursor-pointer hover:border-primary/50 transition-colors">
+<span class="text-xs text-gray-500 dark:text-stone-400 mb-1">Start Date</span>
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium dark:text-white">Oct 12</span>
+<span class="text-xs text-gray-400 dark:text-stone-500">10:00 AM</span>
+</div>
+</div>
+<div class="bg-white dark:bg-input-dark border border-stone-300 dark:border-stone-700 rounded-lg p-3 flex flex-col justify-center cursor-pointer hover:border-primary/50 transition-colors">
+<span class="text-xs text-gray-500 dark:text-stone-400 mb-1">End Date</span>
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium dark:text-white">Oct 15</span>
+<span class="text-xs text-gray-400 dark:text-stone-500">11:59 PM</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Target Audience -->
+<div class="space-y-2">
+<label class="block text-sm font-medium text-gray-700 dark:text-stone-300">Target Audience</label>
+<div class="relative">
+<select class="w-full h-12 pl-4 pr-10 appearance-none rounded-lg bg-white dark:bg-input-dark border border-stone-300 dark:border-stone-700 text-gray-900 dark:text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none cursor-pointer">
+<option>All Users</option>
+<option selected="">Loyalty Members &gt; 500pts</option>
+<option>New Customers (Last 30 days)</option>
+<option>Inactive Users (60+ days)</option>
+</select>
+<div class="absolute inset-y-0 right-4 flex items-center pointer-events-none text-gray-500">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Live Preview Section -->
+<div class="pt-6">
+<div class="flex items-center justify-between mb-3">
+<label class="text-sm font-medium text-gray-700 dark:text-stone-300 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">visibility</span>
+                        Live Mobile Preview
+                    </label>
+<span class="text-xs text-gray-500 bg-stone-200 dark:bg-surface-dark px-2 py-1 rounded">Customer View</span>
+</div>
+<!-- Mock Phone Card -->
+<div class="bg-white dark:bg-black border border-stone-200 dark:border-stone-800 rounded-xl overflow-hidden shadow-lg">
+<!-- App Header Mock -->
+<div class="h-12 bg-white dark:bg-surface-dark border-b border-stone-100 dark:border-stone-800 flex items-center px-4 justify-between">
+<span class="material-symbols-outlined text-gray-400 text-xl">menu</span>
+<span class="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-stone-400">Coffee Co.</span>
+<span class="material-symbols-outlined text-gray-400 text-xl">shopping_bag</span>
+</div>
+<!-- Promo Banner Content -->
+<div class="relative h-48 w-full bg-stone-800">
+<img alt="Fresh brewed coffee cup on dark table" class="w-full h-full object-cover opacity-80" data-alt="Close up of a latte art coffee cup on a wooden table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQBCACi7xVDDNXttB0Ex1EwA0SEb9J_k0duUPGEZ2HXne5fa4URNuwIGu6Iw6sYf-qv_TH17h8mqjMwjTJjXxaS4098Xewcr2nXk3xQgJJWmnXGilHQfCeixA5W9u4tLklEWGOu_Ck_LiAXujUW21zboW1ajVWnCsXhU-ETEV2pF-imgB8vhRpTEdK8XMLLQJCVeRr3CFO97PtRRVato2vxUgJW_TWfsdwZH50k9XiPMNbSDRqsXByacVSBla3YQRNMHAkmVZnL-lh"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex flex-col justify-end p-4">
+<span class="bg-primary text-white text-[10px] font-bold px-2 py-1 rounded w-fit mb-2 uppercase tracking-wide">Limited Offer</span>
+<h3 class="text-white font-bold text-lg leading-tight">Summer Espresso Deal</h3>
+<p class="text-gray-300 text-xs mt-1">Get 20% off all espresso-based drinks this weekend only!</p>
+</div>
+</div>
+<!-- App Action Mock -->
+<div class="p-4 bg-white dark:bg-surface-dark flex gap-3 items-center">
+<div class="flex-1">
+<p class="text-[10px] text-gray-500 dark:text-stone-400 uppercase font-semibold">Expires Oct 15</p>
+<p class="text-sm font-bold text-gray-900 dark:text-white">Use code: SUM20</p>
+</div>
+<button class="bg-primary text-white text-xs font-bold px-4 py-2 rounded-lg shadow-sm">Order Now</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Sticky Bottom Actions -->
+<div class="fixed bottom-0 left-0 right-0 p-4 bg-background-light dark:bg-background-dark border-t border-stone-200 dark:border-stone-800 flex gap-3 max-w-lg mx-auto w-full z-40">
+<button class="flex-1 h-12 rounded-lg border border-stone-300 dark:border-stone-600 bg-transparent text-gray-700 dark:text-stone-300 font-bold text-base hover:bg-stone-100 dark:hover:bg-white/5 transition-colors">
+            Save Draft
+        </button>
+<button class="flex-1 h-12 rounded-lg bg-primary text-white font-bold text-base shadow-lg shadow-primary/20 hover:bg-primary/90 transition-colors flex items-center justify-center gap-2">
+            Next Step
+            <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</body></html>

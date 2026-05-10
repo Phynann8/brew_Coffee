@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Your Orders</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#D4AF37", // Gold
+                        "cream": "#F5F5DC",
+                        "deep-brown": "#2A1B14",
+                        "background-dark": "#1A0F0A",
+                        "card-dark": "#2A1B14", 
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem", 
+                        "lg": "1rem", 
+                        "xl": "1.5rem", 
+                        "2xl": "2rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            min-height: max(884px, 100dvh);
+        }.tab-active {
+            border-bottom: 3px solid #D4AF37;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark text-cream antialiased pb-24">
+<header class="sticky top-0 z-50 bg-background-dark/95 backdrop-blur-md px-4 py-3 flex items-center justify-between border-b border-white/5">
+<div class="w-10"></div>
+<h1 class="text-lg font-bold leading-tight tracking-tight flex-1 text-center text-cream">Your Orders</h1>
+<div class="flex w-10 items-center justify-end">
+<button class="relative flex items-center justify-center rounded-full p-2 hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-[24px] text-cream">shopping_cart</span>
+<span class="absolute top-1.5 right-1 size-2 rounded-full bg-primary ring-2 ring-background-dark"></span>
+</button>
+</div>
+</header>
+<div class="px-4 sticky top-[60px] z-40 bg-background-dark">
+<div class="flex h-14 w-full items-center justify-around border-b border-white/10">
+<label class="relative flex h-full items-center justify-center cursor-pointer px-4">
+<input checked="" class="peer hidden" name="order-tab" type="radio" value="History"/>
+<span class="relative z-10 text-sm font-bold text-gray-500 transition-colors peer-checked:text-primary">History</span>
+<div class="absolute bottom-0 left-0 right-0 h-0.5 bg-primary transform scale-x-0 transition-transform duration-300 peer-checked:scale-x-100"></div>
+</label>
+<label class="relative flex h-full items-center justify-center cursor-pointer px-4">
+<input class="peer hidden" name="order-tab" type="radio" value="Favorites"/>
+<span class="relative z-10 text-sm font-bold text-gray-500 transition-colors peer-checked:text-primary">Favorites</span>
+<div class="absolute bottom-0 left-0 right-0 h-0.5 bg-primary transform scale-x-0 transition-transform duration-300 peer-checked:scale-x-100"></div>
+</label>
+</div>
+</div>
+<main class="flex flex-col gap-4 px-4 mt-6">
+<div class="flex items-center gap-2">
+<h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest">Recent Orders</h3>
+<div class="h-[1px] flex-1 bg-white/5"></div>
+</div>
+<div class="flex flex-col gap-4 overflow-hidden rounded-2xl bg-deep-brown p-4 shadow-xl border border-white/5">
+<div class="flex items-start justify-between gap-4">
+<div class="flex items-start gap-4">
+<div class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+<span class="material-symbols-outlined filled">local_cafe</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2 mb-1">
+<span class="text-base font-bold text-cream">Oct 24, 8:30 AM</span>
+<span class="size-1 rounded-full bg-primary/40"></span>
+<span class="text-sm font-bold text-cream">$12.50</span>
+</div>
+<p class="text-sm text-gray-400 line-clamp-2 leading-relaxed">Caramel Macchiato, Blueberry Muffin</p>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-dashed border-white/10 mt-1">
+<div class="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-primary/80">
+<span class="material-symbols-outlined text-[14px] filled">check_circle</span>
+                    Completed
+                </div>
+<button class="flex h-9 items-center justify-center rounded-lg bg-primary px-6 text-sm font-bold text-background-dark shadow-lg active:scale-95 transition-transform hover:brightness-110">
+                    Reorder
+                </button>
+</div>
+</div>
+<div class="flex flex-col gap-4 overflow-hidden rounded-2xl bg-deep-brown p-4 shadow-xl border border-white/5">
+<div class="flex items-start justify-between gap-4">
+<div class="flex items-start gap-4">
+<div class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+<span class="material-symbols-outlined filled">bakery_dining</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2 mb-1">
+<span class="text-base font-bold text-cream">Oct 22, 9:15 AM</span>
+<span class="size-1 rounded-full bg-primary/40"></span>
+<span class="text-sm font-bold text-cream">$8.75</span>
+</div>
+<p class="text-sm text-gray-400 line-clamp-2 leading-relaxed">Iced Latte, Butter Croissant</p>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-dashed border-white/10 mt-1">
+<div class="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-primary/80">
+<span class="material-symbols-outlined text-[14px] filled">check_circle</span>
+                    Completed
+                </div>
+<button class="flex h-9 items-center justify-center rounded-lg bg-primary px-6 text-sm font-bold text-background-dark shadow-lg active:scale-95 transition-transform hover:brightness-110">
+                    Reorder
+                </button>
+</div>
+</div>
+<div class="flex items-center gap-2 mt-4">
+<h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest">Last Week</h3>
+<div class="h-[1px] flex-1 bg-white/5"></div>
+</div>
+<div class="flex flex-col gap-4 overflow-hidden rounded-2xl bg-deep-brown p-4 shadow-xl border border-white/5">
+<div class="flex items-start justify-between gap-4">
+<div class="flex items-start gap-4">
+<div class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+<span class="material-symbols-outlined filled">coffee</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2 mb-1">
+<span class="text-base font-bold text-cream">Oct 18, 7:45 AM</span>
+<span class="size-1 rounded-full bg-primary/40"></span>
+<span class="text-sm font-bold text-cream">$5.50</span>
+</div>
+<p class="text-sm text-gray-400 line-clamp-2 leading-relaxed">Cappuccino (Oat Milk)</p>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-dashed border-white/10 mt-1">
+<div class="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-primary/80">
+<span class="material-symbols-outlined text-[14px] filled">check_circle</span>
+                    Completed
+                </div>
+<button class="flex h-9 items-center justify-center rounded-lg bg-primary px-6 text-sm font-bold text-background-dark shadow-lg active:scale-95 transition-transform hover:brightness-110">
+                    Reorder
+                </button>
+</div>
+</div>
+<div class="flex flex-col gap-4 overflow-hidden rounded-2xl bg-deep-brown p-4 shadow-xl border border-white/5 opacity-60">
+<div class="flex items-start justify-between gap-4">
+<div class="flex items-start gap-4">
+<div class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-white/5 text-gray-500">
+<span class="material-symbols-outlined">no_drinks</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2 mb-1">
+<span class="text-base font-bold text-cream">Oct 15, 10:00 AM</span>
+<span class="size-1 rounded-full bg-gray-600"></span>
+<span class="text-sm font-bold text-gray-500 line-through">$4.25</span>
+</div>
+<p class="text-sm text-gray-500 line-clamp-2 leading-relaxed">Espresso Double</p>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-dashed border-white/10 mt-1">
+<div class="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-red-400/80">
+<span class="material-symbols-outlined text-[14px]">cancel</span>
+                    Canceled
+                </div>
+<button class="flex h-9 items-center justify-center rounded-lg border border-primary/30 text-primary px-6 text-sm font-bold shadow-sm active:scale-95 transition-transform hover:bg-primary/10">
+                    Reorder
+                </button>
+</div>
+</div>
+</main>
+<nav class="fixed bottom-0 left-0 right-0 z-50 bg-background-dark/95 backdrop-blur-md border-t border-white/5 px-6 pt-3 pb-8">
+<ul class="flex justify-between items-center">
+<li>
+<a class="flex flex-col items-center gap-1 text-gray-500 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">restaurant_menu</span>
+<span class="text-[10px] font-medium">Menu</span>
+</a>
+</li>
+<li>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined filled">receipt_long</span>
+<span class="text-[10px] font-medium">Orders</span>
+</a>
+</li>
+<li>
+<a class="flex flex-col items-center gap-1 text-gray-500 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">loyalty</span>
+<span class="text-[10px] font-medium">Rewards</span>
+</a>
+</li>
+<li>
+<a class="flex flex-col items-center gap-1 text-gray-500 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</a>
+</li>
+</ul>
+</nav>
+</body></html>

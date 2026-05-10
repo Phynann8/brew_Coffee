@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Review Order</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#f4c025", cream: "#F5F5DC", "deep-brown": "#2A1B0E", "container-brown": "#3D2B1F", "background-dark": "#221e10", "background-light": "#f8f8f5"}, fontFamily: {display: "Plus Jakarta Sans", body: ["Noto Sans", "sans-serif"]}, borderRadius: {DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px"}}}};</script>
+<style type="text/tailwindcss">
+        :root {
+            --cream: #F5F5DC;
+            --gold: #D4AF37;
+            --deep-brown: #2A1B0E;
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark text-cream font-display antialiased selection:bg-primary selection:text-black">
+<div class="relative flex h-full min-h-screen w-full flex-col overflow-x-hidden pb-32">
+<header class="sticky top-0 z-20 flex items-center bg-background-dark/95 backdrop-blur-md p-4 pb-2 justify-between border-b border-white/5">
+<button class="flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-cream" style="font-size: 24px;">arrow_back</span>
+</button>
+<h2 class="text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-10 text-cream">Review Order</h2>
+</header>
+<div class="px-4 py-6">
+<div class="flex h-12 w-full items-center justify-center rounded-xl bg-container-brown p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-primary has-[:checked]:text-black has-[:checked]:shadow-md transition-all duration-200 text-cream/60 text-sm font-bold leading-normal">
+<span class="truncate">ASAP</span>
+<input checked="" class="invisible w-0" name="pickup-type" type="radio" value="ASAP"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-primary has-[:checked]:text-black has-[:checked]:shadow-md transition-all duration-200 text-cream/60 text-sm font-bold leading-normal">
+<span class="truncate">Schedule</span>
+<input class="invisible w-0" name="pickup-type" type="radio" value="Schedule"/>
+</label>
+</div>
+<p class="text-cream/70 text-sm font-medium leading-normal pt-4 text-center flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-primary">location_on</span>
+                Pickup at Downtown Branch • In ~15 mins
+            </p>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-xs font-bold uppercase tracking-widest text-primary px-4 mb-2 opacity-80">Your Order</h3>
+<div class="px-4 flex flex-col gap-3">
+<div class="flex items-center gap-4 p-3 bg-container-brown rounded-2xl border border-white/5">
+<div class="bg-center bg-no-repeat bg-cover rounded-xl size-20 shrink-0 shadow-lg relative overflow-hidden" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAx8XykxTGdgqmP4uQGpjSUkb16x6sSNuv2u5k6kpo06iD_JMM7U8jTWpHkYEjlEqbzjdyadXwkgWyz17Sg7wcGz6-vtq-GQo9wqYI8cC0bId1ZKG41if-LKc0EplcFahX-y6wsAcKvjm-YYmK2zxY8vX2aR3OWrmWIyEEC7OgETB5UFEu4Akbl4QsMEejFIMwubq3BJyXj9s74abGK8xWlYPrEYyoH4LYRtj7aic58tLucYOPW6ksGsbMSfaRLI9I2QTAKcx7aG2tH");'>
+<div class="absolute inset-0 bg-black/20"></div>
+</div>
+<div class="flex flex-col justify-between flex-1 h-20 py-0.5">
+<div class="flex flex-col">
+<p class="text-base font-bold leading-tight text-cream">Caramel Macchiato</p>
+<p class="text-cream/50 text-xs font-medium leading-tight mt-1">Grande, Oat Milk, Extra Foam</p>
+</div>
+<p class="text-primary font-bold text-base tracking-tight">$5.50</p>
+</div>
+<div class="flex flex-col items-center justify-between h-20 py-0.5">
+<button class="flex size-7 items-center justify-center rounded-full bg-white/5 border border-white/10 hover:bg-white/10 active:scale-90 transition-all">
+<span class="material-symbols-outlined text-[16px] text-primary">add</span>
+</button>
+<span class="text-sm font-bold text-cream">1</span>
+<button class="flex size-7 items-center justify-center rounded-full bg-white/5 border border-white/10 hover:bg-white/10 active:scale-90 transition-all">
+<span class="material-symbols-outlined text-[16px] text-primary">remove</span>
+</button>
+</div>
+</div>
+<div class="flex items-center gap-4 p-3 bg-container-brown rounded-2xl border border-white/5">
+<div class="bg-center bg-no-repeat bg-cover rounded-xl size-20 shrink-0 shadow-lg relative overflow-hidden" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDcW4jFp3mX0HMy3PTzpRm9ace09KYnit_lt_wmAMVXA9J3qgC4RvOXMc7CW9-6Ilbt7PMhYsw0RxRuIku-bA7J9lnWz4ZIHxa2PbhYsuo82Hc94oJu-GfZyB2aA7uEctu5qp9m2ptqP0c8ewcUDLCAG_uRjsgd3GnQHDlkWlGtfIoigCyi9eY-BfECQVF9ykxDoLSeVvWHay2Py1FXpZ_16juk9_6h8te8HpUyYjQZ9zclE7V9hgQ9yzdaNCByPIgv6Z7vzewSS8JU");'>
+<div class="absolute inset-0 bg-black/20"></div>
+</div>
+<div class="flex flex-col justify-between flex-1 h-20 py-0.5">
+<div class="flex flex-col">
+<p class="text-base font-bold leading-tight text-cream">Cold Brew</p>
+<p class="text-cream/50 text-xs font-medium leading-tight mt-1">Venti, No Ice</p>
+</div>
+<p class="text-primary font-bold text-base tracking-tight">$4.25</p>
+</div>
+<div class="flex flex-col items-center justify-between h-20 py-0.5">
+<button class="flex size-7 items-center justify-center rounded-full bg-white/5 border border-white/10 hover:bg-white/10 active:scale-90 transition-all">
+<span class="material-symbols-outlined text-[16px] text-primary">add</span>
+</button>
+<span class="text-sm font-bold text-cream">1</span>
+<button class="flex size-7 items-center justify-center rounded-full bg-white/5 border border-white/10 hover:bg-white/10 active:scale-90 transition-all">
+<span class="material-symbols-outlined text-[16px] text-primary">remove</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2 mt-8">
+<h3 class="text-xs font-bold uppercase tracking-widest text-primary px-4 mb-2 opacity-80">Payment Method</h3>
+<div class="px-4">
+<div class="flex items-center justify-between p-4 rounded-xl bg-container-brown border border-white/5">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center size-10 rounded-lg bg-black text-white border border-white/10 shadow-inner">
+<span class="material-symbols-outlined">credit_card</span>
+</div>
+<div>
+<p class="text-sm font-bold text-cream">Apple Pay</p>
+<p class="text-xs text-cream/50">.... 4288</p>
+</div>
+</div>
+<button class="text-primary text-xs font-bold uppercase tracking-wider hover:opacity-80">Change</button>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-3 mt-8">
+<div class="px-4 flex items-baseline justify-between mb-1">
+<h3 class="text-xs font-bold uppercase tracking-widest text-primary opacity-80">Tip the Barista</h3>
+<span class="text-[10px] text-cream/40 italic">Support local coffee</span>
+</div>
+<div class="px-4 grid grid-cols-4 gap-3">
+<label class="cursor-pointer group">
+<input class="peer sr-only" name="tip" type="radio" value="10"/>
+<div class="flex flex-col items-center justify-center py-3 rounded-xl bg-container-brown border border-white/5 peer-checked:bg-primary peer-checked:text-black peer-checked:border-primary transition-all text-sm font-bold text-cream/70">
+                        10%
+                    </div>
+</label>
+<label class="cursor-pointer group">
+<input checked="" class="peer sr-only" name="tip" type="radio" value="15"/>
+<div class="flex flex-col items-center justify-center py-3 rounded-xl bg-container-brown border border-white/5 peer-checked:bg-primary peer-checked:text-black peer-checked:border-primary transition-all text-sm font-bold text-cream/70">
+                        15%
+                    </div>
+</label>
+<label class="cursor-pointer group">
+<input class="peer sr-only" name="tip" type="radio" value="20"/>
+<div class="flex flex-col items-center justify-center py-3 rounded-xl bg-container-brown border border-white/5 peer-checked:bg-primary peer-checked:text-black peer-checked:border-primary transition-all text-sm font-bold text-cream/70">
+                        20%
+                    </div>
+</label>
+<label class="cursor-pointer group">
+<input class="peer sr-only" name="tip" type="radio" value="custom"/>
+<div class="flex flex-col items-center justify-center py-3 rounded-xl bg-container-brown border border-white/5 peer-checked:bg-primary peer-checked:text-black peer-checked:border-primary transition-all text-sm font-bold text-cream/70">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</div>
+</label>
+</div>
+</div>
+<div class="flex flex-col gap-2 px-4 mt-8 pb-10">
+<div class="bg-container-brown rounded-2xl p-5 flex flex-col gap-4 border border-white/5 shadow-xl">
+<div class="flex justify-between items-center text-sm">
+<span class="text-cream/50">Subtotal</span>
+<span class="font-medium text-cream">$9.75</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-cream/50">Tax</span>
+<span class="font-medium text-cream">$0.80</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-cream/50">Tip (15%)</span>
+<span class="font-bold text-primary">$1.95</span>
+</div>
+<div class="h-px bg-white/10 my-1"></div>
+<div class="flex justify-between items-center text-xl font-bold">
+<span class="text-cream">Total</span>
+<span class="text-cream">$12.50</span>
+</div>
+</div>
+</div>
+<div class="fixed bottom-0 left-0 right-0 p-4 bg-background-dark/80 backdrop-blur-xl border-t border-white/5 z-30 pb-10">
+<button class="w-full bg-primary hover:brightness-110 text-black font-extrabold text-lg py-4 rounded-2xl shadow-2xl shadow-primary/20 flex items-center justify-center gap-3 active:scale-[0.98] transition-all">
+<span>Place Order</span>
+<span class="h-6 w-px bg-black/20"></span>
+<span class="text-black/80">$12.50</span>
+</button>
+</div>
+</div>
+</body></html>

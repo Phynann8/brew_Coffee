@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Find a Cafe - Store Locator</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f4c025",
+                        "background-light": "#f8f8f5",
+                        "background-dark": "#221e10",
+                        "surface-dark": "#2d291d", // Slightly lighter than bg-dark for cards
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white overflow-hidden">
+<div class="relative flex h-screen w-full flex-col overflow-hidden">
+<!-- Full Screen Map Background -->
+<div class="absolute inset-0 z-0 bg-[#181611]">
+<img alt="Map View" class="h-full w-full object-cover opacity-60 grayscale-[20%] contrast-125" data-alt="Dark aerial map view of city streets at night" data-location="San Francisco" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfKyozfxMW0CF2Ld76O819Qmb2us-W-ayw0CQQbX0UJdj77s77d9lTXk3x05H_Ujw7X3-U8Peeoa9SJXSrjAsgmX_Hfyy-KrwIds218rrCmeW_gmGMrXoQzyMgFAb0qyK_XvWME-L8W76fM1go-F4vOYNbNGWihEPbTEIwfeereh-_QskDmlSEMm411M_ogChS-nU1zI42PK7oBVquL2IakpqapkFkxe5m4XKd681fAwba5TUPFGO6SHq44Mcr0rgSSRfNyVTyOePD"/>
+<!-- Map Overlay Gradient for readability at top -->
+<div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-black/80 to-transparent pointer-events-none"></div>
+</div>
+<!-- Map Pins (Simulated Absolute Positioning) -->
+<div class="absolute top-[35%] left-[20%] z-0 flex flex-col items-center gap-1 group cursor-pointer">
+<div class="bg-surface-dark px-3 py-1 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="text-xs font-bold text-white whitespace-nowrap">Main St. Roastery</span>
+</div>
+<div class="relative flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-5xl drop-shadow-lg" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<div class="absolute top-3 bg-black rounded-full p-1"><span class="material-symbols-outlined text-primary text-[14px]">coffee</span></div>
+</div>
+</div>
+<div class="absolute top-[25%] right-[25%] z-0 flex flex-col items-center gap-1 cursor-pointer">
+<span class="material-symbols-outlined text-white/70 text-4xl drop-shadow-md" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+<div class="absolute bottom-[45%] left-[50%] z-0 flex flex-col items-center gap-1 cursor-pointer">
+<span class="material-symbols-outlined text-white/70 text-4xl drop-shadow-md" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+<!-- Floating Search Bar -->
+<div class="absolute top-0 left-0 w-full z-20 px-4 pt-14 pb-2">
+<label class="flex flex-col h-14 w-full shadow-lg shadow-black/20 rounded-xl">
+<div class="flex w-full flex-1 items-center rounded-xl bg-surface-dark/90 backdrop-blur-md border border-white/10">
+<div class="text-[#bab29c] flex items-center justify-center pl-4">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="flex w-full min-w-0 flex-1 bg-transparent text-white focus:outline-0 placeholder:text-[#bab29c] px-3 text-base font-normal" placeholder="Find a cafe nearby..."/>
+<button class="pr-4 text-[#bab29c] hover:text-white">
+<span class="material-symbols-outlined">tune</span>
+</button>
+</div>
+</label>
+</div>
+<!-- Map Controls -->
+<div class="absolute right-4 top-36 z-10 flex flex-col gap-3">
+<div class="flex flex-col rounded-xl bg-surface-dark/90 backdrop-blur-md shadow-lg border border-white/10 overflow-hidden">
+<button class="flex size-12 items-center justify-center hover:bg-white/5 active:bg-white/10 border-b border-white/10">
+<span class="material-symbols-outlined text-white">add</span>
+</button>
+<button class="flex size-12 items-center justify-center hover:bg-white/5 active:bg-white/10">
+<span class="material-symbols-outlined text-white">remove</span>
+</button>
+</div>
+<button class="flex size-12 items-center justify-center rounded-xl bg-primary shadow-lg text-background-dark hover:bg-[#e5b31f] transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">near_me</span>
+</button>
+</div>
+<!-- Bottom Sheet -->
+<div class="absolute bottom-0 left-0 w-full z-30 flex flex-col max-h-[65vh] bg-background-dark rounded-t-2xl shadow-[0_-8px_30px_rgba(0,0,0,0.5)] border-t border-white/5">
+<!-- Handle -->
+<div class="w-full flex justify-center pt-3 pb-1 cursor-grab active:cursor-grabbing">
+<div class="h-1.5 w-12 rounded-full bg-white/20"></div>
+</div>
+<!-- Content Container -->
+<div class="flex flex-col h-full overflow-hidden">
+<!-- Header -->
+<div class="px-5 pt-2 pb-4 shrink-0">
+<h2 class="text-white text-2xl font-bold leading-tight">Nearby Cafes</h2>
+</div>
+<!-- Filters / Chips -->
+<div class="flex gap-3 px-5 pb-4 overflow-x-auto no-scrollbar shrink-0">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary px-4 shadow-sm">
+<span class="text-background-dark text-sm font-bold">Open Now</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-surface-dark border border-white/10 px-4 hover:bg-white/5 transition-colors">
+<span class="text-white text-sm font-medium">Drive Thru</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-surface-dark border border-white/10 px-4 hover:bg-white/5 transition-colors">
+<span class="text-white text-sm font-medium">Mobile Order</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-surface-dark border border-white/10 px-4 hover:bg-white/5 transition-colors">
+<span class="text-white text-sm font-medium">Favorites</span>
+</button>
+</div>
+<!-- Store List (Scrollable) -->
+<div class="flex-1 overflow-y-auto px-5 pb-8 space-y-4 no-scrollbar">
+<!-- Store Card 1 (Selected/Highlight) -->
+<div class="group flex flex-col gap-3 rounded-xl bg-surface-dark p-4 border border-primary/30 shadow-md">
+<div class="flex justify-between items-start">
+<div class="flex gap-4">
+<div class="h-16 w-16 rounded-lg bg-cover bg-center shrink-0" data-alt="Interior of a modern coffee shop with warm lighting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDtDAEcyfatQ7iPe46ayn6DS2PggttECS3Bv-wKFC1WGx09YXvFfba-9BIaClQ2-PzIct9rsSEUrJ_exa_nTVz2fwLeMOTdssucxInOQEQ_AwYs3YJR3IoBbDwb_t_2XozH5TF-olrceBhJiPVFB3KpWZu4fI6Z86gR7FmhxvHiVs0AUva4lOEoNm2o4rBERAc14EJ5LwvRPuA5cjCULXnVFQNuOkXlXNl3yyiuwH4HbH0CgfMnKf9aPQtntURsuYpIDe5AbDp6Gcaw');"></div>
+<div class="flex flex-col">
+<h3 class="text-lg font-bold text-white">Main St. Roastery</h3>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="text-xs font-medium text-white/60">0.2 mi</span>
+<span class="h-0.5 w-0.5 rounded-full bg-white/40"></span>
+<span class="text-xs font-medium text-white/60">123 Main Street</span>
+</div>
+<div class="flex items-center gap-2 mt-2">
+<span class="text-xs font-bold text-green-400">Open</span>
+<span class="text-xs text-white/60">Closes 8 PM</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold text-white">4.8</span>
+</div>
+</div>
+<div class="h-px w-full bg-white/5 my-1"></div>
+<div class="flex items-center justify-between">
+<div class="flex flex-col gap-1">
+<span class="text-[10px] uppercase tracking-wider font-bold text-white/40">Busy Level</span>
+<div class="flex items-center gap-2">
+<div class="h-1.5 w-16 bg-white/10 rounded-full overflow-hidden">
+<div class="h-full w-[30%] bg-primary rounded-full"></div>
+</div>
+<span class="text-xs text-primary font-medium">Low</span>
+</div>
+</div>
+<button class="h-9 px-6 rounded-lg bg-primary text-background-dark text-sm font-bold hover:bg-[#e5b31f] transition-colors flex items-center gap-2">
+<span>Order Here</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Store Card 2 -->
+<div class="flex flex-col gap-3 rounded-xl bg-surface-dark p-4 border border-white/5 hover:border-white/10 transition-colors">
+<div class="flex justify-between items-start">
+<div class="flex gap-4">
+<div class="h-16 w-16 rounded-lg bg-cover bg-center shrink-0" data-alt="Close up of espresso machine pouring coffee" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAmq_Apkc13OKDNXhI-dLLe-d1aNEK7OtIWy8Rfda0HbRVy_Ft5caHTrqilFtilbrKSSFk8HOtdQsCpfHynXtt9rkyvdjZ9L7u-ppQU017YZ3Ll0XVqpSvbtbIWQRgf53o2tq928ez-KFwYkdEkQgfApEMcwFDQixKWWGqQebseXgcGv-IATHbD_nBrkmCJI93RFo_GnyxGG1bdXUUCusdAa0epC9DlNVpUMTgBBvfjDQcku-ng53goCHxZYjxSeSME1FgEwd6RELns');"></div>
+<div class="flex flex-col">
+<h3 class="text-lg font-bold text-white">Westside Espresso</h3>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="text-xs font-medium text-white/60">1.5 mi</span>
+<span class="h-0.5 w-0.5 rounded-full bg-white/40"></span>
+<span class="text-xs font-medium text-white/60">450 West Ave</span>
+</div>
+<div class="flex items-center gap-2 mt-2">
+<span class="text-xs font-bold text-yellow-500">Closing Soon</span>
+<span class="text-xs text-white/60">6 PM</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="material-symbols-outlined text-white/30 text-xl">star</span>
+<span class="text-xs font-bold text-white/60">4.2</span>
+</div>
+</div>
+<div class="h-px w-full bg-white/5 my-1"></div>
+<div class="flex items-center justify-between">
+<div class="flex flex-col gap-1">
+<span class="text-[10px] uppercase tracking-wider font-bold text-white/40">Busy Level</span>
+<div class="flex items-center gap-2">
+<div class="h-1.5 w-16 bg-white/10 rounded-full overflow-hidden">
+<div class="h-full w-[85%] bg-red-400 rounded-full"></div>
+</div>
+<span class="text-xs text-red-400 font-medium">High</span>
+</div>
+</div>
+<button class="h-9 px-4 rounded-lg bg-white/5 border border-white/10 text-white text-sm font-medium hover:bg-white/10 transition-colors">
+                                View Details
+                            </button>
+</div>
+</div>
+<!-- Store Card 3 -->
+<div class="flex flex-col gap-3 rounded-xl bg-surface-dark p-4 border border-white/5 hover:border-white/10 transition-colors">
+<div class="flex justify-between items-start">
+<div class="flex gap-4">
+<div class="h-16 w-16 rounded-lg bg-cover bg-center shrink-0" data-alt="Paper coffee cup on a wooden table" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCKoeXiKYYmP9BACIlniH27mjeOHzWQ_p_RjRZLxcaQZXFjaGlLE5LOF53Mh5diEVLuV3jH2VSkkVfwoZiJcCp72LJiFQvwdgS1lgeYAzsTTPltqT0wbIu6XgCPOSIQ-c0kYKno9kwN8v-hoEdGKQ_15vE1BQIraykgq01Rwm9gQjssXPtht3nngOApGNepcQDOhR9jK9RInnkV6MM13ptxaYhohmKqeny2r1nLnuVFSpZbICxpo2R_iHV-4XksBDCgtGzK9s7bLhod');"></div>
+<div class="flex flex-col">
+<h3 class="text-lg font-bold text-white">Uptown Brews</h3>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="text-xs font-medium text-white/60">2.8 mi</span>
+<span class="h-0.5 w-0.5 rounded-full bg-white/40"></span>
+<span class="text-xs font-medium text-white/60">88 North Blvd</span>
+</div>
+<div class="flex items-center gap-2 mt-2">
+<span class="text-xs font-bold text-red-400">Closed</span>
+<span class="text-xs text-white/60">Opens 6 AM</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="material-symbols-outlined text-white/30 text-xl">star</span>
+<span class="text-xs font-bold text-white/60">4.5</span>
+</div>
+</div>
+</div>
+<!-- Spacer for scroll -->
+<div class="h-8"></div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

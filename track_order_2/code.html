@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Track Order</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        :root {
+            --deep-brown: #1a0f0a;
+            --card-brown: #2a1b15;
+            --gold: #c6a35f;
+            --cream: #f2e8cf;
+            --cream-muted: #d9cfb8;
+        }
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#c6a35f",
+                        "background-dark": "#1a0f0a",
+                        "surface-dark": "#2a1b15",
+                        "gold": "#c6a35f",
+                        "cream": "#f2e8cf",
+                        "cream-muted": "#d9cfb8"
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </style>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            min-height: max(884px, 100dvh);
+            background-color: var(--deep-brown);
+        }
+        .map-overlay {
+            mix-blend-mode: multiply;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display antialiased text-[var(--cream)]">
+<div class="relative flex flex-col h-screen w-full overflow-hidden max-w-md mx-auto shadow-2xl bg-[var(--deep-brown)]">
+<div class="flex items-center justify-between p-4 pt-6 pb-2 z-10 bg-[var(--deep-brown)] sticky top-0">
+<button class="text-[var(--cream)] flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+<h2 class="text-[var(--cream)] text-lg font-bold leading-tight tracking-tight">Track Order</h2>
+<div class="size-10"></div>
+</div>
+<div class="flex-1 overflow-y-auto no-scrollbar pb-8">
+<div class="flex flex-col items-center justify-center pt-6 pb-8">
+<span class="text-[var(--cream-muted)] text-sm font-medium uppercase tracking-widest mb-2 opacity-80">Estimated Pickup</span>
+<h1 class="text-[var(--cream)] text-5xl font-extrabold tracking-tight">10:45 AM</h1>
+<p class="text-[var(--gold)] text-sm font-bold mt-3 flex items-center gap-1.5 bg-[var(--gold)]/10 px-4 py-1.5 rounded-full border border-[var(--gold)]/20">
+<span class="material-symbols-outlined text-sm">schedule</span> On time
+            </p>
+</div>
+<div class="px-10 mb-8">
+<div class="grid grid-cols-[32px_1fr] gap-x-6">
+<div class="flex flex-col items-center">
+<div class="size-6 rounded-full bg-[var(--gold)] flex items-center justify-center z-10 shadow-[0_0_12px_rgba(198,163,95,0.4)]">
+<span class="material-symbols-outlined text-[var(--deep-brown)] text-[14px] font-bold">check</span>
+</div>
+<div class="w-[2px] bg-[var(--gold)] h-full min-h-[40px]"></div>
+</div>
+<div class="flex flex-col pt-0.5 pb-8">
+<p class="text-[var(--cream-muted)] text-base font-bold leading-none opacity-60">Order Confirmed</p>
+<p class="text-[var(--cream-muted)]/40 text-xs mt-1.5">10:32 AM</p>
+</div>
+<div class="flex flex-col items-center relative">
+<div class="size-6 rounded-full bg-[var(--deep-brown)] border-2 border-[var(--gold)] flex items-center justify-center z-10 relative">
+<div class="size-2 bg-[var(--gold)] rounded-full animate-pulse"></div>
+</div>
+<div class="w-[2px] bg-[var(--gold)] h-full min-h-[40px] opacity-30"></div>
+</div>
+<div class="flex flex-col pt-0.5 pb-8">
+<p class="text-[var(--cream)] text-lg font-bold leading-none">Preparing</p>
+<p class="text-[var(--cream-muted)] text-sm mt-1.5">Barista is crafting your coffee</p>
+</div>
+<div class="flex flex-col items-center">
+<div class="size-6 rounded-full bg-[var(--card-brown)] border-2 border-[var(--gold)]/20 flex items-center justify-center z-10">
+</div>
+</div>
+<div class="flex flex-col pt-0.5">
+<p class="text-[var(--cream-muted)]/30 text-base font-medium leading-none">Ready for Pickup</p>
+</div>
+</div>
+</div>
+<div class="px-4 mb-6">
+<div class="bg-[var(--card-brown)] rounded-2xl p-4 shadow-xl border border-white/5">
+<div class="flex items-start justify-between mb-4 px-1">
+<div>
+<h3 class="text-[var(--cream)] font-bold text-lg">Bean &amp; Brew</h3>
+<p class="text-[var(--cream-muted)] text-sm opacity-80">Downtown Branch</p>
+</div>
+<button class="bg-[var(--gold)] p-2.5 rounded-full shadow-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[var(--deep-brown)] text-xl font-bold">directions</span>
+</button>
+</div>
+<div class="relative w-full h-40 rounded-xl overflow-hidden mb-4 ring-1 ring-white/10">
+<img alt="Map showing cafe location" class="w-full h-full object-cover grayscale brightness-[0.3] contrast-[1.1] sepia-[0.3]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-A10aOIL6VLUWECo1mWLFWBVDQ73HodJcNIAAF1knrV--mgt25Wphe1GhuQR9J4s_yFm_vo5GczwXwoX0Fisq8yIKyNev_murhq5c-hUKYr4mEN7s8CcbZ1mpgsYgV4yAqoo7h92N-Y-YtfyoPjNgRDSIQYUeoiAzhNlYXl9GcZ7waihiEyg2oijaBBtMBlv0PWzRsVDUM8AAAPefAg5YdZJawTjkq_q8VD5KKlle2zq39ahFzdNYjmN0YyDyT4cTjQDqKvz1PwtD"/>
+<div class="absolute inset-0 bg-[var(--deep-brown)]/40 pointer-events-none"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+<div class="bg-[var(--gold)] p-1.5 rounded-full shadow-2xl animate-bounce">
+<span class="material-symbols-outlined text-[var(--deep-brown)] text-2xl font-bold">coffee</span>
+</div>
+<div class="w-1 h-1 bg-[var(--gold)] rounded-full blur-[1px] mt-1"></div>
+</div>
+</div>
+<p class="text-[var(--cream-muted)] text-xs flex items-center gap-2 px-1">
+<span class="material-symbols-outlined text-[16px] text-[var(--gold)]">location_on</span>
+                    123 Main St, Seattle, WA 98101
+                </p>
+</div>
+</div>
+<div class="px-4 mb-6">
+<div class="bg-[var(--card-brown)] rounded-2xl p-6 shadow-xl border border-white/5 flex flex-col items-center text-center">
+<div class="bg-[#f2e8cf]/90 p-4 rounded-2xl mb-5 shadow-[inset_0_2px_8px_rgba(0,0,0,0.1)] relative group">
+<img alt="QR Code for order pickup" class="size-36 object-contain mix-blend-multiply opacity-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDU0ISH7WbXYQVSK5PvluDR6WhyUmm__9qxHpmyYI6ugguTlhvganyxjbJ08sRNQwUflcQqvyRo-bxLCuMtCNgCVmnrllR1M5qZKoTfi7RVww0CkQnQO_Uu73K_6qzAoEKWaISKFXKqlI_VBOkEUqqNX8CiBAW2l_snik8iUt5oDyRFKFgOiZNTUBPJjepqJXG7OxDGShpBy2Up_WJbpbmvUQUa2j5a2SXuFNLHAjLmKkAmwm0hS4zmuVoJ249TOxWnskysImIuLGex"/>
+<div class="absolute inset-0 border-2 border-[var(--gold)]/20 rounded-2xl"></div>
+</div>
+<h3 class="text-[var(--cream)] font-bold text-xl mb-1">Order #4402</h3>
+<p class="text-[var(--cream-muted)] text-sm opacity-70 max-w-[200px] mx-auto">Scan at the counter when you arrive</p>
+</div>
+</div>
+<div class="px-4 pb-10 space-y-3">
+<button class="w-full py-4 rounded-xl bg-[var(--card-brown)] border border-white/10 text-[var(--cream)] font-semibold flex items-center justify-center gap-3 hover:bg-white/5 transition-colors active:scale-[0.98]">
+<span class="material-symbols-outlined text-[var(--gold)]">call</span>
+                Call Cafe
+            </button>
+<button class="w-full py-2 text-[var(--gold)] font-medium text-sm hover:opacity-80 transition-opacity">
+                Need help with this order?
+            </button>
+</div>
+</div>
+</div>
+
+</body></html>
