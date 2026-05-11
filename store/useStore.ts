@@ -157,7 +157,7 @@ export const useStore = create<AppState>()(
 
                     set({
                         user: session.user,
-                        role: profile?.role ?? 'customer',
+                        role: (profile as any)?.role ?? 'customer',
                         authLoading: false
                     });
                 } else {
@@ -174,7 +174,7 @@ export const useStore = create<AppState>()(
 
                         set({
                             user: session.user,
-                            role: profile?.role ?? 'customer'
+                            role: (profile as any)?.role ?? 'customer'
                         });
                     } else {
                         set({ user: null, role: null });

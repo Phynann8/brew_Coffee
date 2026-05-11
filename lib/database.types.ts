@@ -77,6 +77,7 @@ export interface Database {
                     full_name: string
                     avatar_url: string | null
                     loyalty_points: number
+                    role: 'admin' | 'customer'
                     created_at: string
                 }
                 Insert: Omit<Database['public']['Tables']['users']['Row'], 'id' | 'created_at' | 'loyalty_points'>

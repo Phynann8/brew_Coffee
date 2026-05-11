@@ -217,7 +217,7 @@ export async function getMenuProducts(): Promise<UiProduct[]> {
 export async function createMenuItem(item: Omit<UiProduct, 'id'> & { id?: string }): Promise<UiProduct> {
     return withSupabaseFallback(
         async () => {
-            const { data, error } = await supabase!
+            const { data, error } = await (supabase as any)
                 .from('products')
                 .insert({
                     name: item.name,
@@ -260,7 +260,7 @@ export async function updateMenuItem(id: string, updates: Partial<Omit<UiProduct
             if (updates.category !== undefined) payload.category = updates.category;
             if (updates.isPopular !== undefined) payload.is_popular = updates.isPopular;
 
-            const { data, error } = await supabase!
+            const { data, error } = await (supabase as any)
                 .from('products')
                 .update(payload)
                 .eq('id', id)
@@ -318,7 +318,7 @@ export async function getOrders(userId?: string): Promise<DbOrder[]> {
 export async function createOrder(order: Omit<DbOrder, 'id' | 'created_at'>): Promise<DbOrder> {
     return withSupabaseFallback(
         async () => {
-            const { data, error } = await supabase!.from('orders').insert(order).select('*').single();
+            const { data, error } = await (supabase as any).from('orders').insert(order).select('*').single();
             if (error) throw error;
             return data;
         },
@@ -356,7 +356,7 @@ export async function createOrderFromCart(
                 size: item.size,
                 customizations: item.customizations,
             }));
-            const { error } = await supabase!.from('order_items').insert(orderItemsPayload as any);
+            const { error } = await (supabase as any).from('order_items').insert(orderItemsPayload as any);
             if (error) throw error;
         },
         () => {
@@ -380,7 +380,7 @@ export async function createOrderFromCart(
 export async function updateOrderStatus(orderId: string, status: DbOrder['status']): Promise<void> {
     await withSupabaseFallback(
         async () => {
-            const { error } = await supabase!.from('orders').update({ status }).eq('id', orderId);
+            const { error } = await (supabase as any).from('orders').update({ status }).eq('id', orderId);
             if (error) throw error;
         },
         () => {
@@ -442,7 +442,7 @@ export async function transitionQueueOrder(orderId: string, action: QueueAction)
 
     await withSupabaseFallback(
         async () => {
-            const { error } = await supabase!.from('orders').update({ status: nextOrderStatus }).eq('id', orderId);
+            const { error } = await (supabase as any).from('orders').update({ status: nextOrderStatus }).eq('id', orderId);
             if (error) throw error;
         },
         () => {
@@ -479,7 +479,7 @@ export async function getInventory(storeId?: string): Promise<DbInventory[]> {
 export async function updateInventoryItem(id: string, updates: Partial<DbInventory>): Promise<void> {
     await withSupabaseFallback(
         async () => {
-            const { error } = await supabase!.from('inventory').update(updates).eq('id', id);
+            const { error } = await (supabase as any).from('inventory').update(updates).eq('id', id);
             if (error) throw error;
         },
         () => {
@@ -566,7 +566,7 @@ export async function getFeedbackReviews(): Promise<CustomerReview[]> {
 export async function replyToFeedback(reviewId: string, replyText: string): Promise<CustomerReview> {
     return withSupabaseFallback(
         async () => {
-            const { error } = await supabase!.from('reviews').update({ is_replied: true }).eq('id', reviewId);
+            const { error } = await (supabase as any).from('reviews').update({ is_replied: true }).eq('id', reviewId);
             if (error) throw error;
 
             try {
